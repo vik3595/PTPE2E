@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<QuickView placement="Auto"
+		pages="{
+			path: 'DemoData>/QuickView',
+			templateShareable: true
+			}"
+		navigate=".onNavigate">
+		<QuickViewPage
+			header="{DemoData>header}"
+			title="{DemoData>title}"
+			groups="{
+				path: 'DemoData>groups',
+				templateShareable: true
+			}">
+			<QuickViewGroup elements="{ path: 'DemoData>elements', templateShareable: true }">
+				<QuickViewGroupElement label="{DemoData>label}" value="{DemoData>value}"/>
+			</QuickViewGroup>
+		</QuickViewPage>
+	</QuickView>
+</core:FragmentDefinition>

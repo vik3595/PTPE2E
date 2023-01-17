@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog noDataText="No Region Found" titleAlignment="Center" title="Select Region" search="onSearch" confirm="onRegionValueHelpClose" cancel="onRegionValueHelpClose" showClearButton="false">
+        <StandardListItem title="US" description="United States of America" type="Active" />
+        <StandardListItem title="MX" description="Mexico" type="Active" />
+        <StandardListItem title="CA" description="Canada" type="Active" />
+    </SelectDialog>
+</core:FragmentDefinition>

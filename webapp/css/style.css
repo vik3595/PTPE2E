@@ -1,0 +1,199 @@
+/* Enter your custom styles here */
+.txtCls {
+    background: #ffffff !important;
+    padding: 6px 15px 6px 15px !important;
+    margin-left: 8px !important;
+    border: 1px solid black !important;
+    border-radius: 20px !important;
+    box-shadow: 1px 1px 0 1px grey !important;
+    font-weight: bold !important;
+    text-shadow: none !important;
+    margin-bottom: -6px !important;
+}
+.TblHeaderCls .sapMListTblCell.sapMListTblHeaderCell {
+    background: #e5e5e5 !important;
+    border: 1px solid #000000 !important;
+    border-radius: 10px;
+}
+.whiteTxtClass {
+    color: #ffffff !important;
+    font-weight: bold !important;
+}
+.pageBg {
+    /* background-color: #0093E9 !important;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%) !important; */
+    background-image: url('../img/levi_master.jpg');
+    background-size: 100% 100%;
+}
+.dtlPageBgDC {
+    /* background-color: #0093E9 !important;
+    background-image: linear-gradient(200deg, #0093E9 22%, #80D0C7 100%) !important; */
+    background-image: url('../img/levi_detail1.jpg');
+    background-size: 100% 100%;
+}
+.dtlPageBgCustomer {
+    /* background-color: #0093E9 !important;
+    background-image: linear-gradient(200deg, #0093E9 22%, #80D0C7 100%) !important; */
+    background-image: url('../img/levi_detail2.jpg');
+    background-size: 100% 100%;
+}
+.dtlPageBgDCVendor {
+    /* background-color: #0093E9 !important;
+    background-image: linear-gradient(200deg, #0093E9 22%, #80D0C7 100%) !important; */
+    background-image: url('../img/levi_detail3.jpg');
+    background-size: 100% 100%;
+}
+/* .pageBg {
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%) !important;
+} */
+
+.listCls .sapMSLI {
+    border-radius: 10px;
+    padding: 1.2rem;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%) !important;
+    border: 1px solid white;
+}
+.listCls .sapMLIB.sapMLIBSelected {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% ) !important;
+    outline: none !important;
+}
+
+.vBoxCls {
+    padding: 1rem;
+}
+
+.listTitleCls .sapMSLITitleOnly {
+    font-size: 1rem !important;
+    color: #ffffff;
+    font-weight: bold;
+}
+.listIcon .sapMSLIImgIcon {
+    color: #ffffff !important;
+    font-size: larger;
+    margin-left: 0.2rem;
+}
+.col1 {
+    background: #f5f6f7 !important;
+    /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% ); */
+    border-radius: 15px !important;
+    border: 1px solid #556b81;
+    box-shadow: 1px 1px 0 1px grey !important;
+}
+.col2 {
+    background: #f5f6f7 !important;
+    /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,221,214,1) 0%, rgba(51,102,255,1) 90% ); */
+    border-radius: 15px !important;
+    border: 1px solid #556b81;
+    box-shadow: 1px 1px 0 1px grey !important;
+}
+.col3 {
+    background: #f5f6f7 !important;
+    /* background-image: linear-gradient( 132.6deg,  rgba(71,139,214,1) 23.3%, rgba(37,216,211,1) 84.7% ); */
+    border-radius: 15px !important;
+    border: 1px solid #556b81;
+    box-shadow: 1px 1px 0 1px grey !important;
+}
+.col4 {
+    background: #f5f6f7 !important;
+    /* background-image: radial-gradient( circle 674px at 18.3% 77%, rgba(139,186,244,1) 3.4%, rgba(15,51,92,1) 56.6% ); */
+    border-radius: 15px !important;
+    border: 1px solid #556b81;
+    box-shadow: 1px 1px 0 1px grey !important;
+}
+.col5 {
+    background: #f5f6f7 !important;
+    /* background-image: linear-gradient( 109.6deg, rgba(24,138,141,1) 11.2%, rgba(96,221,142,1) 91.1% ); */
+    border-radius: 15px !important;
+    border: 1px solid #556b81;
+    box-shadow: 1px 1px 0 1px grey !important;
+}
+.col6 {
+    background: #f5f6f7 !important;
+    /* background-image: radial-gradient( circle 759px at -6.7% 50%, rgba(80,131,73,1) 0%, rgba(140,209,131,1) 26.2%, rgba(178,231,170,1) 50.6%, rgba(144,213,135,1) 74.1%, rgba(75,118,69,1) 100.3% ); */
+    border-radius: 15px !important;
+    border: 1px solid #556b81;
+    box-shadow: 1px 1px 0 1px grey !important;
+}
+.col7 {
+    background: #f5f6f7 !important;
+    /* background-image: linear-gradient( 110.5deg, rgba(71,114,148,1) 14.9%, rgb(125 200 174) 77.9% ); */
+    border-radius: 15px !important;
+    border: 1px solid #556b81;
+    box-shadow: 1px 1px 0 1px grey !important;
+}
+.col8 {
+    background: #f5f6f7 !important;
+    /* background-image: radial-gradient( circle 300px at 8% 89.3%, rgba(20,157,208,1) 0%, rgba(140,63,226,1) 90% ); */
+    border-radius: 15px !important;
+    border: 1px solid #556b81;
+    box-shadow: 1px 1px 0 1px grey !important;
+}
+/* Mobile specific */
+.listTitleMobCls .sapMSLITitleOnly {
+    font-size: 1.4rem !important;
+    color: #ffffff;
+    font-weight: bold;
+}
+.listItem1Cls {
+    position: relative;
+    height: 85px !important;
+    background-color: #2778c5 !important;
+    border-radius: 25px 25px 25px 0;
+}
+
+.listItem1Cls::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    bottom: -50px;
+    height: 50px;
+    width: 20px;
+    left: 0px;
+    border-top-left-radius: 25px;
+    box-shadow: 0 -25px 0 0 #2778c5;
+}
+
+.listItem2Cls {
+    position: relative;
+    height: 85px !important;
+    background-color: #5697d9 !important;
+    border-radius: 25px 25px 25px 0;
+}
+
+.listItem2Cls::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    bottom: -50px;
+    height: 50px;
+    width: 20px;
+    left: 0px;
+    border-top-left-radius: 25px;
+    box-shadow: 0 -25px 0 0 #5697d9;
+}
+
+.listItem3Cls {
+    position: relative;
+    height: 85px !important;
+    background-color: #2cadb4 !important;
+    border-radius: 25px 25px 25px 0;
+}
+
+.listItem3Cls::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    bottom: -50px;
+    height: 50px;
+    width: 20px;
+    left: 0px;
+    border-top-left-radius: 25px;
+    box-shadow: 0 -25px 0 0 #2cadb4;
+}
+
+.listIconMob .sapMSLIImgIcon {
+    height: 2rem;
+    color: #ffffff;
+    font-size: larger;
+    margin-left: 0.2rem;
+}

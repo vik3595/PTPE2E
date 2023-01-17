@@ -1,0 +1,306 @@
+{
+    "V2DC": [
+        {
+            "Type": "Qty",
+            "OACreation": 57,
+            "POIssuance": 46,
+            "PackListCreation": 87,
+            "IBDCreation": 25,
+            "ShipMilesUpdate": 67,
+            "GoodReciept": 48,
+            "VendorInvoice": 81,
+            "Total": 100
+        },
+        {
+            "Type": "On Time",
+            "OACreation": 78,
+            "POIssuance": 34,
+            "PackListCreation": 45,
+            "IBDCreation": 78,
+            "ShipMilesUpdate": 12,
+            "GoodReciept": 45,
+            "VendorInvoice": 55,
+            "Total": 100
+        },
+        {
+            "Type": "Price Updates",
+            "OACreation": 70,
+            "POIssuance": 35,
+            "PackListCreation": 68,
+            "IBDCreation": 24,
+            "ShipMilesUpdate": 10,
+            "GoodReciept": 46,
+            "VendorInvoice": 80,
+            "Total": 100
+        },
+        {
+            "Type": "Success Rate",
+            "OACreation": 55,
+            "POIssuance": 25,
+            "PackListCreation": 75,
+            "IBDCreation": 15,
+            "ShipMilesUpdate": 45,
+            "GoodReciept": 60,
+            "VendorInvoice": 80,
+            "Total": 100
+        }
+    ],
+    "AllRegions": [
+        {
+            "name": "US",
+            "description": "United States of America",
+            "CompanyCodes": [
+                {
+                    "name": "US01",
+                    "description": "Company Code US01",
+                    "DistCenters": [
+                        {
+                            "name": "10",
+                            "description": "Distribution Center 10"
+                        },
+                        {
+                            "name": "20",
+                            "description": "Distribution Center 20"
+                        },
+                        {
+                            "name": "30",
+                            "description": "Distribution Center 30"
+                        }
+                    ]
+                },
+                {
+                    "name": "US02",
+                    "description": "Company Code US02",
+                    "DistCenters": [
+                        {
+                            "name": "40",
+                            "description": "Distribution Center 10"
+                        },
+                        {
+                            "name": "50",
+                            "description": "Distribution Center 20"
+                        },
+                        {
+                            "name": "60",
+                            "description": "Distribution Center 30"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "MX",
+            "description": "Mexico",
+            "CompanyCodes": [
+                {
+                    "name": "MX01",
+                    "description": "Company Code MX01",
+                    "DistCenters": [
+                        {
+                            "name": "10",
+                            "description": "Distribution Center 10"
+                        },
+                        {
+                            "name": "20",
+                            "description": "Distribution Center 20"
+                        },
+                        {
+                            "name": "30",
+                            "description": "Distribution Center 30"
+                        }
+                    ]
+                },
+                {
+                    "name": "MX02",
+                    "description": "Company Code MX02",
+                    "DistCenters": [
+                        {
+                            "name": "40",
+                            "description": "Distribution Center 10"
+                        },
+                        {
+                            "name": "50",
+                            "description": "Distribution Center 20"
+                        },
+                        {
+                            "name": "60",
+                            "description": "Distribution Center 30"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "CA",
+            "description": "Canada",
+            "CompanyCodes": [
+                {
+                    "name": "CA01",
+                    "description": "Company Code CA01",
+                    "DistCenters": [
+                        {
+                            "name": "10",
+                            "description": "Distribution Center 10"
+                        },
+                        {
+                            "name": "20",
+                            "description": "Distribution Center 20"
+                        },
+                        {
+                            "name": "30",
+                            "description": "Distribution Center 30"
+                        }
+                    ]
+                },
+                {
+                    "name": "CA02",
+                    "description": "Company Code CA01",
+                    "DistCenters": [
+                        {
+                            "name": "40",
+                            "description": "Distribution Center 10"
+                        },
+                        {
+                            "name": "50",
+                            "description": "Distribution Center 20"
+                        },
+                        {
+                            "name": "60",
+                            "description": "Distribution Center 30"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "VendorsList": [
+        {
+            "region": "US",
+            "CompanyCodes": [
+                {
+                    "name": "US01",
+                    "description": "Company Code US01",
+                    "Vendors": [
+                        {
+                            "name": "100",
+                            "description": "Vendor 100"
+                        },
+                        {
+                            "name": "102",
+                            "description": "Vendor 102"
+                        },
+                        {
+                            "name": "103",
+                            "description": "Vendor 103"
+                        }
+                    ]
+                },
+                {
+                    "name": "US02",
+                    "description": "Company Code US02",
+                    "Vendors": [
+                        {
+                            "name": "104",
+                            "description": "Vendor 100"
+                        },
+                        {
+                            "name": "105",
+                            "description": "Vendor 102"
+                        },
+                        {
+                            "name": "106",
+                            "description": "Vendor 103"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "region": "CA",
+            "CompanyCodes": [
+                {
+                    "name": "CA01",
+                    "description": "Company Code CA01",
+                    "Vendors": [
+                        {
+                            "name": "100",
+                            "description": "Vendor 100"
+                        },
+                        {
+                            "name": "102",
+                            "description": "Vendor 102"
+                        },
+                        {
+                            "name": "103",
+                            "description": "Vendor 103"
+                        }
+                    ]
+                },
+                {
+                    "name": "CA02",
+                    "description": "Company Code CA02",
+                    "Vendors": [
+                        {
+                            "name": "104",
+                            "description": "Vendor 100"
+                        },
+                        {
+                            "name": "105",
+                            "description": "Vendor 102"
+                        },
+                        {
+                            "name": "106",
+                            "description": "Vendor 103"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "region": "MX",
+            "CompanyCodes": [
+                {
+                    "name": "MX01",
+                    "description": "Company Code MX01",
+                    "Vendors": [
+                        {
+                            "name": "100",
+                            "description": "Vendor 100"
+                        },
+                        {
+                            "name": "102",
+                            "description": "Vendor 102"
+                        },
+                        {
+                            "name": "103",
+                            "description": "Vendor 103"
+                        }
+                    ]
+                },
+                {
+                    "name": "MX02",
+                    "description": "Company Code MX02",
+                    "Vendors": [
+                        {
+                            "name": "104",
+                            "description": "Vendor 100"
+                        },
+                        {
+                            "name": "105",
+                            "description": "Vendor 102"
+                        },
+                        {
+                            "name": "106",
+                            "description": "Vendor 103"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Design": "Transparent",
+    "TimeRange": "PRS",
+    "Region": "US",
+    "DateRangeText": "Showing for: Pre Season",
+    "VendorCount": 0
+}

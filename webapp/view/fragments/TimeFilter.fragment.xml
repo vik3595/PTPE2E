@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Dialog title="Apply Time Filter" titleAlignment="Center">
+        <content>
+            <f:SimpleForm id="idTimeFilterForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="3" emptySpanL="3" emptySpanM="0" emptySpanS="0" columnsXL="6" columnsL="6" columnsM="12" singleContainerFullSize="false">
+                <f:content>
+                    <Label text="Search for" />
+                    <Select selectedKey="{DemoData>/TimeRange}">
+                        <items>
+                            <core:Item text="Pre Season (Last 2 Months)" key="PRS"/>
+                            <core:Item text="In Season (Current Month)" key="INS"/>
+                            <core:Item text="Post Season (Next 2 Months)" key="POS"/>
+                        </items>
+                    </Select>
+                    <!-- <Label text="Select Range" visible="{= ${DemoData>/TimeRange} === 'Custom' ? true : false}"/>
+                    <DateRangeSelection id="idDateRange" showFooter="true" visible="{= ${DemoData>/TimeRange} === 'Custom' ? true : false}"/> -->
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="Apply" type="Emphasized" press="onApplyTimeFilter"/>
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press="onCancelTimeFilter"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

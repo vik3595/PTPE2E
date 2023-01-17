@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog noDataText="No Design Found" title="Select Design" titleAlignment="Center" confirm="onDesginValueHelpClose" cancel="onDesginValueHelpClose" showClearButton="false">
+        <StandardListItem title="Table" type="Active" />
+        <!-- <StandardListItem title="Panel" type="Active" /> -->
+        <StandardListItem title="Transparent" type="Active" />
+    </SelectDialog>
+</core:FragmentDefinition>
