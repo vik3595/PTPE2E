@@ -1,215 +1,66 @@
 {
-    "V2DC": [
-        {
-            "Type": "Qty",
-            "OACreation": 57,
-            "POIssuance": 46,
-            "PackListCreation": 87,
-            "IBDCreation": 25,
-            "ShipMilesUpdate": 67,
-            "GoodReciept": 48,
-            "VendorInvoice": 81,
-            "Total": 100
-        },
-        {
-            "Type": "On Time",
-            "OACreation": 78,
-            "POIssuance": 34,
-            "PackListCreation": 45,
-            "IBDCreation": 78,
-            "ShipMilesUpdate": 12,
-            "GoodReciept": 45,
-            "VendorInvoice": 55,
-            "Total": 100
-        },
-        {
-            "Type": "Price Updates",
-            "OACreation": 70,
-            "POIssuance": 35,
-            "PackListCreation": 68,
-            "IBDCreation": 24,
-            "ShipMilesUpdate": 10,
-            "GoodReciept": 46,
-            "VendorInvoice": 80,
-            "Total": 100
-        },
-        {
-            "Type": "Success Rate",
-            "OACreation": 55,
-            "POIssuance": 25,
-            "PackListCreation": 75,
-            "IBDCreation": 15,
-            "ShipMilesUpdate": 45,
-            "GoodReciept": 60,
-            "VendorInvoice": 80,
-            "Total": 100
-        }
-    ],
     "AllRegions": [
-        {
-            "name": "US",
-            "description": "United States of America",
-            "CompanyCodes": [
-                {
-                    "name": "US01",
-                    "description": "Company Code US01",
-                    "DistCenters": [
-                        {
-                            "name": "10",
-                            "description": "Distribution Center 10"
-                        },
-                        {
-                            "name": "20",
-                            "description": "Distribution Center 20"
-                        },
-                        {
-                            "name": "30",
-                            "description": "Distribution Center 30"
-                        }
-                    ]
-                },
-                {
-                    "name": "US02",
-                    "description": "Company Code US02",
-                    "DistCenters": [
-                        {
-                            "name": "40",
-                            "description": "Distribution Center 10"
-                        },
-                        {
-                            "name": "50",
-                            "description": "Distribution Center 20"
-                        },
-                        {
-                            "name": "60",
-                            "description": "Distribution Center 30"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "MX",
-            "description": "Mexico",
-            "CompanyCodes": [
-                {
-                    "name": "MX01",
-                    "description": "Company Code MX01",
-                    "DistCenters": [
-                        {
-                            "name": "10",
-                            "description": "Distribution Center 10"
-                        },
-                        {
-                            "name": "20",
-                            "description": "Distribution Center 20"
-                        },
-                        {
-                            "name": "30",
-                            "description": "Distribution Center 30"
-                        }
-                    ]
-                },
-                {
-                    "name": "MX02",
-                    "description": "Company Code MX02",
-                    "DistCenters": [
-                        {
-                            "name": "40",
-                            "description": "Distribution Center 10"
-                        },
-                        {
-                            "name": "50",
-                            "description": "Distribution Center 20"
-                        },
-                        {
-                            "name": "60",
-                            "description": "Distribution Center 30"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "CA",
-            "description": "Canada",
-            "CompanyCodes": [
-                {
-                    "name": "CA01",
-                    "description": "Company Code CA01",
-                    "DistCenters": [
-                        {
-                            "name": "10",
-                            "description": "Distribution Center 10"
-                        },
-                        {
-                            "name": "20",
-                            "description": "Distribution Center 20"
-                        },
-                        {
-                            "name": "30",
-                            "description": "Distribution Center 30"
-                        }
-                    ]
-                },
-                {
-                    "name": "CA02",
-                    "description": "Company Code CA01",
-                    "DistCenters": [
-                        {
-                            "name": "40",
-                            "description": "Distribution Center 10"
-                        },
-                        {
-                            "name": "50",
-                            "description": "Distribution Center 20"
-                        },
-                        {
-                            "name": "60",
-                            "description": "Distribution Center 30"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "VendorsList": [
         {
             "region": "US",
             "CompanyCodes": [
                 {
-                    "name": "US01",
-                    "description": "Company Code US01",
-                    "Vendors": [
+                    "name": "200",
+                    "description": "Levi Strauss & Co",
+                    "DistCenters": [
                         {
-                            "name": "100",
-                            "description": "Vendor 100"
-                        },
-                        {
-                            "name": "102",
-                            "description": "Vendor 102"
-                        },
-                        {
-                            "name": "103",
-                            "description": "Vendor 103"
+                            "name": "200",
+                            "description": "LEVIS 200"
                         }
                     ]
                 },
                 {
-                    "name": "US02",
-                    "description": "Company Code US02",
-                    "Vendors": [
+                    "name": "207",
+                    "description": "LOS Retail",
+                    "DistCenters": [
                         {
-                            "name": "104",
-                            "description": "Vendor 100"
-                        },
+                            "name": "207",
+                            "description": "LEVIS 207 - KITTERY"
+                        }
+                    ]
+                },
+                {
+                    "name": "310",
+                    "description": "Levi Strauss & Co Inc",
+                    "DistCenters": [
                         {
-                            "name": "105",
-                            "description": "Vendor 102"
-                        },
+                            "name": "310",
+                            "description": "LEVIS 310 - ONTARIO MILLS"
+                        }
+                    ]
+                },
+                
+                {
+                    "name": "333",
+                    "description": "Levi Strauss de Mexico",
+                    "DistCenters": [
                         {
-                            "name": "106",
-                            "description": "Vendor 103"
+                            "name": "333",
+                            "description": "LEVIS 333 - REHOBOTH BEACH"
+                        }
+                    ]
+                },
+                {
+                    "name": "334",
+                    "description": "Administradora Levi Strau",
+                    "DistCenters": [
+                        {
+                            "name": "334",
+                            "description": "LEVIS 334 - DESTIN"
+                        }
+                    ]
+                },
+                {
+                    "name": "335",
+                    "description": "Distribuidora Levi Straus",
+                    "DistCenters": [
+                        {
+                            "name": "335",
+                            "description": "LEVIS 335 - JERSEY GARDENS"
                         }
                     ]
                 }
@@ -219,38 +70,62 @@
             "region": "CA",
             "CompanyCodes": [
                 {
-                    "name": "CA01",
-                    "description": "Company Code CA01",
-                    "Vendors": [
+                    "name": "200",
+                    "description": "Levi Strauss & Co",
+                    "DistCenters": [
                         {
-                            "name": "100",
-                            "description": "Vendor 100"
-                        },
-                        {
-                            "name": "102",
-                            "description": "Vendor 102"
-                        },
-                        {
-                            "name": "103",
-                            "description": "Vendor 103"
+                            "name": "200",
+                            "description": "LEVIS 200"
                         }
                     ]
                 },
                 {
-                    "name": "CA02",
-                    "description": "Company Code CA02",
-                    "Vendors": [
+                    "name": "207",
+                    "description": "LOS Retail",
+                    "DistCenters": [
                         {
-                            "name": "104",
-                            "description": "Vendor 100"
-                        },
+                            "name": "207",
+                            "description": "LEVIS 207 - KITTERY"
+                        }
+                    ]
+                },
+                {
+                    "name": "310",
+                    "description": "Levi Strauss & Co Inc",
+                    "DistCenters": [
                         {
-                            "name": "105",
-                            "description": "Vendor 102"
-                        },
+                            "name": "310",
+                            "description": "LEVIS 310 - ONTARIO MILLS"
+                        }
+                    ]
+                },
+                {
+                    "name": "333",
+                    "description": "Levi Strauss de Mexico",
+                    "DistCenters": [
                         {
-                            "name": "106",
-                            "description": "Vendor 103"
+                            "name": "333",
+                            "description": "LEVIS 333 - REHOBOTH BEACH"
+                        }
+                    ]
+                },
+                {
+                    "name": "334",
+                    "description": "Administradora Levi Strau",
+                    "DistCenters": [
+                        {
+                            "name": "334",
+                            "description": "LEVIS 334 - DESTIN"
+                        }
+                    ]
+                },
+                {
+                    "name": "335",
+                    "description": "Distribuidora Levi Straus",
+                    "DistCenters": [
+                        {
+                            "name": "335",
+                            "description": "LEVIS 335 - JERSEY GARDENS"
                         }
                     ]
                 }
@@ -260,40 +135,679 @@
             "region": "MX",
             "CompanyCodes": [
                 {
-                    "name": "MX01",
-                    "description": "Company Code MX01",
-                    "Vendors": [
+                    "name": "200",
+                    "description": "Levi Strauss & Co",
+                    "DistCenters": [
                         {
-                            "name": "100",
-                            "description": "Vendor 100"
-                        },
-                        {
-                            "name": "102",
-                            "description": "Vendor 102"
-                        },
-                        {
-                            "name": "103",
-                            "description": "Vendor 103"
+                            "name": "200",
+                            "description": "LEVIS 200"
                         }
                     ]
                 },
                 {
-                    "name": "MX02",
-                    "description": "Company Code MX02",
+                    "name": "333",
+                    "description": "Levi Strauss de Mexico",
+                    "DistCenters": [
+                        {
+                            "name": "333",
+                            "description": "LEVIS 333 - REHOBOTH BEACH"
+                        }
+                    ]
+                },
+                {
+                    "name": "334",
+                    "description": "Administradora Levi Strau",
+                    "DistCenters": [
+                        {
+                            "name": "334",
+                            "description": "LEVIS 334 - DESTIN"
+                        }
+                    ]
+                },
+                {
+                    "name": "335",
+                    "description": "Distribuidora Levi Straus",
+                    "DistCenters": [
+                        {
+                            "name": "335",
+                            "description": "LEVIS 335 - JERSEY GARDENS"
+                        }
+                    ]
+                }
+            ]
+        }
+       
+    ],
+    "VendorsList": [
+        {
+            "region": "US",
+            "CompanyCodes": [
+                {
+                    "name": "200",
+                    "description": "Levi Strauss & Co",
                     "Vendors": [
                         {
-                            "name": "104",
-                            "description": "Vendor 100"
+                            "name": "100",
+                            "description": "LEVIS 100 - THE DOMAIN"
+                        },
+                        {   
+                            "name": "102",
+                            "description": "LEVIS 102 - UNIVERSITY PA"
                         },
                         {
-                            "name": "105",
-                            "description": "Vendor 102"
+                            "name": "103",
+                            "description": "LEVIS 103 - EASTON TOWN C"
                         },
                         {
                             "name": "106",
-                            "description": "Vendor 103"
+                            "description": "LEVIS 106 - DERBY STREET"
+                        },
+                        {
+                            "name": "108",
+                            "description": "LEVIS 108 - MICHIGAN AVE"
                         }
                     ]
+                },
+                {
+                    "name": "207",
+                    "description": "LOS Retail",
+                    "Vendors": [
+                        {
+                            "name": "120",
+                            "description": "LEVIS 120 - OAKBROOK"
+                        },
+                        {
+                            "name": "121",
+                            "description": "LEVIS 121 - BAY STREET"
+                        },
+                        {
+                            "name": "122",
+                            "description": "LEVIS 122 - DISNEY SPRING"
+                        },
+                        {
+                            "name": "124",
+                            "description": "LEVIS 124 - LEGACY WEST"
+                        },
+                        {
+                            "name": "125",
+                            "description": "LEVIS 125 - AMERICAN DREA"
+                        }
+                    ]
+                },
+                {
+                    "name": "310",
+                    "description": "Levi Strauss & Co Inc",
+                    "Vendors": [
+                        {
+                            "name": "IC200",
+                            "description": "LEVI STRAUSS & CO"
+                        },
+                        {
+                            "name": "IC2007",
+                            "description": "LS&CO CANTON"
+                        },
+                        {
+                            "name": "IC2008",
+                            "description": "LS&CO HEBRON"
+                        },
+                        {
+                            "name": "IC207",
+                            "description": "LEVI S ONLY STORES INC"
+                        },
+                        {
+                            "name": "IC231",
+                            "description": "LEVI STRAUSS INTERNATIONA"
+                        }
+                    ]
+                },
+                {
+                    "name": "333",
+                    "description": "Levi Strauss de Mexico",
+                    "Vendors": [
+                        {
+                            "name": "100375",
+                            "description": "ADVANTAGE SALES AND MARKE"
+                        },
+                        {
+                            "name": "100408",
+                            "description": "BROTHER INTERNATIONAL COR"
+                        },
+                        {
+                            "name": "100413",
+                            "description": "CARMICHAEL INTERNATIONAL"
+                        },
+                        {
+                            "name": "100477",
+                            "description": "EMAINT ENTERPRISES LLC"
+                        },
+                        {
+                            "name": "100495",
+                            "description": "GENERAL DATATECH LP"
+                        }
+                    ]
+                },
+                {
+                    "name": "334",
+                    "description": "Administradora Levi Strau",
+                    "Vendors": [
+                        {
+                            "name": "100375",
+                            "description": "ADVANTAGE SALES AND MARKE"
+                        },
+                        {
+                            "name": "100408",
+                            "description": "BROTHER INTERNATIONAL COR"
+                        },
+                        {
+                            "name": "100413",
+                            "description": "CARMICHAEL INTERNATIONAL"
+                        },
+                        {
+                            "name": "100477",
+                            "description": "EMAINT ENTERPRISES LLC"
+                        },
+                        {
+                            "name": "100495",
+                            "description": "GENERAL DATATECH LP"
+                        }
+                    ]
+                },
+                {
+                    "name": "335",
+                    "description": "Distribuidora Levi Straus",
+                    "Vendors": [
+                        {
+                            "name": "2000165",
+                            "description": "IWD NEW YORK LLC"
+                        },
+                        {
+                            "name": "2000198",
+                            "description": "SDI INDUSTRIES INC"
+                        },
+                        {
+                            "name": "2000234",
+                            "description": "LEO D BERNSTEIN AND SON I"
+                        },
+                        {
+                            "name": "2000295",
+                            "description": "IDIOMAS DE LA SIERRA DE G"
+                        },
+                        {
+                            "name": "2000305",
+                            "description": "FIA CARD SERVICES NATIONA"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "region": "CA",
+            "CompanyCodes": [
+                {
+                    "name": "200",
+                    "description": "Levi Strauss & Co",
+                    "Vendors": [
+                        {
+                            "name": "100409",
+                            "description": "CALZADO VAN VIEN S A DE C"
+                        }
+                    ]
+                },
+                {
+                    "name": "207",
+                    "description": "LOS Retail",
+                    "Vendors": [
+                        {
+                            "name": "100409",
+                            "description": "CALZADO VAN VIEN S A DE C"
+                        },
+                        {
+                            "name": "101508",
+                            "description": "ROBERT HALF CANADA INC"
+                        },
+                        {
+                            "name": "101615",
+                            "description": "AT&T GLOBAL SERVICES CANA"
+                        }
+                    ]
+                },
+                {
+                    "name": "310",
+                    "description": "Levi Strauss & Co Inc",
+                    "Vendors": [
+                        {
+                            "name": "101533",
+                            "description": "PANTORAMA INDUSTRIES INC"
+                        },
+                        {
+                            "name": "101534",
+                            "description": "POWERHOUSE RETAIL SERVICE"
+                        },
+                        {
+                            "name": "101535",
+                            "description": "LEE HECHT HARRISON KNIGHT"
+                        },
+                        {
+                            "name": "101536",
+                            "description": "SUPERIOR DOOR & GATE SYST"
+                        },
+                        {
+                            "name": "101537",
+                            "description": "BELL CANADA"
+                        }
+                    ]
+                },
+                {
+                    "name": "333",
+                    "description": "Levi Strauss de Mexico",
+                    "Vendors": [
+                        {
+                            "name": "100409",
+                            "description": "CALZADO VAN VIEN S A DE C"
+                        },
+                        {
+                            "name": "102029",
+                            "description": "MEDIKE LANDES INC"
+                        },
+                        {
+                            "name": "2000799",
+                            "description": "MEDIKE LANDES INC"
+                        }
+                    ]
+                },
+                {
+                    "name": "334",
+                    "description": "Administradora Levi Strau",
+                    "Vendors": [
+                        {
+                            "name": "100409",
+                            "description": "CALZADO VAN VIEN S A DE C"
+                        }
+                    ]
+                },
+                {
+                    "name": "335",
+                    "description": "Distribuidora Levi Straus",
+                    "Vendors": [
+                        {
+                            "name": "100409",
+                            "description": "CALZADO VAN VIEN S A DE C"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "region": "MX",
+            "CompanyCodes": [
+                {
+                    "name": "200",
+                    "description": "Levi Strauss & Co",
+                    "Vendors": [
+                        {
+                            "name": "2011",
+                            "description": "LEVI STRAUSS DE MEXICO SA"
+                        },
+                        {
+                            "name": "228009",
+                            "description": "KALTEX APPAREL SA DE CV"
+                        },
+                        {
+                            "name": "404001",
+                            "description": "APPAREL INTL INC - TEST2"
+                        },
+                        {
+                            "name": "404996",
+                            "description": "KALTEX APPAREL SA DE CV -"
+                        },
+                        {
+                            "name": "2000106",
+                            "description": "ACHE MARKETING S A DE C V"
+                        }
+                    ]
+                },
+                {
+                    "name": "333",
+                    "description": "Levi Strauss de Mexico",
+                    "Vendors": [
+                        {
+                            "name": "2014",
+                            "description": "LEVI STRAUSS DE MEXICO IM"
+                        },
+                        {
+                            "name": "2016",
+                            "description": "LEVI STRAUSS DE MEXICO SA"
+                        },
+                        {
+                            "name": "7501",
+                            "description": "LEVIS SHOP AGUASCALIENTES"
+                        },
+                        {
+                            "name": "7502",
+                            "description": "LEVIS SHOP ANTARA"
+                        },
+                        {
+                            "name": "7503",
+                            "description": "LEVIS SHOP ARTZ"
+                        }
+                    ]
+                },
+                {
+                    "name": "334",
+                    "description": "Administradora Levi Strau",
+                    "Vendors": [
+                        {
+                            "name": "100388",
+                            "description": "ARCAD DE CHIHUAHUA SA DE"
+                        },
+                        {
+                            "name": "100389",
+                            "description": "AREZZO AND FLORES CONSULT"
+                        },
+                        {
+                            "name": "100390",
+                            "description": "ARMAT PROYECTOS CONSTRUCT"
+                        },
+                        {
+                            "name": "100391",
+                            "description": "ARTURO ISLAS MARTINEZ"
+                        },
+                        {
+                            "name": "100393",
+                            "description": "ASOCIACION MEXICANA DE VE"
+                        }
+                    ]
+                },
+                {
+                    "name": "335",
+                    "description": "Distribuidora Levi Straus",
+                    "Vendors": [
+                        {
+                            "name": "100464",
+                            "description": "DUBBING DE MEXICO SA DE C"
+                        },
+                        {
+                            "name": "100465",
+                            "description": "DUN AND BRADSTREET DE MEX"
+                        },
+                        {
+                            "name": "100466",
+                            "description": "DYNARIC DE MEXICO S DE RL"
+                        },
+                        {
+                            "name": "100467",
+                            "description": "EASYCLICKS SC"
+                        },
+                        {
+                            "name": "100468",
+                            "description": "ECONOCOMEX INTERNACIONAL"
+                        }
+                    ]
+                }
+            ]
+        }
+       
+    ],
+    "TableData": [
+        {
+            "Type": "Qty",
+            "OACreation_Forcast": 10,
+            "OACreation_OA": 9,
+            "POIssuance_OA": 9,
+            "POIssuance_PO": 8,
+            "PackListCreation_PO": 9,
+            "PackListCreation_PL": 7,
+            "IBDCreation_POPL": 7,
+            "IBDCreation_IBD": 6,
+            "ShipMilesUpdate_Forcast": 10,
+            "ShipMilesUpdate_OA": 7,
+            "GoodReciept_IBD": 6,
+            "GoodReciept_GR": 5,
+            "VendorInvoice_GR": 5,
+            "VendorInvoice_INV": 4,
+            "Total": 100
+        },
+        {
+            "Type": "On Time",
+            "OACreation_Forcast": 10,
+            "OACreation_OA": 9,
+            "POIssuance_OA": 9,
+            "POIssuance_PO": 8,
+            "PackListCreation_PO": 9,
+            "PackListCreation_PL": 7,
+            "IBDCreation_POPL": 7,
+            "IBDCreation_IBD": 6,
+            "ShipMilesUpdate_Forcast": 10,
+            "ShipMilesUpdate_OA": 7,
+            "GoodReciept_IBD": 6,
+            "GoodReciept_GR": 5,
+            "VendorInvoice_GR": 5,
+            "VendorInvoice_INV": 4,
+            "Total": 100
+        },
+        {
+            "Type": "Price Updates",
+            "OACreation_Forcast": 10,
+            "OACreation_OA": 9,
+            "POIssuance_OA": 9,
+            "POIssuance_PO": 8,
+            "PackListCreation_PO": 9,
+            "PackListCreation_PL": 7,
+            "IBDCreation_POPL": 7,
+            "IBDCreation_IBD": 6,
+            "ShipMilesUpdate_Forcast": 10,
+            "ShipMilesUpdate_OA": 7,
+            "GoodReciept_IBD": 6,
+            "GoodReciept_GR": 5,
+            "VendorInvoice_GR": 5,
+            "VendorInvoice_INV": 4,
+            "Total": 100
+        },
+        {
+            "Type": "Success Rate",
+            "OACreation_Forcast": 10,
+            "OACreation_OA": 9,
+            "POIssuance_OA": 9,
+            "POIssuance_PO": 8,
+            "PackListCreation_PO": 9,
+            "PackListCreation_PL": 7,
+            "IBDCreation_POPL": 7,
+            "IBDCreation_IBD": 6,
+            "ShipMilesUpdate_Forcast": 10,
+            "ShipMilesUpdate_OA": 7,
+            "GoodReciept_IBD": 6,
+            "GoodReciept_GR": 5,
+            "VendorInvoice_GR": 5,
+            "VendorInvoice_INV": 4,
+            "Total": 100
+        }
+    ],
+    "PanelData": [
+        {
+            "Name": "Qty",
+            "Tiles": [
+                {
+                    "header": "OA Creation",
+                    "subheader": "Forecast vs OA",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "PO Issuance",
+                    "subheader": "OA vs PO",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Packing List Creation",
+                    "subheader": "PO vs PL",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "IBD Creation",
+                    "subheader": "PO/PL vs IBD",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Shipment Milestone Updates",
+                    "subheader": "",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Goods Reciept",
+                    "subheader": "Qty: IBD vs GR",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Vendor Invoice",
+                    "subheader": "Qty: GR vs Invoiced\nQty: Shipped vs Invoiced",
+                    "value1": 9,
+                    "value2": 10
+                }
+            ]
+        },
+        {
+            "Name": "On Time",
+            "Tiles": [
+                {
+                    "header": "OA Creation",
+                    "subheader": "NA",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "PO Issuance",
+                    "subheader": "SO vs PO",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Packing List Creation",
+                    "subheader": "PO vs PL",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "IBD Creation",
+                    "subheader": "PO/PL vs IBD",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Shipment Milestone Updates",
+                    "subheader": "PO vs Actual",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Goods Reciept",
+                    "subheader": "PO vs Actual",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Vendor Invoice",
+                    "subheader": "NA",
+                    "value1": 9,
+                    "value2": 10
+                }
+            ]
+        },
+        {
+            "Name": "Price Updates",
+            "Tiles": [
+                {
+                    "header": "OA Creation",
+                    "subheader": "# or % of price update",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "PO Issuance",
+                    "subheader": "# or % of price update",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Packing List Creation",
+                    "subheader": "NA",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "IBD Creation",
+                    "subheader": "NA",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Shipment Milestone Updates",
+                    "subheader": "NA",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Goods Reciept",
+                    "subheader": "NA",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Vendor Invoice",
+                    "subheader": "NA",
+                    "value1": 9,
+                    "value2": 10
+                }
+            ]
+        },
+        {
+            "Name": "Success Rate",
+            "Tiles": [
+                {
+                    "header": "OA Creation",
+                    "subheader": "# or % failures",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "PO Issuance",
+                    "subheader": "# or % failures",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Packing List Creation",
+                    "subheader": "NA",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "IBD Creation",
+                    "subheader": "# or % failures",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Shipment Milestone Updates",
+                    "subheader": "# or % failures",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Goods Reciept",
+                    "subheader": "# or % failures",
+                    "value1": 9,
+                    "value2": 10
+                },
+                {
+                    "header": "Vendor Invoice",
+                    "subheader": "# or % failures",
+                    "value1": 9,
+                    "value2": 10
                 }
             ]
         }

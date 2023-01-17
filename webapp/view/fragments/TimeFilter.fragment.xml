@@ -11,10 +11,11 @@
                             <core:Item text="Pre Season (Last 2 Months)" key="PRS"/>
                             <core:Item text="In Season (Current Month)" key="INS"/>
                             <core:Item text="Post Season (Next 2 Months)" key="POS"/>
+                            <core:Item text="Custom" key="Custom"/>
                         </items>
                     </Select>
-                    <!-- <Label text="Select Range" visible="{= ${DemoData>/TimeRange} === 'Custom' ? true : false}"/>
-                    <DateRangeSelection id="idDateRange" showFooter="true" visible="{= ${DemoData>/TimeRange} === 'Custom' ? true : false}"/> -->
+                    <Label text="Select Range" visible="{= ${DemoData>/TimeRange} === 'Custom' ? true : false}"/>
+                    <DateRangeSelection id="idDateRange" showFooter="true" visible="{= ${DemoData>/TimeRange} === 'Custom' ? true : false}"/>
                 </f:content>
             </f:SimpleForm>
         </content>

@@ -1,0 +1,83 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog showHeader="false" titleAlignment="Center" contentWidth="60%" contentHeight="60%">
+        <content>
+            <IconTabBar id="idIconTabBar" expanded="true" expandable="false" stretchContentHeight="true">
+                <items>
+                    <IconTabFilter text="Table" key="Table">
+                        <content>
+                            <Table id="idTableForTileDetails" items="{DemoData>/TableDetailData}">
+                                <columns>
+                                    <Column>
+                                        <Label text="Document No"/>
+                                    </Column>
+                                    <Column>
+                                        <Label text="Forcast"/>
+                                    </Column>
+                                    <Column>
+                                        <Label text="OA"/>
+                                    </Column>
+                                    <Column>
+                                        <Label text="Percentage"/>
+                                    </Column>
+                                    <Column>
+                                        <Label text="PC9/PC13/Prepack"/>
+                                    </Column>
+                                    <Column>
+                                        <Label text="Qty"/>
+                                    </Column>
+                                    <Column>
+                                        <Label text="Season"/>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{DemoData>DocNo}" />
+                                            <Text text="{DemoData>Forcast}" />
+                                            <Text text="{DemoData>OA}" />
+                                            <Text text="{DemoData>Percentage}" />
+                                            <Text text="{DemoData>PC9}" />
+                                            <Text text="{DemoData>Qty}" />
+                                            <Text text="{DemoData>Season}" />
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </content>
+                    </IconTabFilter>
+                    <IconTabFilter text="Carousel" key="Carousel">
+                        <content>
+                            <Carousel pages="{DemoData>/TableDetailData}" height="100%" loop="true">
+                                <pages>
+                                    <f:SimpleForm editable="true" layout="ResponsiveGridLayout" singleContainerFullSize="true" labelSpanXL="6" labelSpanL="6" labelSpanM="6" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="6" columnsL="6" columnsM="6">
+                                        <f:content>
+                                            <Label text="Document No" />
+                                            <Text text="{DemoData>DocNo}" />
+                                            <Label text="Forcast" />
+                                            <Text text="{DemoData>Forcast}" />
+                                            <Label text="OA" />
+                                            <Text text="{DemoData>OA}" />
+                                            <Label text="Percentage" />
+                                            <Text text="{DemoData>Percentage}" />
+                                            <Label text="PC9/PC13/Prepack" />
+                                            <Text text="{DemoData>PC9}" />
+                                            <Label text="Qty" />
+                                            <Text text="{DemoData>Qty}" />
+                                            <Label text="Season" />
+                                            <Text text="{DemoData>Season}" />
+                                        </f:content>
+                                    </f:SimpleForm>
+                                </pages>
+                            </Carousel>
+                        </content>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+        <endButton>
+            <Button text="OK" press="onCloseTileDetailDialog"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -9,7 +9,7 @@
                     <Label text="Region" />
                     <Select id="idSelectAllRegions" forceSelection="false" items="{DemoData>/AllRegions}" change="onRegionChange" custom:type="Region">
                         <items>
-                            <core:Item text="{DemoData>name}" key="{DemoData>name}"/>
+                            <core:Item text="{DemoData>region}" key="{DemoData>region}"/>
                         </items>
                     </Select>
                     <Label text="Company Code" />

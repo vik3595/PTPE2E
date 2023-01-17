@@ -9,13 +9,13 @@
                     <Label text="Company Code" />
                     <MultiComboBox id="idSelectCompCode" items="{DemoData>/VendorCompCodes}" selectionChange="onCompCodeChangeForVendor">
                         <items>
-                            <core:Item text="{DemoData>name}" key="{DemoData>name}"></core:Item>
+                            <core:Item text="{DemoData>name} - {DemoData>description}" key="{DemoData>name}"></core:Item>
                         </items>
                     </MultiComboBox>
-                    <Label text="Distribution Center" />
+                    <Label text="Vendors" />
                     <MultiComboBox id="idSelectVendor" items="{DemoData>/CurrVendors}">
                         <items>
-                            <core:Item text="{DemoData>name}" key="{DemoData>name}"></core:Item>
+                            <core:Item text="{DemoData>name} - {DemoData>description} " key="{DemoData>name}"></core:Item>
                         </items>
                     </MultiComboBox>
                 </f:content>

@@ -1,14 +1,16 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "../utils/formatter",
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageBox) {
+    function (Controller, MessageBox, formatter) {
         "use strict";
 
         return Controller.extend("com.levi.ptpe2e.controller.View1", {
+            formatter: formatter,
             onInit: function () {
                 var oImageModel = new sap.ui.model.json.JSONModel({
                     US: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/US.jpg"),
@@ -20,6 +22,8 @@ sap.ui.define([
                 this.getView().byId("idDetailPage").addStyleClass("dtlPageBgDC");
                 this._currentDetailStyle = "dtlPageBgDC";
                 this.getView().byId("idMasterList").setSelectedItem(this.getView().byId("idMasterList").getItems()[0]);
+                this._refreshTableRandomData();
+                this._refreshPanelRandomData();
             },
             _getValueColor: function (sValue) {
                 if (sValue >= 75) {
@@ -30,14 +34,17 @@ sap.ui.define([
                     return "Error";
                 }
             },
-            _updateDateRangeValue: function (sValue) {
+            _updateDateRangeValue: function (sValue, oDateValue) {
+                debugger
                 var sText = "Showing For: ";
                 if (sValue === 'PRS') {
                     sText += "Pre Season";
                 } else if (sValue === "INS") {
                     sText += "In Season";
-                } else {
+                } else if (sValue === "POS") {
                     sText += "Post Season";
+                } else {
+                    sText = "Showing between: " + oDateValue;
                 }
                 this.getOwnerComponent().getModel("DemoData").setProperty("/DateRangeText", sText);
             },
@@ -67,11 +74,12 @@ sap.ui.define([
                 }
                 oDemoDataModel.setProperty("/Region", sKey);
                 oDemoDataModel.setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/" + sKey));
-                this._refreshRandomData();
+                if (oDemoDataModel.getProperty("/Design") === "Table") {
+                    this._refreshTableRandomData();
+                } else {
+                    this._refreshPanelRandomData();
+                }
                 this._oRegionOptionDlg.close();
-                // this._oRegionOptionDlg.destroy();
-                // this._oRegionOptionDlg = undefined;
-                // this._oRegionOptionDlg = null;
             },
             onCancelRegionDialog: function () {
                 this._oRegionOptionDlg.close();
@@ -89,6 +97,42 @@ sap.ui.define([
                     this.getView().addDependent(this._oVendorFilterDlg);
                 }
                 this._oVendorFilterDlg.open();
+            },
+            onTableMicroChartPress: function (oEvt) {
+                var aCustomData = oEvt.getSource().getCustomData()[0].getValue().split("--"),
+                    oSelObj = oEvt.getSource().getBindingContext("DemoData").getObject(),
+                    sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/TimeRange");
+                if (sTimeRange === "PRS") {
+                    sTimeRange = "Pre Season";
+                } else if (sTimeRange === "INS") {
+                    sTimeRange = "In Season";
+                } else if (sTimeRange === "POS") {
+                    sTimeRange = "Post Season";
+                } else {
+                    sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/DateRangeText").split(": ")[1];
+                }
+                var aTemp = [];
+                for (var i = 0; i < 2; i++) {
+                    var oTemp = {
+                        "DocNo": Math.floor(Math.random() * 1000000000),
+                        "Forcast": oSelObj[aCustomData[1]],
+                        "OA": oSelObj[aCustomData[0]],
+                        "Percentage": ((oSelObj[aCustomData[0]] / oSelObj[aCustomData[1]]) * 100).toFixed(2),
+                        "PC9": "Test Value",
+                        "Qty": Math.floor(Math.random() * 10),
+                        "Season": sTimeRange
+                    };
+                    aTemp.push(oTemp);
+                }
+                this.getOwnerComponent().getModel("DemoData").setProperty("/TableDetailData", aTemp);
+                if (!this._oTileDetailDlg) {
+                    this._oTileDetailDlg = sap.ui.xmlfragment("idTileDetailDlg", "com.levi.ptpe2e.view.fragments.TileDetails", this);
+                    this.getView().addDependent(this._oTileDetailDlg);
+                }
+                this._oTileDetailDlg.open();
+            },
+            onCloseTileDetailDialog: function () {
+                this._oTileDetailDlg.close();
             },
             onAfterVendorDlgOpen: function (oEvt) {
                 var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
@@ -109,7 +153,10 @@ sap.ui.define([
                 for (var i = 0; i < aSelectedItems.length; i++) {
                     aTemp = aTemp.concat(oDemoDataModel.getProperty(aSelectedItems[i].getBindingContext("DemoData").getPath()).Vendors);
                 }
-                oDemoDataModel.setProperty("/CurrVendors", aTemp);
+                var aUniqData = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
+                    t.name === value.name
+                )));
+                oDemoDataModel.setProperty("/CurrVendors", aUniqData);
             },
             onRegionChange: function (oEvt) {
                 var sType = oEvt.getSource().getCustomData()[0].getValue(),
@@ -118,7 +165,7 @@ sap.ui.define([
                     var sPath = "DemoData>" + oEvt.getParameter("selectedItem").getBindingContext("DemoData").getPath() + "/CompanyCodes";
                     var oTemplate = new sap.ui.core.Item({
                         key: "{DemoData>name}",
-                        text: "{DemoData>name}"
+                        text: "{DemoData>name} - {DemoData>description}"
                     });
                     sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectCompCode").bindItems(sPath, oTemplate);
                 } else if (sType === "CompCode") {
@@ -127,10 +174,13 @@ sap.ui.define([
                     for (var i = 0; i < aSelectedItems.length; i++) {
                         aTemp = aTemp.concat(oDemoDataModel.getProperty(aSelectedItems[i].getBindingContext("DemoData").getPath()).DistCenters);
                     }
-                    oDemoDataModel.setProperty("/CurrDistCenters", aTemp);
+                    var aUniqData = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
+                        t.name === value.name
+                    )));
+                    oDemoDataModel.setProperty("/CurrDistCenters", aUniqData);
                     var oTemplate = new sap.ui.core.Item({
                         key: "{DemoData>name}",
-                        text: "{DemoData>name}"
+                        text: "{DemoData>name} - {DemoData>description}"
                     });
                     sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectDistCenter").bindItems("DemoData>/CurrDistCenters", oTemplate);
                 }
@@ -139,237 +189,128 @@ sap.ui.define([
                 var iLength = sap.ui.core.Fragment.byId("idVendorDlg", "idSelectVendor").getSelectedItems().length;
                 this.getOwnerComponent().getModel("DemoData").setProperty("/VendorCount", iLength);
                 this._oVendorFilterDlg.close();
-                this._refreshRandomData();
+                if (this.getOwnerComponent().getModel("DemoData").getProperty("/Design") === "Table") {
+                    this._refreshTableRandomData();
+                } else {
+                    this._refreshPanelRandomData();
+                }
             },
             onCancelVendorDialog: function () {
                 this._oVendorFilterDlg.close();
             },
             onApplyTimeFilter: function () {
                 var sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/TimeRange");
-                // if (sTimeRange === "Custom") {
-                //     var oDateValue = sap.ui.core.Fragment.byId("idTimeRangeDlg", "idDateRange").getValue();
-                //     if (oDateValue === null || oDateValue === undefined) {
-                //         MessageBox.error("Please select date range to proceed");
-                //         return;
-                //     }
-                // }
-                this._updateDateRangeValue(sTimeRange);
+                if (sTimeRange === "Custom") {
+                    var oDateValue = sap.ui.core.Fragment.byId("idTimeRangeDlg", "idDateRange").getValue();
+                    if (oDateValue === null || oDateValue === undefined) {
+                        MessageBox.error("Please select date range to proceed");
+                        return;
+                    }
+                    this._updateDateRangeValue(sTimeRange, oDateValue);
+                } else {
+                    this._updateDateRangeValue(sTimeRange, null);
+                }
                 this._oTimeRangeDlg.close();
-                this._refreshRandomData();
+                if (this.getOwnerComponent().getModel("DemoData").getProperty("/Design") === "Table") {
+                    this._refreshTableRandomData();
+                } else {
+                    this._refreshPanelRandomData();
+                }
             },
             onCancelTimeFilter: function () {
                 this._oTimeRangeDlg.close();
             },
-            onRegionValueHelpClose: function (oEvt) {
-                var oOwnerComponent = this.getOwnerComponent();
-                this._refreshRandomData();
-                oOwnerComponent.getModel("DemoData").setProperty("/Region", oEvt.getParameter("selectedItem").getTitle());
-                oOwnerComponent.getModel("DemoData").setProperty("/CountryInitials", oOwnerComponent.getModel("ImageModel").getProperty("/" + oEvt.getParameter("selectedItem").getTitle()));
-            },
             onListItemPress: function (oEvt) {
-                var oDetailPage = this.getView().byId("idDetailPage");
+                var oDetailPage = this.getView().byId("idDetailPage"),
+                    sDesign = this.getOwnerComponent().getModel("DemoData").getProperty("/Design");
                 this.getView().byId("idSplitApp").toDetail(oDetailPage);
                 oDetailPage.removeStyleClass(this._currentDetailStyle);
                 oDetailPage.addStyleClass(oEvt.getParameter("listItem").getCustomData()[0].getValue());
                 this._currentDetailStyle = oEvt.getParameter("listItem").getCustomData()[0].getValue();
-                this._refreshRandomData();
+                if (sDesign === "Table") {
+                    this._refreshTableRandomData();
+                } else {
+                    this._refreshPanelRandomData();
+                }
             },
             onNavigateToMaster: function () {
                 this.getView().byId("idSplitApp").toMaster(this.getView().byId("idMasterPage"));
             },
-            onGenericTilePress: function (oEvt) {
-                var sHeader = oEvt.getSource().getHeader(),
-                    sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/TimeRange"),
-                    aTempElements = [];
+            onPanelGenericTilePress: function (oEvt) {
+                var sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/TimeRange"),
+                    oSelObj = oEvt.getSource().getBindingContext("DemoData").getObject();
                 if (sTimeRange === "PRS") {
                     sTimeRange = "Pre Season";
                 } else if (sTimeRange === "INS") {
                     sTimeRange = "In Season";
-                } else {
+                } else if (sTimeRange === "POS") {
                     sTimeRange = "Post Season";
-                }
-                if (sHeader === "OA Creation") {
-                    aTempElements = [
-                        {
-                            "label": "Forcast Qty",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Doc. No",
-                            "value": Math.floor(Math.random() * 1000000000)
-                        },
-                        {
-                            "label": "PC9/PC13/prepack",
-                            "value": "Test Data"
-                        },
-                        {
-                            "label": "Qty of above",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Season",
-                            "value": sTimeRange
-                        }
-                    ];
-                } else if (sHeader === "PO Issuance") {
-                    aTempElements = [
-                        {
-                            "label": "Forcast Qty",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Doc. No",
-                            "value": Math.floor(Math.random() * 1000000000)
-                        },
-                        {
-                            "label": "PC9/PC13/prepack",
-                            "value": "Test Data"
-                        },
-                        {
-                            "label": "Qty of above",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Season",
-                            "value": sTimeRange
-                        }
-                    ];
-                } else if (sHeader === "Packing List Creation") {
-                    aTempElements = [
-                        {
-                            "label": "Forcast Qty",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Doc. No",
-                            "value": Math.floor(Math.random() * 1000000000)
-                        },
-                        {
-                            "label": "PC13/prepack",
-                            "value": "Test Data"
-                        },
-                        {
-                            "label": "Qty of above",
-                            "value": Math.floor(Math.random() * 10)
-                        }
-                    ];
-                } else if (sHeader === "IBD Creation") {
-                    aTempElements = [
-                        {
-                            "label": "Forcast Qty",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Doc. No",
-                            "value": Math.floor(Math.random() * 1000000000)
-                        },
-                        {
-                            "label": "PC13/prepack",
-                            "value": "Test Data"
-                        },
-                        {
-                            "label": "Qty of above",
-                            "value": Math.floor(Math.random() * 10)
-                        }
-                    ];
-                } else if (sHeader === "Shipment Milestone Updates") {
-                    aTempElements = [
-                        {
-                            "label": "Forcast Qty",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Doc. No",
-                            "value": Math.floor(Math.random() * 1000000000)
-                        },
-                        {
-                            "label": "PC13/prepack",
-                            "value": "Test Data"
-                        },
-                        {
-                            "label": "Planned, Actual HOD",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Planned, Actual GR",
-                            "value": Math.floor(Math.random() * 10)
-                        }
-                    ];
-                } else if (sHeader === "Goods Reciept") {
-                    aTempElements = [
-                        {
-                            "label": "Forcast Qty",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Doc. No",
-                            "value": Math.floor(Math.random() * 1000000000)
-                        },
-                        {
-                            "label": "PC13/prepack",
-                            "value": "Test Data"
-                        },
-                        {
-                            "label": "Qty of above",
-                            "value": Math.floor(Math.random() * 10)
-                        }
-                    ];
                 } else {
-                    aTempElements = [
-                        {
-                            "label": "Forcast Qty",
-                            "value": Math.floor(Math.random() * 10)
-                        },
-                        {
-                            "label": "Doc. No",
-                            "value": Math.floor(Math.random() * 1000000000)
-                        },
-                        {
-                            "label": "PC13/prepack",
-                            "value": "Test Data"
-                        },
-                        {
-                            "label": "Amount of above",
-                            "value": Math.floor(Math.random() * 100000)
-                        },
-                        {
-                            "label": "Qty of above",
-                            "value": Math.floor(Math.random() * 10)
-                        }
-                    ];
+                    sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/DateRangeText").split(": ")[1];
                 }
-                var aTempQuickView = [
-                    {   "header": "Information",
-                        "title": sHeader,
-                        "groups": [
-                            {
-                                "elements": aTempElements
-                            }
-                        ]
-                    }
-                ];
-                this.getOwnerComponent().getModel("DemoData").setProperty("/QuickView", aTempQuickView);
-                if (!this._oQuickViewDlg) {
-                    this._oQuickViewDlg = sap.ui.xmlfragment("idQuickViewDlg", "com.levi.ptpe2e.view.fragments.QuickView", this);
-                    this.getView().addDependent(this._oQuickViewDlg);
+                var aTemp = [];
+                for (var i = 0; i < 2; i++) {
+                    var oTemp = {
+                        "DocNo": Math.floor(Math.random() * 1000000000),
+                        "Forcast": oSelObj.value2,
+                        "OA": oSelObj.value1,
+                        "Percentage": ((oSelObj.value1 / oSelObj.value2) * 100).toFixed(2),
+                        "PC9": "Test Value",
+                        "Qty": Math.floor(Math.random() * 10),
+                        "Season": sTimeRange
+                    };
+                    aTemp.push(oTemp);
                 }
-                this._oQuickViewDlg.openBy(oEvt.getSource());
+                this.getOwnerComponent().getModel("DemoData").setProperty("/TableDetailData", aTemp);
+                if (!this._oTileDetailDlg) {
+                    this._oTileDetailDlg = sap.ui.xmlfragment("idTileDetailDlg", "com.levi.ptpe2e.view.fragments.TileDetails", this);
+                    this.getView().addDependent(this._oTileDetailDlg);
+                }
+                this._oTileDetailDlg.open();
             },
-            _refreshRandomData: function () {
+            _refreshTableRandomData: function () {
                 var oBsyDlg = new sap.m.BusyDialog();
                 oBsyDlg.open();
                 jQuery.sap.delayedCall(250, this, function () {
-                    var aData = this.getOwnerComponent().getModel("DemoData").getProperty("/V2DC");
+                    var aData = this.getOwnerComponent().getModel("DemoData").getProperty("/TableData");
                     for (var i = 0; i < aData.length; i++) {
-                        aData[i].OACreation = Math.floor(Math.random() * 100);
-                        aData[i].POIssuance = Math.floor(Math.random() * 100);
-                        aData[i].PackListCreation = Math.floor(Math.random() * 100);
-                        aData[i].IBDCreation = Math.floor(Math.random() * 100);
-                        aData[i].ShipMilesUpdate = Math.floor(Math.random() * 100);
-                        aData[i].GoodReciept = Math.floor(Math.random() * 100);
-                        aData[i].VendorInvoice = Math.floor(Math.random() * 100);
+                        aData[i].OACreation_Forcast = Math.floor(Math.random() * (10 - 1) + 1);
+                        aData[i].OACreation_OA = Math.floor(Math.random() * (aData[i].OACreation_Forcast - 1) + 1);
+
+                        aData[i].POIssuance_OA = Math.floor(Math.random() * (10 - 1) + 1);
+                        aData[i].POIssuance_PO = Math.floor(Math.random() * (aData[i].POIssuance_OA - 1) + 1);
+
+                        aData[i].PackListCreation_PO = Math.floor(Math.random() * (10 - 1) + 1);
+                        aData[i].PackListCreation_PL = Math.floor(Math.random() * (aData[i].PackListCreation_PO - 1) + 1);
+
+                        aData[i].IBDCreation_POPL = Math.floor(Math.random() * (10 - 1) + 1);
+                        aData[i].IBDCreation_IBD = Math.floor(Math.random() * (aData[i].IBDCreation_POPL - 1) + 1);
+
+                        aData[i].ShipMilesUpdate_Forcast = Math.floor(Math.random() * (10 - 1) + 1);
+                        aData[i].ShipMilesUpdate_OA = Math.floor(Math.random() * (aData[i].ShipMilesUpdate_Forcast - 1) + 1);
+
+                        aData[i].GoodReciept_IBD = Math.floor(Math.random() * (10 - 1) + 1);
+                        aData[i].GoodReciept_GR = Math.floor(Math.random() * (aData[i].GoodReciept_IBD - 1) + 1);
+
+                        aData[i].VendorInvoice_GR = Math.floor(Math.random() * (10 - 1) + 1);
+                        aData[i].VendorInvoice_INV = Math.floor(Math.random() * (aData[i].VendorInvoice_GR - 1) + 1);
                     }
-                    this.getOwnerComponent().getModel("DemoData").setProperty("/V2DC", aData);
+                    this.getOwnerComponent().getModel("DemoData").setProperty("/TableData", aData);
+                    oBsyDlg.close();
+                });
+            },
+            _refreshPanelRandomData: function () {
+                var oBsyDlg = new sap.m.BusyDialog();
+                oBsyDlg.open();
+                jQuery.sap.delayedCall(250, this, function () {
+                    var aData = this.getOwnerComponent().getModel("DemoData").getProperty("/PanelData");
+                    for (var i = 0; i < aData.length; i++) {
+                        for (var j = 0; j < aData[i].Tiles.length; j++) {
+                            aData[i].Tiles[j].value2 = Math.floor(Math.random() * (10 - 1) + 1);;
+                            aData[i].Tiles[j].value1 = Math.floor(Math.random() * (aData[i].Tiles[j].value2 - 1) + 1);;
+                        }
+                    }
+                    this.getOwnerComponent().getModel("DemoData").setProperty("/PanelData", aData);
                     oBsyDlg.close();
                 });
             }
