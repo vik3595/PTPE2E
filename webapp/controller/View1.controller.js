@@ -68,13 +68,26 @@ sap.ui.define([
             },
             onApplyRegionFilter: function () {
                 var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
-                    sKey = sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectAllRegions").getSelectedKey();
-                if (sKey === '') {
+                    oRegionComboBox = sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectRegions");
+                if (oRegionComboBox.getSelectedItems().length === 0) {
                     MessageBox.error("Please Select Region");
                     return;
                 }
-                oDemoDataModel.setProperty("/Region", sKey);
-                oDemoDataModel.setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/" + sKey));
+                if (oRegionComboBox.getSelectedItems().length === oDemoDataModel.getProperty("/AllRegions").length) {
+                    oDemoDataModel.setProperty("/Region", "All");
+                } else {
+                    var sText = "";
+                    for (var i = 0; i < oRegionComboBox.getSelectedItems().length; i++) {
+                        sText += oRegionComboBox.getSelectedItems()[i].getText() + ", ";
+                    }
+                    sText = sText.slice(0, sText.length - 2);
+                    oDemoDataModel.setProperty("/Region", sText);
+                }
+                if (oRegionComboBox.getSelectedItems().length > 1) {
+                    oDemoDataModel.setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/All"));
+                } else {
+                    oDemoDataModel.setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/" + sText));
+                }
                 if (oDemoDataModel.getProperty("/Design") === "Table") {
                     this._refreshTableRandomData();
                 } else {
@@ -137,87 +150,82 @@ sap.ui.define([
             },
             onAfterVendorDlgOpen: function (oEvt) {
                 var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
+                    aAllRegions = oDemoDataModel.getProperty("/AllRegions"),
                     sRegion = oDemoDataModel.getProperty("/Region"),
-                    aVendorsCompCode = oDemoDataModel.getProperty("/VendorsList"),
-                    aCompCodes = aVendorsCompCode.filter(function (oItem) {
-                        return oItem.region === sRegion
-                    });
-                if (aCompCodes.length > 0) {
-                    oDemoDataModel.setProperty("/VendorCompCodes", aCompCodes[0].CompanyCodes);
+                    aTemp = [];
+                if (sRegion === "All") {
+                    for (var i = 0; i < aAllRegions.length; i++) {
+                        aTemp = aTemp.concat(aAllRegions[i].CompanyCodes);
+                    }
+                    aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
+                        t.name === value.name
+                    )));
+                    oDemoDataModel.setProperty("/VendorCompCodes", aTemp);
+                } else {
+                    var aRegionKey = sRegion.split(", ");
+                    for (var i = 0; i < aRegionKey.length; i++) {
+                        for (var j = 0; j < aAllRegions.length; j++) {
+                            if (aAllRegions[j].region === aRegionKey[i]) {
+                                aTemp = aTemp.concat(aAllRegions[i].CompanyCodes);
+                                break;
+                            }
+                        }
+                    }
+                    aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
+                        t.name === value.name
+                    )));
+                    oDemoDataModel.setProperty("/VendorCompCodes", aTemp);
                 }
                 oEvt.getSource().setTitle("Select Vendors for " + sRegion + " region");
             },
             onCompCodeChangeForVendor: function (oEvt) {
-                var aSelectedItems = oEvt.getSource().getSelectedItems(),
+                var aSelectedItems = oEvt.getParameter("selectedItems"),
                     oDemoDataModel = this.getOwnerComponent().getModel("DemoData");
-                var aTemp = [];
-                for (var i = 0; i < aSelectedItems.length; i++) {
-                    aTemp = aTemp.concat(oDemoDataModel.getProperty(aSelectedItems[i].getBindingContext("DemoData").getPath()).Vendors);
+                if (aSelectedItems.length > 0) {
+                    var aTemp = [];
+                    for (var i = 0; i < aSelectedItems.length; i++) {
+                        aTemp = aTemp.concat(oDemoDataModel.getProperty(aSelectedItems[i].getBindingContext("DemoData").getPath()).Vendors);
+                    }
+                    aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
+                        t.name === value.name
+                    )));
+                    oDemoDataModel.setProperty("/Vendors", aTemp);
+                } else {
+                    oDemoDataModel.setProperty("/Vendors", []);
                 }
-                var aUniqData = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
-                    t.name === value.name
-                )));
-                oDemoDataModel.setProperty("/CurrVendors", aUniqData);
             },
             onRegionChange: function (oEvt) {
                 var sType = oEvt.getSource().getCustomData()[0].getValue(),
                     oDemoDataModel = this.getOwnerComponent().getModel("DemoData");
                 if (sType === "Region") {
-                    var sPath = "DemoData>" + oEvt.getParameter("selectedItem").getBindingContext("DemoData").getPath() + "/CompanyCodes";
-                    var oTemplate = new sap.ui.core.Item({
-                        key: "{DemoData>name}",
-                        text: "{DemoData>name}  {DemoData>description}"
-                    });
-                    sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectCompCode").bindItems(sPath, oTemplate);
+                    var aSelectedItems = oEvt.getParameter("selectedItems");
+                    if (aSelectedItems.length > 0) {
+                        var aTemp = [];
+                        for (var i = 0; i < aSelectedItems.length; i++) {
+                            aTemp = aTemp.concat(oDemoDataModel.getProperty(aSelectedItems[i].getBindingContext("DemoData").getPath()).CompanyCodes);
+                        }
+                        aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
+                            t.name === value.name
+                        )));
+                        oDemoDataModel.setProperty("/RegionCompCodes", aTemp);
+                    } else {
+                        oDemoDataModel.setProperty("/RegionCompCodes", []);
+                        oDemoDataModel.setProperty("/RegionDistCenters", []);
+                    }
                 } else if (sType === "CompCode") {
-                    var aSelectedItems = oEvt.getSource().getSelectedItems();
-                    var aTemp = [];
-                    for (var i = 0; i < aSelectedItems.length; i++) {
-                        aTemp = aTemp.concat(oDemoDataModel.getProperty(aSelectedItems[i].getBindingContext("DemoData").getPath()).DistCenters);
+                    var aSelectedItems = oEvt.getParameter("selectedItems");
+                    if (aSelectedItems.length > 0) {
+                        var aTemp = [];
+                        for (var i = 0; i < aSelectedItems.length; i++) {
+                            aTemp = aTemp.concat(oDemoDataModel.getProperty(aSelectedItems[i].getBindingContext("DemoData").getPath()).DistCenters);
+                        }
+                        aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
+                            t.name === value.name
+                        )));
+                        oDemoDataModel.setProperty("/RegionDistCenters", aTemp);
+                    } else {
+                        oDemoDataModel.setProperty("/RegionDistCenters", []);
                     }
-                    var aUniqData = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
-                        t.name === value.name
-                    )));
-
-                    if(aSelectedItems[0].getProperty("key")===''){
-                        aUniqData = [
-                            {
-                                "name": "All",
-                                "description": ""
-                            },
-                            {
-                                "name": "200",
-                                "description": "LEVIS 200"
-                            },
-                            {
-                                "name": "207",
-                                "description": "LEVIS 207 - KITTERY"
-                            },
-                            {
-                                "name": "310",
-                                "description": "LEVIS 310 - ONTARIO MILLS"
-                            },
-                            {
-                                "name": "333",
-                                "description": "LEVIS 333 - REHOBOTH BEACH"
-                            },
-                            {
-                                "name": "334",
-                                "description": "LEVIS 334 - DESTIN"
-                            },
-                            {
-                                "name": "335",
-                                "description": "LEVIS 335 - JERSEY GARDENS"
-                            }
-                        ]
-                    }
-
-                    oDemoDataModel.setProperty("/CurrDistCenters", aUniqData);
-                    var oTemplate = new sap.ui.core.Item({
-                        key: "{DemoData>name}",
-                        text: "{DemoData>name}  {DemoData>description}"
-                    });
-                    sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectDistCenter").bindItems("DemoData>/CurrDistCenters", oTemplate);
                 }
             },
             onApplyVendorSelection: function () {

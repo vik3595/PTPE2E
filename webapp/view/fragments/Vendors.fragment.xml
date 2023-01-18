@@ -7,13 +7,13 @@
             <f:SimpleForm id="idVendorFilterForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="3" emptySpanL="3" emptySpanM="0" emptySpanS="0" columnsXL="6" columnsL="6" columnsM="12" singleContainerFullSize="false">
                 <f:content>
                     <Label text="Company Code" />
-                    <MultiComboBox id="idSelectCompCode" items="{DemoData>/VendorCompCodes}" selectionChange="onCompCodeChangeForVendor">
+                    <MultiComboBox id="idSelectCompCode" showSelectAll="true" items="{DemoData>/VendorCompCodes}" selectionFinish="onCompCodeChangeForVendor">
                         <items>
                             <core:Item text="{DemoData>name} - {DemoData>description}" key="{DemoData>name}"></core:Item>
                         </items>
                     </MultiComboBox>
                     <Label text="Vendors" />
-                    <MultiComboBox id="idSelectVendor" items="{DemoData>/CurrVendors}">
+                    <MultiComboBox id="idSelectVendor" showSelectAll="true" items="{DemoData>/Vendors}">
                         <items>
                             <core:Item text="{DemoData>name} - {DemoData>description} " key="{DemoData>name}"></core:Item>
                         </items>

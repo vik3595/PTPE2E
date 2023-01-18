@@ -15,7 +15,7 @@
                         <core:Icon src="sap-icon://menu2" press="onNavigateToMaster" visible="{device>/system/phone}"/>
                         <ToolbarSpacer />
                         <GenericTag text="Region: {DemoData>/Region}" design="StatusIconHidden" status="Information" press="openRegionSelection"/>
-                        <GenericTag text="Vendor Selection: {DemoData>/VendorCount}" design="StatusIconHidden" status="Information" press="openVendorFilter"/>
+                        <GenericTag text="Vendor Selections: {DemoData>/VendorCount}" design="StatusIconHidden" status="Information" press="openVendorFilter"/>
                         <GenericTag text="{DemoData>/DateRangeText}" design="StatusIconHidden" status="Information" press="openTimeFilter"/>
                     </OverflowToolbar>
                 </customHeader>

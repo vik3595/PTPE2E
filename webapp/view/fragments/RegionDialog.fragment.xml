@@ -7,16 +7,22 @@
             <f:SimpleForm id="idRegionFilterForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="3" emptySpanL="3" emptySpanM="0" emptySpanS="0" columnsXL="6" columnsL="6" columnsM="12" singleContainerFullSize="false">
                 <f:content>
                     <Label text="Region" />
-                    <Select id="idSelectAllRegions" forceSelection="false" items="{DemoData>/AllRegions}" change="onRegionChange" custom:type="Region">
+                    <MultiComboBox id="idSelectRegions" showSelectAll="true" items="{DemoData>/AllRegions}" selectionFinish="onRegionChange" custom:type="Region">
                         <items>
                             <core:Item text="{DemoData>region}" key="{DemoData>region}"/>
                         </items>
-                    </Select>
+                    </MultiComboBox>
                     <Label text="Company Code" />
-                    <MultiComboBox id="idSelectCompCode" selectionChange="onRegionChange" custom:type="CompCode">
+                    <MultiComboBox id="idSelectCompCode" showSelectAll="true" items="{DemoData>/RegionCompCodes}" selectionFinish="onRegionChange" custom:type="CompCode">
+                        <items>
+                            <core:Item text="{DemoData>name} - {DemoData>description}" key="{DemoData>name}"/>
+                        </items>
                     </MultiComboBox>
                     <Label text="Distribution Center" />
-                    <MultiComboBox id="idSelectDistCenter" change="onRegionChange" custom:type="DistCenter">
+                    <MultiComboBox id="idSelectDistCenter" showSelectAll="true" items="{DemoData>/RegionDistCenters}" selectionFinish="onRegionChange" custom:type="DistCenter">
+                        <items>
+                            <core:Item text="{DemoData>name} - {DemoData>description}" key="{DemoData>name}"/>
+                        </items>
                     </MultiComboBox>
                 </f:content>
             </f:SimpleForm>
