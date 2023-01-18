@@ -1,6 +1,82 @@
 {
     "AllRegions": [
         {
+            "region": "All",
+            "CompanyCodes": [
+                {
+                    "name": "",
+                    "description": "All",
+                    "DistCenters": [
+                        {
+                            "name": "",
+                            "description": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "200",
+                    "description": "Levi Strauss & Co",
+                    "DistCenters": [
+                        {
+                            "name": "200",
+                            "description": "LEVIS 200"
+                        }
+                    ]
+                },
+                {
+                    "name": "207",
+                    "description": "LOS Retail",
+                    "DistCenters": [
+                        {
+                            "name": "207",
+                            "description": "LEVIS 207 - KITTERY"
+                        }
+                    ]
+                },
+                {
+                    "name": "310",
+                    "description": "Levi Strauss & Co Inc",
+                    "DistCenters": [
+                        {
+                            "name": "310",
+                            "description": "LEVIS 310 - ONTARIO MILLS"
+                        }
+                    ]
+                },
+                
+                {
+                    "name": "333",
+                    "description": "Levi Strauss de Mexico",
+                    "DistCenters": [
+                        {
+                            "name": "333",
+                            "description": "LEVIS 333 - REHOBOTH BEACH"
+                        }
+                    ]
+                },
+                {
+                    "name": "334",
+                    "description": "Administradora Levi Strau",
+                    "DistCenters": [
+                        {
+                            "name": "334",
+                            "description": "LEVIS 334 - DESTIN"
+                        }
+                    ]
+                },
+                {
+                    "name": "335",
+                    "description": "Distribuidora Levi Straus",
+                    "DistCenters": [
+                        {
+                            "name": "335",
+                            "description": "LEVIS 335 - JERSEY GARDENS"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "region": "US",
             "CompanyCodes": [
                 {

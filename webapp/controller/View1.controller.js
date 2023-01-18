@@ -15,7 +15,8 @@ sap.ui.define([
                 var oImageModel = new sap.ui.model.json.JSONModel({
                     US: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/US.jpg"),
                     MX: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/MX.jpg"),
-                    CA: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/CA.jpg")
+                    CA: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/CA.jpg"),
+                    All: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/globe.jpg")
                 });
                 this.getOwnerComponent().setModel(oImageModel, "ImageModel");
                 this.getOwnerComponent().getModel("DemoData").setProperty("/CountryInitials", jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/US.jpg"));
@@ -165,7 +166,7 @@ sap.ui.define([
                     var sPath = "DemoData>" + oEvt.getParameter("selectedItem").getBindingContext("DemoData").getPath() + "/CompanyCodes";
                     var oTemplate = new sap.ui.core.Item({
                         key: "{DemoData>name}",
-                        text: "{DemoData>name} - {DemoData>description}"
+                        text: "{DemoData>name}  {DemoData>description}"
                     });
                     sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectCompCode").bindItems(sPath, oTemplate);
                 } else if (sType === "CompCode") {
@@ -177,10 +178,44 @@ sap.ui.define([
                     var aUniqData = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
                         t.name === value.name
                     )));
+
+                    if(aSelectedItems[0].getProperty("key")===''){
+                        aUniqData = [
+                            {
+                                "name": "All",
+                                "description": ""
+                            },
+                            {
+                                "name": "200",
+                                "description": "LEVIS 200"
+                            },
+                            {
+                                "name": "207",
+                                "description": "LEVIS 207 - KITTERY"
+                            },
+                            {
+                                "name": "310",
+                                "description": "LEVIS 310 - ONTARIO MILLS"
+                            },
+                            {
+                                "name": "333",
+                                "description": "LEVIS 333 - REHOBOTH BEACH"
+                            },
+                            {
+                                "name": "334",
+                                "description": "LEVIS 334 - DESTIN"
+                            },
+                            {
+                                "name": "335",
+                                "description": "LEVIS 335 - JERSEY GARDENS"
+                            }
+                        ]
+                    }
+
                     oDemoDataModel.setProperty("/CurrDistCenters", aUniqData);
                     var oTemplate = new sap.ui.core.Item({
                         key: "{DemoData>name}",
-                        text: "{DemoData>name} - {DemoData>description}"
+                        text: "{DemoData>name}  {DemoData>description}"
                     });
                     sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectDistCenter").bindItems("DemoData>/CurrDistCenters", oTemplate);
                 }
