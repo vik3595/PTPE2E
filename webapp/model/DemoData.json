@@ -464,270 +464,6 @@
             ]
         }
     ],
-    "TableData": [
-        {
-            "Type": "Qty",
-            "OACreation_Forcast": 10,
-            "OACreation_OA": 9,
-            "POIssuance_OA": 9,
-            "POIssuance_PO": 8,
-            "PackListCreation_PO": 9,
-            "PackListCreation_PL": 7,
-            "IBDCreation_POPL": 7,
-            "IBDCreation_IBD": 6,
-            "ShipMilesUpdate_Forcast": 10,
-            "ShipMilesUpdate_OA": 7,
-            "GoodReciept_IBD": 6,
-            "GoodReciept_GR": 5,
-            "VendorInvoice_GR": 5,
-            "VendorInvoice_INV": 4,
-            "Total": 100
-        },
-        {
-            "Type": "On Time",
-            "OACreation_Forcast": 10,
-            "OACreation_OA": 9,
-            "POIssuance_OA": 9,
-            "POIssuance_PO": 8,
-            "PackListCreation_PO": 9,
-            "PackListCreation_PL": 7,
-            "IBDCreation_POPL": 7,
-            "IBDCreation_IBD": 6,
-            "ShipMilesUpdate_Forcast": 10,
-            "ShipMilesUpdate_OA": 7,
-            "GoodReciept_IBD": 6,
-            "GoodReciept_GR": 5,
-            "VendorInvoice_GR": 5,
-            "VendorInvoice_INV": 4,
-            "Total": 100
-        },
-        {
-            "Type": "Price Updates",
-            "OACreation_Forcast": 10,
-            "OACreation_OA": 9,
-            "POIssuance_OA": 9,
-            "POIssuance_PO": 8,
-            "PackListCreation_PO": 9,
-            "PackListCreation_PL": 7,
-            "IBDCreation_POPL": 7,
-            "IBDCreation_IBD": 6,
-            "ShipMilesUpdate_Forcast": 10,
-            "ShipMilesUpdate_OA": 7,
-            "GoodReciept_IBD": 6,
-            "GoodReciept_GR": 5,
-            "VendorInvoice_GR": 5,
-            "VendorInvoice_INV": 4,
-            "Total": 100
-        },
-        {
-            "Type": "Success Rate",
-            "OACreation_Forcast": 10,
-            "OACreation_OA": 9,
-            "POIssuance_OA": 9,
-            "POIssuance_PO": 8,
-            "PackListCreation_PO": 9,
-            "PackListCreation_PL": 7,
-            "IBDCreation_POPL": 7,
-            "IBDCreation_IBD": 6,
-            "ShipMilesUpdate_Forcast": 10,
-            "ShipMilesUpdate_OA": 7,
-            "GoodReciept_IBD": 6,
-            "GoodReciept_GR": 5,
-            "VendorInvoice_GR": 5,
-            "VendorInvoice_INV": 4,
-            "Total": 100
-        }
-    ],
-    "PanelData": [
-        {
-            "Name": "Qty",
-            "Tiles": [
-                {
-                    "header": "OA Creation",
-                    "subheader": "Forecast vs OA",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "PO Issuance",
-                    "subheader": "OA vs PO",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Packing List Creation",
-                    "subheader": "PO vs PL",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "IBD Creation",
-                    "subheader": "PO/PL vs IBD",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Shipment Milestone Updates",
-                    "subheader": "",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Goods Reciept",
-                    "subheader": "Qty: IBD vs GR",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Vendor Invoice",
-                    "subheader": "Qty: GR vs Invoiced\nQty: Shipped vs Invoiced",
-                    "value1": 9,
-                    "value2": 10
-                }
-            ]
-        },
-        {
-            "Name": "On Time",
-            "Tiles": [
-                {
-                    "header": "OA Creation",
-                    "subheader": "Not Applicable",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "PO Issuance",
-                    "subheader": "SO vs PO",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Packing List Creation",
-                    "subheader": "PO vs PL",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "IBD Creation",
-                    "subheader": "PO/PL vs IBD",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Shipment Milestone Updates",
-                    "subheader": "PO vs Actual",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Goods Reciept",
-                    "subheader": "PO vs Actual",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Vendor Invoice",
-                    "subheader": "Not Applicable",
-                    "value1": 9,
-                    "value2": 10
-                }
-            ]
-        },
-        {
-            "Name": "Price Updates",
-            "Tiles": [
-                {
-                    "header": "OA Creation",
-                    "subheader": "# or % of price update",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "PO Issuance",
-                    "subheader": "# or % of price update",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Packing List Creation",
-                    "subheader": "Not Applicable",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "IBD Creation",
-                    "subheader": "Not Applicable",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Shipment Milestone Updates",
-                    "subheader": "Not Applicable",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Goods Reciept",
-                    "subheader": "Not Applicable",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Vendor Invoice",
-                    "subheader": "Not Applicable",
-                    "value1": 9,
-                    "value2": 10
-                }
-            ]
-        },
-        {
-            "Name": "Success Rate",
-            "Tiles": [
-                {
-                    "header": "OA Creation",
-                    "subheader": "# or % failures",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "PO Issuance",
-                    "subheader": "# or % failures",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Packing List Creation",
-                    "subheader": "Not Applicable",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "IBD Creation",
-                    "subheader": "# or % failures",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Shipment Milestone Updates",
-                    "subheader": "# or % failures",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Goods Reciept",
-                    "subheader": "# or % failures",
-                    "value1": 9,
-                    "value2": 10
-                },
-                {
-                    "header": "Vendor Invoice",
-                    "subheader": "# or % failures",
-                    "value1": 9,
-                    "value2": 10
-                }
-            ]
-        }
-    ],
     "TilesData": [
         {
             "RowNo": "1",
@@ -744,6 +480,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "OAAmt",
+                    "Value2Property": "ForecastAmt",
+                    "PropertyType": "Amt",
                     "Cols": [
                         {
                             "ColName": "OA Number",
@@ -789,6 +528,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "POQty",
+                    "Value2Property": "ForecastQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Number",
@@ -839,6 +581,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "PLQty",
+                    "Value2Property": "POQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PL Number",
@@ -878,6 +623,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "PLQty",
+                    "Value2Property": "POQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "IBD Number",
@@ -920,6 +668,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": false,
+                    "Value1Property": "POQty",
+                    "Value2Property": "IBDQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "IBD Number",
@@ -958,6 +709,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "POQty",
+                    "Value2Property": "IBDQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Line Number",
@@ -998,6 +752,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "InvoicedQty",
+                    "Value2Property": "GRQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Line Number",
@@ -1046,6 +803,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": false,
+                    "Value1Property": "OAAmt",
+                    "Value2Property": "ForecastAmt",
+                    "PropertyType": "Amt",
                     "Cols": [
                         {
                             "ColName": "OA Number",
@@ -1091,6 +851,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "POQty",
+                    "Value2Property": "ForecastQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Number",
@@ -1141,6 +904,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "PLQty",
+                    "Value2Property": "POQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PL Number",
@@ -1180,6 +946,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "PLQty",
+                    "Value2Property": "POQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "IBD Number",
@@ -1224,6 +993,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "PlannedHOD",
+                    "Value2Property": "ActualHOD",
+                    "PropertyType": "Date",
                     "Cols": [
                         {
                             "ColName": "IBD Number",
@@ -1270,6 +1042,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "POQty",
+                    "Value2Property": "IBDQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Line Number",
@@ -1310,6 +1085,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": false,
+                    "Value1Property": "ShippedQty",
+                    "Value2Property": "GRQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Line Number",
@@ -1358,6 +1136,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "OAAmt",
+                    "Value2Property": "ForecastAmt",
+                    "PropertyType": "Amt",
                     "Cols": [
                         {
                             "ColName": "OA Number",
@@ -1403,6 +1184,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "POAmt",
+                    "Value2Property": "ForecastAmt",
+                    "PropertyType": "Amt",
                     "Cols": [
                         {
                             "ColName": "PO Number",
@@ -1453,6 +1237,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": false,
+                    "Value1Property": "PLQty",
+                    "Value2Property": "POQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PL Number",
@@ -1492,6 +1279,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": false,
+                    "Value1Property": "PLQty",
+                    "Value2Property": "POQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "IBD Number",
@@ -1534,6 +1324,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": false,
+                    "Value1Property": "POQty",
+                    "Value2Property": "IBDQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "IBD Number",
@@ -1572,6 +1365,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": false,
+                    "Value1Property": "POQty",
+                    "Value2Property": "IBDQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Line Number",
@@ -1612,6 +1408,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": false,
+                    "Value1Property": "ShippedQty",
+                    "Value2Property": "GRQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Line Number",
@@ -1660,6 +1459,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "OAAmt",
+                    "Value2Property": "ForecastAmt",
+                    "PropertyType": "Amt",
                     "Cols": [
                         {
                             "ColName": "OA Number",
@@ -1705,6 +1507,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "POQty",
+                    "Value2Property": "ForecastQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Number",
@@ -1755,6 +1560,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": false,
+                    "Value1Property": "PLQty",
+                    "Value2Property": "POQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PL Number",
@@ -1794,6 +1602,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "PLQty",
+                    "Value2Property": "POQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "IBD Number",
@@ -1836,6 +1647,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "POQty",
+                    "Value2Property": "IBDQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "IBD Number",
@@ -1874,6 +1688,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "POQty",
+                    "Value2Property": "IBDQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Line Number",
@@ -1914,6 +1731,9 @@
                     "PPK": "",
                     "Season": "",
                     "Enabled": true,
+                    "Value1Property": "InvoicedQty",
+                    "Value2Property": "GRQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "PO Line Number",
@@ -2049,6 +1869,6 @@
     "Design": "Transparent",
     "TimeRange": "H1 22/H1 22 LEVIS US",
     "Region": "US",
-    "DateRangeText": "Showing for: H1 22/H1 22 LEVIS US",
+    "DateRangeText": "H1 22/H1 22 LEVIS US",
     "VendorCount": 0
 }

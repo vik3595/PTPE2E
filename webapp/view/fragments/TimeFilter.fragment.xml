@@ -1,11 +1,11 @@
 <core:FragmentDefinition xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core">
-    <Dialog title="Apply Time Filter" titleAlignment="Center" afterOpen="onAfterTimeFilterOpen">
+    <Dialog title="Apply Season Filter" titleAlignment="Center" afterOpen="onAfterTimeFilterOpen">
         <content>
             <f:SimpleForm id="idTimeFilterForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="3" emptySpanL="3" emptySpanM="0" emptySpanS="0" columnsXL="6" columnsL="6" columnsM="12" singleContainerFullSize="false">
                 <f:content>
-                    <Label text="Search for" />
+                    <Label text="Season" />
                     <Select id="idSelectSeason" items="{DemoData>/Seasons}" selectedKey="{DemoData>/TimeRange}">
                         <items>
                             <core:Item text="{DemoData>name}" key="{DemoData>name}"/>

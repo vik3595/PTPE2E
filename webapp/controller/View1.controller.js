@@ -1,14 +1,15 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
+    "sap/m/MessageToast",
     "sap/m/MessageBox",
     "../utils/formatter",
     "sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageBox, formatter, Filter, FilterOperator) {
+    function (Controller, MessageToast, MessageBox, formatter, Filter, FilterOperator) {
         "use strict";
 
         return Controller.extend("com.levi.ptpe2e.controller.View1", {
@@ -25,8 +26,6 @@ sap.ui.define([
                 this.getView().byId("idDetailPage").addStyleClass("dtlPageBgDC");
                 this._currentDetailStyle = "dtlPageBgDC";
                 this.getView().byId("idMasterList").setSelectedItem(this.getView().byId("idMasterList").getItems()[0]);
-                // this._refreshTableRandomData();
-                // this._refreshPanelRandomData();
             },
             _getValueColor: function (sValue) {
                 if (sValue >= 75) {
@@ -36,19 +35,6 @@ sap.ui.define([
                 } else {
                     return "Error";
                 }
-            },
-            _updateDateRangeValue: function (sValue, oDateValue) {
-                var sText = "Showing For: ";
-                if (sValue === 'PRS') {
-                    sText += "Pre Season";
-                } else if (sValue === "INS") {
-                    sText += "In Season";
-                } else if (sValue === "POS") {
-                    sText += "Post Season";
-                } else {
-                    sText = "Showing between: " + oDateValue;
-                }
-                this.getOwnerComponent().getModel("DemoData").setProperty("/DateRangeText", sText);
             },
             onChangeDesign: function () {
                 if (!this._oChangeDesign) {
@@ -89,12 +75,7 @@ sap.ui.define([
                 } else {
                     oDemoDataModel.setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/" + sText));
                 }
-                this._refreshMethod();
-                // if (oDemoDataModel.getProperty("/Design") === "Table") {
-                //     this._refreshTableRandomData();
-                // } else {
-                //     this._refreshPanelRandomData();
-                // }
+                this._refreshRandomData();
                 this._oRegionOptionDlg.close();
             },
             onCancelRegionDialog: function () {
@@ -131,42 +112,6 @@ sap.ui.define([
                     this.getView().addDependent(this._oVendorFilterDlg);
                 }
                 this._oVendorFilterDlg.open();
-            },
-            onTableMicroChartPress: function (oEvt) {
-                var aCustomData = oEvt.getSource().getCustomData()[0].getValue().split("--"),
-                    oSelObj = oEvt.getSource().getBindingContext("DemoData").getObject(),
-                    sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/TimeRange");
-                if (sTimeRange === "PRS") {
-                    sTimeRange = "Pre Season";
-                } else if (sTimeRange === "INS") {
-                    sTimeRange = "In Season";
-                } else if (sTimeRange === "POS") {
-                    sTimeRange = "Post Season";
-                } else {
-                    sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/DateRangeText").split(": ")[1];
-                }
-                var aTemp = [];
-                for (var i = 0; i < 2; i++) {
-                    var oTemp = {
-                        "DocNo": Math.floor(Math.random() * 1000000000),
-                        "Forcast": oSelObj[aCustomData[1]],
-                        "OA": oSelObj[aCustomData[0]],
-                        "Percentage": ((oSelObj[aCustomData[0]] / oSelObj[aCustomData[1]]) * 100).toFixed(2),
-                        "PC9": "Test Value",
-                        "Qty": Math.floor(Math.random() * 10),
-                        "Season": sTimeRange
-                    };
-                    aTemp.push(oTemp);
-                }
-                this.getOwnerComponent().getModel("DemoData").setProperty("/TableDetailData", aTemp);
-                if (!this._oTileDetailDlg) {
-                    this._oTileDetailDlg = sap.ui.xmlfragment("idTileDetailDlg", "com.levi.ptpe2e.view.fragments.TileDetails", this);
-                    this.getView().addDependent(this._oTileDetailDlg);
-                }
-                this._oTileDetailDlg.open();
-            },
-            onCloseTileDetailDialog: function () {
-                this._oTileDetailDlg.close();
             },
             onAfterVendorDlgOpen: function (oEvt) {
                 var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
@@ -252,147 +197,35 @@ sap.ui.define([
                 var iLength = sap.ui.core.Fragment.byId("idVendorDlg", "idSelectVendor").getSelectedItems().length;
                 this.getOwnerComponent().getModel("DemoData").setProperty("/VendorCount", iLength);
                 this._oVendorFilterDlg.close();
-                // if (this.getOwnerComponent().getModel("DemoData").getProperty("/Design") === "Table") {
-                //     this._refreshTableRandomData();
-                // } else {
-                //     this._refreshPanelRandomData();
-                // }
-                this._refreshMethod();
+                this._refreshRandomData();
             },
             onCancelVendorDialog: function () {
                 this._oVendorFilterDlg.close();
             },
             onApplyTimeFilter: function () {
                 var sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/TimeRange");
-                // if (sTimeRange === "Custom") {
-                //     var oDateValue = sap.ui.core.Fragment.byId("idTimeRangeDlg", "idDateRange").getValue();
-                //     if (oDateValue === null || oDateValue === undefined) {
-                //         MessageBox.error("Please select date range to proceed");
-                //         return;
-                //     }
-                //     this._updateDateRangeValue(sTimeRange, oDateValue);
-                // } else {
-                //     this._updateDateRangeValue(sTimeRange, null);
-                // }
-                this.getOwnerComponent().getModel("DemoData").setProperty("/DateRangeText", "Showing for: " + sTimeRange);
+                this.getOwnerComponent().getModel("DemoData").setProperty("/DateRangeText", sTimeRange);
                 this._oTimeRangeDlg.close();
-                // if (this.getOwnerComponent().getModel("DemoData").getProperty("/Design") === "Table") {
-                //     this._refreshTableRandomData();
-                // } else {
-                //     this._refreshPanelRandomData();
-                // }
-                this._refreshMethod();
+                this._refreshRandomData();
             },
             onCancelTimeFilter: function () {
                 this._oTimeRangeDlg.close();
             },
             onListItemPress: function (oEvt) {
-                var oDetailPage = this.getView().byId("idDetailPage"),
-                    sDesign = this.getOwnerComponent().getModel("DemoData").getProperty("/Design");
-                this.getView().byId("idSplitApp").toDetail(oDetailPage);
+                var oDetailPage = this.getView().byId("idDetailPage");
                 oDetailPage.removeStyleClass(this._currentDetailStyle);
-                oDetailPage.addStyleClass(oEvt.getParameter("listItem").getCustomData()[0].getValue());
                 this._currentDetailStyle = oEvt.getParameter("listItem").getCustomData()[0].getValue();
-                // if (sDesign === "Table") {
-                //     this._refreshTableRandomData();
-                // } else {
-                //     this._refreshPanelRandomData();
-                // }
-                this._refreshMethod();
+                oDetailPage.addStyleClass(this._currentDetailStyle);
+                this._refreshRandomData();
             },
             onNavigateToMaster: function () {
                 this.getView().byId("idSplitApp").toMaster(this.getView().byId("idMasterPage"));
             },
-            onPanelGenericTilePress: function (oEvt) {
-                var sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/TimeRange"),
-                    oSelObj = oEvt.getSource().getBindingContext("DemoData").getObject();
-                if (sTimeRange === "PRS") {
-                    sTimeRange = "Pre Season";
-                } else if (sTimeRange === "INS") {
-                    sTimeRange = "In Season";
-                } else if (sTimeRange === "POS") {
-                    sTimeRange = "Post Season";
-                } else {
-                    sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/DateRangeText").split(": ")[1];
-                }
-                var aTemp = [];
-                for (var i = 0; i < 2; i++) {
-                    var oTemp = {
-                        "DocNo": Math.floor(Math.random() * 1000000000),
-                        "Forcast": oSelObj.value2,
-                        "OA": oSelObj.value1,
-                        "Percentage": ((oSelObj.value1 / oSelObj.value2) * 100).toFixed(2),
-                        "PC9": "Test Value",
-                        "Qty": Math.floor(Math.random() * 10),
-                        "Season": sTimeRange
-                    };
-                    aTemp.push(oTemp);
-                }
-                this.getOwnerComponent().getModel("DemoData").setProperty("/TableDetailData", aTemp);
-                if (!this._oTileDetailDlg) {
-                    this._oTileDetailDlg = sap.ui.xmlfragment("idTileDetailDlg", "com.levi.ptpe2e.view.fragments.TileDetails", this);
-                    this.getView().addDependent(this._oTileDetailDlg);
-                }
-                this._oTileDetailDlg.open();
-            },
-            _refreshTableRandomData: function () {
-                var oBsyDlg = new sap.m.BusyDialog();
-                oBsyDlg.open();
-                jQuery.sap.delayedCall(250, this, function () {
-                    var aData = this.getOwnerComponent().getModel("DemoData").getProperty("/TableData");
-                    for (var i = 0; i < aData.length; i++) {
-                        aData[i].OACreation_Forcast = Math.floor(Math.random() * (10 - 1) + 1);
-                        aData[i].OACreation_OA = Math.floor(Math.random() * (aData[i].OACreation_Forcast - 1) + 1);
-
-                        aData[i].POIssuance_OA = Math.floor(Math.random() * (10 - 1) + 1);
-                        aData[i].POIssuance_PO = Math.floor(Math.random() * (aData[i].POIssuance_OA - 1) + 1);
-
-                        aData[i].PackListCreation_PO = Math.floor(Math.random() * (10 - 1) + 1);
-                        aData[i].PackListCreation_PL = Math.floor(Math.random() * (aData[i].PackListCreation_PO - 1) + 1);
-
-                        aData[i].IBDCreation_POPL = Math.floor(Math.random() * (10 - 1) + 1);
-                        aData[i].IBDCreation_IBD = Math.floor(Math.random() * (aData[i].IBDCreation_POPL - 1) + 1);
-
-                        aData[i].ShipMilesUpdate_Forcast = Math.floor(Math.random() * (10 - 1) + 1);
-                        aData[i].ShipMilesUpdate_OA = Math.floor(Math.random() * (aData[i].ShipMilesUpdate_Forcast - 1) + 1);
-
-                        aData[i].GoodReciept_IBD = Math.floor(Math.random() * (10 - 1) + 1);
-                        aData[i].GoodReciept_GR = Math.floor(Math.random() * (aData[i].GoodReciept_IBD - 1) + 1);
-
-                        aData[i].VendorInvoice_GR = Math.floor(Math.random() * (10 - 1) + 1);
-                        aData[i].VendorInvoice_INV = Math.floor(Math.random() * (aData[i].VendorInvoice_GR - 1) + 1);
-                    }
-                    this.getOwnerComponent().getModel("DemoData").setProperty("/TableData", aData);
-                    oBsyDlg.close();
-                });
-            },
-            _refreshPanelRandomData: function () {
-                var oBsyDlg = new sap.m.BusyDialog();
-                oBsyDlg.open();
-                jQuery.sap.delayedCall(250, this, function () {
-                    var aData = this.getOwnerComponent().getModel("DemoData").getProperty("/PanelData");
-                    for (var i = 0; i < aData.length; i++) {
-                        for (var j = 0; j < aData[i].Tiles.length; j++) {
-                            aData[i].Tiles[j].value2 = Math.floor(Math.random() * (10 - 1) + 1);;
-                            aData[i].Tiles[j].value1 = Math.floor(Math.random() * (aData[i].Tiles[j].value2 - 1) + 1);;
-                        }
-                    }
-                    this.getOwnerComponent().getModel("DemoData").setProperty("/PanelData", aData);
-                    oBsyDlg.close();
-                });
-            },
-            _refreshMethod: function() {
-                var oBsyDlg = new sap.m.BusyDialog();
-                oBsyDlg.open();
-                jQuery.sap.delayedCall(250, this, function () {
-                    oBsyDlg.close();
-                });
-            },
-            onTestTilePress: function(oEvt) {
+            onTestTilePress: function (oEvt) {
                 var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
                     sType = oEvt.getSource().getCustomData()[0].getValue(),
                     sPath = "";
-                if(sType === "GT") {
+                if (sType === "GT") {
                     sPath = oEvt.getSource().getBindingInfo("header").binding.getPath();
                     sPath = sPath.slice(0, sPath.lastIndexOf("/"));
                 } else if (sType === "RMC") {
@@ -405,7 +238,7 @@ sap.ui.define([
                 var oSelObj = oDemoDataModel.getProperty(sPath),
                     aCols = oSelObj.Cols,
                     sTimeRange = oDemoDataModel.getProperty("/TimeRange");
-                var sValidFrom  = sTimeRange.slice(0, 2) === "H1" ? "01/01/2022" : "07/01/2022";
+                var sValidFrom = sTimeRange.slice(0, 2) === "H1" ? "01/01/2022" : "07/01/2022";
                 oSelObj.Season = sTimeRange;
                 oSelObj.ValidFrom = sValidFrom;
                 oSelObj.ValidTo = "12/31/9999";
@@ -418,7 +251,7 @@ sap.ui.define([
                 var oTable = sap.ui.core.Fragment.byId("idTestTileDlg", "idTestTable");
                 var oCell = [];
                 oTable.setModel(oModel);
-                for(var i = 0; i < aCols.length; i++) {
+                for (var i = 0; i < aCols.length; i++) {
                     oTable.addColumn(new sap.m.Column({
                         header: new sap.m.Label({
                             text: aCols[i].ColName,
@@ -461,74 +294,43 @@ sap.ui.define([
                 });
                 oTable.bindAggregation("items", "/", oTemplate);
             },
-            onTestTilePress2: function(oEvt) {
-                debugger
-                return;
-                var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
-                    oSelObj = oDemoDataModel.getProperty(oEvt.getSource().getBindingInfo("header").binding.getPath().split("/Header")[0]),
-                    aCols = oSelObj.Cols,
-                    sTimeRange = oDemoDataModel.getProperty("/TimeRange");
-                var sValidFrom  = sTimeRange.slice(0, 2) === "H1" ? "01/01/2022" : "07/01/2022";
-                oSelObj.Season = sTimeRange;
-                oSelObj.ValidFrom = sValidFrom;
-                oSelObj.ValidTo = "12/31/9999";
-                if (!this._oTestDlg) {
-                    this._oTestDlg = sap.ui.xmlfragment("idTestTileDlg", "com.levi.ptpe2e.view.fragments.Test", this);
-                    this.getView().addDependent(this._oTestDlg);
-                }
-                this._oTestDlg.open();
-                var oModel = new sap.ui.model.json.JSONModel([oSelObj]);
-                var oTable = sap.ui.core.Fragment.byId("idTestTileDlg", "idTestTable");
-                var oCell = [];
-                oTable.setModel(oModel);
-                for(var i = 0; i < aCols.length; i++) {
-                    oTable.addColumn(new sap.m.Column({
-                        header: new sap.m.Label({
-                            text: aCols[i].ColName,
-                            wrapping: true
-                        }),
-                    }));
-                    oCell.push(
-                        new sap.m.Text({
-                            text: "{" + aCols[i].ColProperty + "}",
-                            wrapping: true
-                        })
-                    );
-                }
-                oTable.addColumn(new sap.m.Column({
-                    header: new sap.m.Label({
-                        text: "Valid From",
-                        wrapping: true
-                    }),
-                }));
-                oCell.push(
-                    new sap.m.Text({
-                        text: "{ValidFrom}",
-                        wrapping: true
-                    })
-                );
-                oTable.addColumn(new sap.m.Column({
-                    header: new sap.m.Label({
-                        text: "Valid To",
-                        wrapping: true
-                    }),
-                }));
-                oCell.push(
-                    new sap.m.Text({
-                        text: "{ValidTo}",
-                        wrapping: true
-                    })
-                );
-                var oTemplate = new sap.m.ColumnListItem({
-                    cells: oCell
-                });
-                oTable.bindAggregation("items", "/", oTemplate);
-            },
-            onCloseTestDialog: function() {
+            onCloseTestDialog: function () {
                 this._oTestDlg.close();
                 this._oTestDlg.destroy();
                 this._oTestDlg = undefined;
                 this._oTestDlg = null;
+            },
+            _refreshRandomData: function () {
+                var oBsyDlg = new sap.m.BusyDialog();
+                oBsyDlg.open();
+                jQuery.sap.delayedCall(350, this, function () {
+                    var oDemoDataModel = this.getOwnerComponent().getModel("DemoData");
+                    var aTilesData = oDemoDataModel.getProperty("/TilesData");
+                    for (var i = 0; i < aTilesData.length; i++) {
+                        for (var j = 0; j < aTilesData[i].Tiles.length; j++) {
+                            if (aTilesData[i].Tiles[j].SubHeader !== "Not Applicable") {
+                                if (aTilesData[i].Tiles[j].PropertyType === "Qty") {
+                                    aTilesData[i].Tiles[j][aTilesData[i].Tiles[j].Value2Property] = Math.floor(Math.random() * 100);
+                                    aTilesData[i].Tiles[j][aTilesData[i].Tiles[j].Value1Property] = Math.floor(Math.random() * (aTilesData[i].Tiles[j][aTilesData[i].Tiles[j].Value2Property] - 1) + 1);
+                                } else if (aTilesData[i].Tiles[j].PropertyType === "Amt") {
+                                    aTilesData[i].Tiles[j][aTilesData[i].Tiles[j].Value2Property] = Math.floor(1000 + Math.random() * 9000);
+                                    aTilesData[i].Tiles[j][aTilesData[i].Tiles[j].Value1Property] = Math.floor(Math.random() * (aTilesData[i].Tiles[j][aTilesData[i].Tiles[j].Value2Property] - 1) + 1);
+                                } else if (aTilesData[i].Tiles[j].PropertyType === "Date") {
+                                    function randomDate(start, end) {
+                                        var date = new Date(+start + Math.random() * (end - start));
+                                        return date;
+                                    }
+                                    var oDate1 = randomDate(new Date("12/1/2022"), new Date("12/31/2022"));
+                                    var oDate2 = randomDate(new Date("12/1/2022"), new Date("12/31/2022"));
+                                    aTilesData[i].Tiles[j][aTilesData[i].Tiles[j].Value2Property] = oDate2.toLocaleDateString();
+                                    aTilesData[i].Tiles[j][aTilesData[i].Tiles[j].Value1Property] = oDate1.toLocaleDateString();
+                                }
+                            }
+                        }
+                    }
+                    oDemoDataModel.setProperty("/TilesData", aTilesData);
+                    oBsyDlg.close();
+                });
             }
 
         });

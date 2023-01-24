@@ -15,7 +15,7 @@
                         <ToolbarSpacer />
                         <GenericTag text="Region: {DemoData>/Region}" design="StatusIconHidden" status="Information" press="openRegionSelection"/>
                         <GenericTag text="Vendor Selections: {DemoData>/VendorCount}" design="StatusIconHidden" status="Information" press="openVendorFilter"/>
-                        <GenericTag text="{DemoData>/DateRangeText}" design="StatusIconHidden" status="Information" press="openTimeFilter"/>
+                        <GenericTag text="Season: {DemoData>/DateRangeText}" design="StatusIconHidden" status="Information" press="openTimeFilter"/>
                     </OverflowToolbar>
                 </customHeader>
                 <content>
