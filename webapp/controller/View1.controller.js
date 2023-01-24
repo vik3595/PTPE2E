@@ -2,11 +2,13 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
     "../utils/formatter",
+    "sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageBox, formatter) {
+    function (Controller, MessageBox, formatter, Filter, FilterOperator) {
         "use strict";
 
         return Controller.extend("com.levi.ptpe2e.controller.View1", {
@@ -23,8 +25,8 @@ sap.ui.define([
                 this.getView().byId("idDetailPage").addStyleClass("dtlPageBgDC");
                 this._currentDetailStyle = "dtlPageBgDC";
                 this.getView().byId("idMasterList").setSelectedItem(this.getView().byId("idMasterList").getItems()[0]);
-                this._refreshTableRandomData();
-                this._refreshPanelRandomData();
+                // this._refreshTableRandomData();
+                // this._refreshPanelRandomData();
             },
             _getValueColor: function (sValue) {
                 if (sValue >= 75) {
@@ -36,7 +38,6 @@ sap.ui.define([
                 }
             },
             _updateDateRangeValue: function (sValue, oDateValue) {
-                debugger
                 var sText = "Showing For: ";
                 if (sValue === 'PRS') {
                     sText += "Pre Season";
@@ -88,11 +89,12 @@ sap.ui.define([
                 } else {
                     oDemoDataModel.setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/" + sText));
                 }
-                if (oDemoDataModel.getProperty("/Design") === "Table") {
-                    this._refreshTableRandomData();
-                } else {
-                    this._refreshPanelRandomData();
-                }
+                this._refreshMethod();
+                // if (oDemoDataModel.getProperty("/Design") === "Table") {
+                //     this._refreshTableRandomData();
+                // } else {
+                //     this._refreshPanelRandomData();
+                // }
                 this._oRegionOptionDlg.close();
             },
             onCancelRegionDialog: function () {
@@ -104,6 +106,24 @@ sap.ui.define([
                     this.getView().addDependent(this._oTimeRangeDlg);
                 }
                 this._oTimeRangeDlg.open();
+            },
+            onAfterTimeFilterOpen: function () {
+                var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
+                    oSelect = sap.ui.core.Fragment.byId("idTimeRangeDlg", "idSelectSeason"),
+                    sRegion = oDemoDataModel.getProperty("/Region"),
+                    aFilter = [];
+                if (sRegion === "All") {
+                    aFilter.push(new Filter("region", FilterOperator.EQ, "US"));
+                    aFilter.push(new Filter("region", FilterOperator.EQ, "CA"));
+                    aFilter.push(new Filter("region", FilterOperator.EQ, "MX"));
+                } else {
+                    var aRegionKey = sRegion.split(", ");
+                    for (var i = 0; i < aRegionKey.length; i++) {
+                        aFilter.push(new Filter("region", FilterOperator.EQ, aRegionKey[i]));
+                    }
+                }
+                var aAllFilter = new Filter(aFilter, false);
+                oSelect.getBinding("items").filter(aAllFilter);
             },
             openVendorFilter: function () {
                 if (!this._oVendorFilterDlg) {
@@ -232,33 +252,36 @@ sap.ui.define([
                 var iLength = sap.ui.core.Fragment.byId("idVendorDlg", "idSelectVendor").getSelectedItems().length;
                 this.getOwnerComponent().getModel("DemoData").setProperty("/VendorCount", iLength);
                 this._oVendorFilterDlg.close();
-                if (this.getOwnerComponent().getModel("DemoData").getProperty("/Design") === "Table") {
-                    this._refreshTableRandomData();
-                } else {
-                    this._refreshPanelRandomData();
-                }
+                // if (this.getOwnerComponent().getModel("DemoData").getProperty("/Design") === "Table") {
+                //     this._refreshTableRandomData();
+                // } else {
+                //     this._refreshPanelRandomData();
+                // }
+                this._refreshMethod();
             },
             onCancelVendorDialog: function () {
                 this._oVendorFilterDlg.close();
             },
             onApplyTimeFilter: function () {
                 var sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/TimeRange");
-                if (sTimeRange === "Custom") {
-                    var oDateValue = sap.ui.core.Fragment.byId("idTimeRangeDlg", "idDateRange").getValue();
-                    if (oDateValue === null || oDateValue === undefined) {
-                        MessageBox.error("Please select date range to proceed");
-                        return;
-                    }
-                    this._updateDateRangeValue(sTimeRange, oDateValue);
-                } else {
-                    this._updateDateRangeValue(sTimeRange, null);
-                }
+                // if (sTimeRange === "Custom") {
+                //     var oDateValue = sap.ui.core.Fragment.byId("idTimeRangeDlg", "idDateRange").getValue();
+                //     if (oDateValue === null || oDateValue === undefined) {
+                //         MessageBox.error("Please select date range to proceed");
+                //         return;
+                //     }
+                //     this._updateDateRangeValue(sTimeRange, oDateValue);
+                // } else {
+                //     this._updateDateRangeValue(sTimeRange, null);
+                // }
+                this.getOwnerComponent().getModel("DemoData").setProperty("/DateRangeText", "Showing for: " + sTimeRange);
                 this._oTimeRangeDlg.close();
-                if (this.getOwnerComponent().getModel("DemoData").getProperty("/Design") === "Table") {
-                    this._refreshTableRandomData();
-                } else {
-                    this._refreshPanelRandomData();
-                }
+                // if (this.getOwnerComponent().getModel("DemoData").getProperty("/Design") === "Table") {
+                //     this._refreshTableRandomData();
+                // } else {
+                //     this._refreshPanelRandomData();
+                // }
+                this._refreshMethod();
             },
             onCancelTimeFilter: function () {
                 this._oTimeRangeDlg.close();
@@ -270,11 +293,12 @@ sap.ui.define([
                 oDetailPage.removeStyleClass(this._currentDetailStyle);
                 oDetailPage.addStyleClass(oEvt.getParameter("listItem").getCustomData()[0].getValue());
                 this._currentDetailStyle = oEvt.getParameter("listItem").getCustomData()[0].getValue();
-                if (sDesign === "Table") {
-                    this._refreshTableRandomData();
-                } else {
-                    this._refreshPanelRandomData();
-                }
+                // if (sDesign === "Table") {
+                //     this._refreshTableRandomData();
+                // } else {
+                //     this._refreshPanelRandomData();
+                // }
+                this._refreshMethod();
             },
             onNavigateToMaster: function () {
                 this.getView().byId("idSplitApp").toMaster(this.getView().byId("idMasterPage"));
@@ -356,6 +380,156 @@ sap.ui.define([
                     this.getOwnerComponent().getModel("DemoData").setProperty("/PanelData", aData);
                     oBsyDlg.close();
                 });
+            },
+            _refreshMethod: function() {
+                var oBsyDlg = new sap.m.BusyDialog();
+                oBsyDlg.open();
+                jQuery.sap.delayedCall(250, this, function () {
+                    oBsyDlg.close();
+                });
+            },
+            onTestTilePress: function(oEvt) {
+                var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
+                    sType = oEvt.getSource().getCustomData()[0].getValue(),
+                    sPath = "";
+                if(sType === "GT") {
+                    sPath = oEvt.getSource().getBindingInfo("header").binding.getPath();
+                    sPath = sPath.slice(0, sPath.lastIndexOf("/"));
+                } else if (sType === "RMC") {
+                    sPath = oEvt.getSource().getBindingInfo("percentage").binding.getBindings()[0].getPath();
+                    sPath = sPath.slice(0, sPath.lastIndexOf("/"));
+                } else if (sType === "NC") {
+                    sPath = oEvt.getSource().getBindingInfo("value").binding.getBindings()[0].getPath();
+                    sPath = sPath.slice(0, sPath.lastIndexOf("/"));
+                }
+                var oSelObj = oDemoDataModel.getProperty(sPath),
+                    aCols = oSelObj.Cols,
+                    sTimeRange = oDemoDataModel.getProperty("/TimeRange");
+                var sValidFrom  = sTimeRange.slice(0, 2) === "H1" ? "01/01/2022" : "07/01/2022";
+                oSelObj.Season = sTimeRange;
+                oSelObj.ValidFrom = sValidFrom;
+                oSelObj.ValidTo = "12/31/9999";
+                if (!this._oTestDlg) {
+                    this._oTestDlg = sap.ui.xmlfragment("idTestTileDlg", "com.levi.ptpe2e.view.fragments.Test", this);
+                    this.getView().addDependent(this._oTestDlg);
+                }
+                this._oTestDlg.open();
+                var oModel = new sap.ui.model.json.JSONModel([oSelObj]);
+                var oTable = sap.ui.core.Fragment.byId("idTestTileDlg", "idTestTable");
+                var oCell = [];
+                oTable.setModel(oModel);
+                for(var i = 0; i < aCols.length; i++) {
+                    oTable.addColumn(new sap.m.Column({
+                        header: new sap.m.Label({
+                            text: aCols[i].ColName,
+                            wrapping: true
+                        }),
+                    }));
+                    oCell.push(
+                        new sap.m.Text({
+                            text: "{" + aCols[i].ColProperty + "}",
+                            wrapping: true
+                        })
+                    );
+                }
+                oTable.addColumn(new sap.m.Column({
+                    header: new sap.m.Label({
+                        text: "Valid From",
+                        wrapping: true
+                    }),
+                }));
+                oCell.push(
+                    new sap.m.Text({
+                        text: "{ValidFrom}",
+                        wrapping: true
+                    })
+                );
+                oTable.addColumn(new sap.m.Column({
+                    header: new sap.m.Label({
+                        text: "Valid To",
+                        wrapping: true
+                    }),
+                }));
+                oCell.push(
+                    new sap.m.Text({
+                        text: "{ValidTo}",
+                        wrapping: true
+                    })
+                );
+                var oTemplate = new sap.m.ColumnListItem({
+                    cells: oCell
+                });
+                oTable.bindAggregation("items", "/", oTemplate);
+            },
+            onTestTilePress2: function(oEvt) {
+                debugger
+                return;
+                var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
+                    oSelObj = oDemoDataModel.getProperty(oEvt.getSource().getBindingInfo("header").binding.getPath().split("/Header")[0]),
+                    aCols = oSelObj.Cols,
+                    sTimeRange = oDemoDataModel.getProperty("/TimeRange");
+                var sValidFrom  = sTimeRange.slice(0, 2) === "H1" ? "01/01/2022" : "07/01/2022";
+                oSelObj.Season = sTimeRange;
+                oSelObj.ValidFrom = sValidFrom;
+                oSelObj.ValidTo = "12/31/9999";
+                if (!this._oTestDlg) {
+                    this._oTestDlg = sap.ui.xmlfragment("idTestTileDlg", "com.levi.ptpe2e.view.fragments.Test", this);
+                    this.getView().addDependent(this._oTestDlg);
+                }
+                this._oTestDlg.open();
+                var oModel = new sap.ui.model.json.JSONModel([oSelObj]);
+                var oTable = sap.ui.core.Fragment.byId("idTestTileDlg", "idTestTable");
+                var oCell = [];
+                oTable.setModel(oModel);
+                for(var i = 0; i < aCols.length; i++) {
+                    oTable.addColumn(new sap.m.Column({
+                        header: new sap.m.Label({
+                            text: aCols[i].ColName,
+                            wrapping: true
+                        }),
+                    }));
+                    oCell.push(
+                        new sap.m.Text({
+                            text: "{" + aCols[i].ColProperty + "}",
+                            wrapping: true
+                        })
+                    );
+                }
+                oTable.addColumn(new sap.m.Column({
+                    header: new sap.m.Label({
+                        text: "Valid From",
+                        wrapping: true
+                    }),
+                }));
+                oCell.push(
+                    new sap.m.Text({
+                        text: "{ValidFrom}",
+                        wrapping: true
+                    })
+                );
+                oTable.addColumn(new sap.m.Column({
+                    header: new sap.m.Label({
+                        text: "Valid To",
+                        wrapping: true
+                    }),
+                }));
+                oCell.push(
+                    new sap.m.Text({
+                        text: "{ValidTo}",
+                        wrapping: true
+                    })
+                );
+                var oTemplate = new sap.m.ColumnListItem({
+                    cells: oCell
+                });
+                oTable.bindAggregation("items", "/", oTemplate);
+            },
+            onCloseTestDialog: function() {
+                this._oTestDlg.close();
+                this._oTestDlg.destroy();
+                this._oTestDlg = undefined;
+                this._oTestDlg = null;
             }
+
         });
     });

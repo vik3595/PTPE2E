@@ -11,6 +11,43 @@ sap.ui.define(function () {
                 return iValue1;
             }
 		},
+		calculateDaysDifference: function (iValue1, iValue2) {
+           var oDate1 = new Date(iValue1);
+           var oDate2 = new Date(iValue2);
+           var Difference_In_Time = oDate2.getTime() - oDate1.getTime();
+           var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+           return Math.abs(Difference_In_Days);
+		},
+		calculateDaysDiffDesc: function (iValue1, iValue2) {
+           var oDate1 = new Date(iValue1);
+           var oDate2 = new Date(iValue2);
+           var Difference_In_Time = oDate2.getTime() - oDate1.getTime();
+           var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+           var sText = "";
+           if(Difference_In_Days === 0) {
+                sText = "On-Time";
+            } else if (Difference_In_Days < 0) {
+               sText = "Early";
+            } else {
+               sText = "Delay";
+           }
+           return sText;
+		},
+		calculateValueColor: function (iValue1, iValue2) {
+           var oDate1 = new Date(iValue1);
+           var oDate2 = new Date(iValue2);
+           var Difference_In_Time = oDate2.getTime() - oDate1.getTime();
+           var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+           var sText = "";
+           if(Difference_In_Days === 0) {
+                sText = "Neutral";
+            } else if (Difference_In_Days < 0) {
+               sText = "Good";
+            } else {
+               sText = "Error";
+           }
+           return sText;
+		},
         _getValueColor: function(iValue1, iValue2) {
             var iPercentage;
             if(iValue1 && iValue2) {

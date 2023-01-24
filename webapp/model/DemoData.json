@@ -464,375 +464,6 @@
             ]
         }
     ],
-    "VendorsList": [
-        {
-            "region": "US",
-            "CompanyCodes": [
-                {
-                    "name": "200",
-                    "description": "Levi Strauss & Co",
-                    "Vendors": [
-                        {
-                            "name": "100",
-                            "description": "LEVIS 100 - THE DOMAIN"
-                        },
-                        {
-                            "name": "102",
-                            "description": "LEVIS 102 - UNIVERSITY PA"
-                        },
-                        {
-                            "name": "103",
-                            "description": "LEVIS 103 - EASTON TOWN C"
-                        },
-                        {
-                            "name": "106",
-                            "description": "LEVIS 106 - DERBY STREET"
-                        },
-                        {
-                            "name": "108",
-                            "description": "LEVIS 108 - MICHIGAN AVE"
-                        }
-                    ]
-                },
-                {
-                    "name": "207",
-                    "description": "LOS Retail",
-                    "Vendors": [
-                        {
-                            "name": "120",
-                            "description": "LEVIS 120 - OAKBROOK"
-                        },
-                        {
-                            "name": "121",
-                            "description": "LEVIS 121 - BAY STREET"
-                        },
-                        {
-                            "name": "122",
-                            "description": "LEVIS 122 - DISNEY SPRING"
-                        },
-                        {
-                            "name": "124",
-                            "description": "LEVIS 124 - LEGACY WEST"
-                        },
-                        {
-                            "name": "125",
-                            "description": "LEVIS 125 - AMERICAN DREA"
-                        }
-                    ]
-                },
-                {
-                    "name": "310",
-                    "description": "Levi Strauss & Co Inc",
-                    "Vendors": [
-                        {
-                            "name": "IC200",
-                            "description": "LEVI STRAUSS & CO"
-                        },
-                        {
-                            "name": "IC2007",
-                            "description": "LS&CO CANTON"
-                        },
-                        {
-                            "name": "IC2008",
-                            "description": "LS&CO HEBRON"
-                        },
-                        {
-                            "name": "IC207",
-                            "description": "LEVI S ONLY STORES INC"
-                        },
-                        {
-                            "name": "IC231",
-                            "description": "LEVI STRAUSS INTERNATIONA"
-                        }
-                    ]
-                },
-                {
-                    "name": "333",
-                    "description": "Levi Strauss de Mexico",
-                    "Vendors": [
-                        {
-                            "name": "100375",
-                            "description": "ADVANTAGE SALES AND MARKE"
-                        },
-                        {
-                            "name": "100408",
-                            "description": "BROTHER INTERNATIONAL COR"
-                        },
-                        {
-                            "name": "100413",
-                            "description": "CARMICHAEL INTERNATIONAL"
-                        },
-                        {
-                            "name": "100477",
-                            "description": "EMAINT ENTERPRISES LLC"
-                        },
-                        {
-                            "name": "100495",
-                            "description": "GENERAL DATATECH LP"
-                        }
-                    ]
-                },
-                {
-                    "name": "334",
-                    "description": "Administradora Levi Strau",
-                    "Vendors": [
-                        {
-                            "name": "100375",
-                            "description": "ADVANTAGE SALES AND MARKE"
-                        },
-                        {
-                            "name": "100408",
-                            "description": "BROTHER INTERNATIONAL COR"
-                        },
-                        {
-                            "name": "100413",
-                            "description": "CARMICHAEL INTERNATIONAL"
-                        },
-                        {
-                            "name": "100477",
-                            "description": "EMAINT ENTERPRISES LLC"
-                        },
-                        {
-                            "name": "100495",
-                            "description": "GENERAL DATATECH LP"
-                        }
-                    ]
-                },
-                {
-                    "name": "335",
-                    "description": "Distribuidora Levi Straus",
-                    "Vendors": [
-                        {
-                            "name": "2000165",
-                            "description": "IWD NEW YORK LLC"
-                        },
-                        {
-                            "name": "2000198",
-                            "description": "SDI INDUSTRIES INC"
-                        },
-                        {
-                            "name": "2000234",
-                            "description": "LEO D BERNSTEIN AND SON I"
-                        },
-                        {
-                            "name": "2000295",
-                            "description": "IDIOMAS DE LA SIERRA DE G"
-                        },
-                        {
-                            "name": "2000305",
-                            "description": "FIA CARD SERVICES NATIONA"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "region": "CA",
-            "CompanyCodes": [
-                {
-                    "name": "200",
-                    "description": "Levi Strauss & Co",
-                    "Vendors": [
-                        {
-                            "name": "100409",
-                            "description": "CALZADO VAN VIEN S A DE C"
-                        }
-                    ]
-                },
-                {
-                    "name": "207",
-                    "description": "LOS Retail",
-                    "Vendors": [
-                        {
-                            "name": "100409",
-                            "description": "CALZADO VAN VIEN S A DE C"
-                        },
-                        {
-                            "name": "101508",
-                            "description": "ROBERT HALF CANADA INC"
-                        },
-                        {
-                            "name": "101615",
-                            "description": "AT&T GLOBAL SERVICES CANA"
-                        }
-                    ]
-                },
-                {
-                    "name": "310",
-                    "description": "Levi Strauss & Co Inc",
-                    "Vendors": [
-                        {
-                            "name": "101533",
-                            "description": "PANTORAMA INDUSTRIES INC"
-                        },
-                        {
-                            "name": "101534",
-                            "description": "POWERHOUSE RETAIL SERVICE"
-                        },
-                        {
-                            "name": "101535",
-                            "description": "LEE HECHT HARRISON KNIGHT"
-                        },
-                        {
-                            "name": "101536",
-                            "description": "SUPERIOR DOOR & GATE SYST"
-                        },
-                        {
-                            "name": "101537",
-                            "description": "BELL CANADA"
-                        }
-                    ]
-                },
-                {
-                    "name": "333",
-                    "description": "Levi Strauss de Mexico",
-                    "Vendors": [
-                        {
-                            "name": "100409",
-                            "description": "CALZADO VAN VIEN S A DE C"
-                        },
-                        {
-                            "name": "102029",
-                            "description": "MEDIKE LANDES INC"
-                        },
-                        {
-                            "name": "2000799",
-                            "description": "MEDIKE LANDES INC"
-                        }
-                    ]
-                },
-                {
-                    "name": "334",
-                    "description": "Administradora Levi Strau",
-                    "Vendors": [
-                        {
-                            "name": "100409",
-                            "description": "CALZADO VAN VIEN S A DE C"
-                        }
-                    ]
-                },
-                {
-                    "name": "335",
-                    "description": "Distribuidora Levi Straus",
-                    "Vendors": [
-                        {
-                            "name": "100409",
-                            "description": "CALZADO VAN VIEN S A DE C"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "region": "MX",
-            "CompanyCodes": [
-                {
-                    "name": "200",
-                    "description": "Levi Strauss & Co",
-                    "Vendors": [
-                        {
-                            "name": "2011",
-                            "description": "LEVI STRAUSS DE MEXICO SA"
-                        },
-                        {
-                            "name": "228009",
-                            "description": "KALTEX APPAREL SA DE CV"
-                        },
-                        {
-                            "name": "404001",
-                            "description": "APPAREL INTL INC - TEST2"
-                        },
-                        {
-                            "name": "404996",
-                            "description": "KALTEX APPAREL SA DE CV -"
-                        },
-                        {
-                            "name": "2000106",
-                            "description": "ACHE MARKETING S A DE C V"
-                        }
-                    ]
-                },
-                {
-                    "name": "333",
-                    "description": "Levi Strauss de Mexico",
-                    "Vendors": [
-                        {
-                            "name": "2014",
-                            "description": "LEVI STRAUSS DE MEXICO IM"
-                        },
-                        {
-                            "name": "2016",
-                            "description": "LEVI STRAUSS DE MEXICO SA"
-                        },
-                        {
-                            "name": "7501",
-                            "description": "LEVIS SHOP AGUASCALIENTES"
-                        },
-                        {
-                            "name": "7502",
-                            "description": "LEVIS SHOP ANTARA"
-                        },
-                        {
-                            "name": "7503",
-                            "description": "LEVIS SHOP ARTZ"
-                        }
-                    ]
-                },
-                {
-                    "name": "334",
-                    "description": "Administradora Levi Strau",
-                    "Vendors": [
-                        {
-                            "name": "100388",
-                            "description": "ARCAD DE CHIHUAHUA SA DE"
-                        },
-                        {
-                            "name": "100389",
-                            "description": "AREZZO AND FLORES CONSULT"
-                        },
-                        {
-                            "name": "100390",
-                            "description": "ARMAT PROYECTOS CONSTRUCT"
-                        },
-                        {
-                            "name": "100391",
-                            "description": "ARTURO ISLAS MARTINEZ"
-                        },
-                        {
-                            "name": "100393",
-                            "description": "ASOCIACION MEXICANA DE VE"
-                        }
-                    ]
-                },
-                {
-                    "name": "335",
-                    "description": "Distribuidora Levi Straus",
-                    "Vendors": [
-                        {
-                            "name": "100464",
-                            "description": "DUBBING DE MEXICO SA DE C"
-                        },
-                        {
-                            "name": "100465",
-                            "description": "DUN AND BRADSTREET DE MEX"
-                        },
-                        {
-                            "name": "100466",
-                            "description": "DYNARIC DE MEXICO S DE RL"
-                        },
-                        {
-                            "name": "100467",
-                            "description": "EASYCLICKS SC"
-                        },
-                        {
-                            "name": "100468",
-                            "description": "ECONOCOMEX INTERNACIONAL"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
     "TableData": [
         {
             "Type": "Qty",
@@ -960,7 +591,7 @@
             "Tiles": [
                 {
                     "header": "OA Creation",
-                    "subheader": "NA",
+                    "subheader": "Not Applicable",
                     "value1": 9,
                     "value2": 10
                 },
@@ -996,7 +627,7 @@
                 },
                 {
                     "header": "Vendor Invoice",
-                    "subheader": "NA",
+                    "subheader": "Not Applicable",
                     "value1": 9,
                     "value2": 10
                 }
@@ -1019,31 +650,31 @@
                 },
                 {
                     "header": "Packing List Creation",
-                    "subheader": "NA",
+                    "subheader": "Not Applicable",
                     "value1": 9,
                     "value2": 10
                 },
                 {
                     "header": "IBD Creation",
-                    "subheader": "NA",
+                    "subheader": "Not Applicable",
                     "value1": 9,
                     "value2": 10
                 },
                 {
                     "header": "Shipment Milestone Updates",
-                    "subheader": "NA",
+                    "subheader": "Not Applicable",
                     "value1": 9,
                     "value2": 10
                 },
                 {
                     "header": "Goods Reciept",
-                    "subheader": "NA",
+                    "subheader": "Not Applicable",
                     "value1": 9,
                     "value2": 10
                 },
                 {
                     "header": "Vendor Invoice",
-                    "subheader": "NA",
+                    "subheader": "Not Applicable",
                     "value1": 9,
                     "value2": 10
                 }
@@ -1066,7 +697,7 @@
                 },
                 {
                     "header": "Packing List Creation",
-                    "subheader": "NA",
+                    "subheader": "Not Applicable",
                     "value1": 9,
                     "value2": 10
                 },
@@ -1097,9 +728,1327 @@
             ]
         }
     ],
+    "TilesData": [
+        {
+            "RowNo": "1",
+            "Tiles": [
+                {
+                    "Name": "Tile00",
+                    "Header": "OA Creation",
+                    "SubHeader": "Forecast vs OA",
+                    "OANumber": "939134",
+                    "ForecastQty": 85,
+                    "ForecastAmt": 9823,
+                    "OAAmt": 2353,
+                    "PC9": "00501-0422",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "OA Number",
+                            "ColProperty": "OANumber"
+                        },
+                        {
+                            "ColName": "Forecast Quantity",
+                            "ColProperty": "ForecastQty"
+                        },
+                        {
+                            "ColName": "Forecast Amount",
+                            "ColProperty": "ForecastAmt"
+                        },
+                        {
+                            "ColName": "OA Amount",
+                            "ColProperty": "OAAmt"
+                        },
+                        {
+                            "ColName": "PC9",
+                            "ColProperty": "PC9"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile01",
+                    "Header": "PO Issuance",
+                    "SubHeader": "Forecasted vs PO",
+                    "PONumber": "239134",
+                    "ForecastQty": 45,
+                    "ForecastAmt": 2374,
+                    "POQty": 34,
+                    "POAmt": 1233,
+                    "PC9": "00501-0422",
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PO Number",
+                            "ColProperty": "PONumber"
+                        },
+                        {
+                            "ColName": "Forecast Quantity",
+                            "ColProperty": "ForecastQty"
+                        },
+                        {
+                            "ColName": "Forecast Amount",
+                            "ColProperty": "ForecastAmt"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PO Amount",
+                            "ColProperty": "POAmt"
+                        },
+                        {
+                            "ColName": "PC9",
+                            "ColProperty": "PC9"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile02",
+                    "Header": "Packing List Creation",
+                    "SubHeader": "PO vs PL",
+                    "PLNumber": "86378",
+                    "POQty": 54,
+                    "PLQty": 44,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PL Number",
+                            "ColProperty": "PLNumber"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PL Quantity",
+                            "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile03",
+                    "Header": "IBD Creation",
+                    "SubHeader": "PO/PL vs IBD",
+                    "IBDNumber": "63547",
+                    "IBDQty": 46,
+                    "POQty": 64,
+                    "PLQty": 46,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "IBD Number",
+                            "ColProperty": "IBDNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PL Quantity",
+                            "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile04",
+                    "Header": "Shipment Milestone Updates",
+                    "SubHeader": "Not Applicable",
+                    "IBDNumber": "79501",
+                    "IBDQty": 46,
+                    "POQty": 34,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": false,
+                    "Cols": [
+                        {
+                            "ColName": "IBD Number",
+                            "ColProperty": "IBDNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile05",
+                    "Header": "Goods Reciept",
+                    "SubHeader": "IBD vs GR",
+                    "POLineNumber": "63253",
+                    "IBDQty": 56,
+                    "POQty": 46,
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PO Line Number",
+                            "ColProperty": "POLineNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile06",
+                    "Header": "Vendor Invoice",
+                    "SubHeader": "GR vs Invoiced",
+                    "POLineNumber": "67489",
+                    "GRQty": 56,
+                    "InvoicedQty": 46,
+                    "ShippedQty": 49,
+                    "InvoicedAmt": 6735,
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PO Line Number",
+                            "ColProperty": "POLineNumber"
+                        },
+                        {
+                            "ColName": "GR Quantity",
+                            "ColProperty": "GRQty"
+                        },
+                        {
+                            "ColName": "Invoiced Quantity",
+                            "ColProperty": "InvoicedQty"
+                        },
+                        {
+                            "ColName": "Shipped Quantity",
+                            "ColProperty": "ShippedQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "RowNo": "2",
+            "Tiles": [
+                {
+                    "Name": "Tile10",
+                    "Header": "OA Creation",
+                    "SubHeader": "Not Applicable",
+                    "OANumber": "989134",
+                    "ForecastQty": 85,
+                    "ForecastAmt": 9823,
+                    "OAAmt": 2353,
+                    "PC9": "00501-0422",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": false,
+                    "Cols": [
+                        {
+                            "ColName": "OA Number",
+                            "ColProperty": "OANumber"
+                        },
+                        {
+                            "ColName": "Forecast Quantity",
+                            "ColProperty": "ForecastQty"
+                        },
+                        {
+                            "ColName": "Forecast Amount",
+                            "ColProperty": "ForecastAmt"
+                        },
+                        {
+                            "ColName": "OA Amount",
+                            "ColProperty": "OAAmt"
+                        },
+                        {
+                            "ColName": "PC9",
+                            "ColProperty": "PC9"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile11",
+                    "Header": "PO Issuance",
+                    "SubHeader": "Forecasted vs PO",
+                    "PONumber": "23534",
+                    "ForecastQty": 68,
+                    "ForecastAmt": 2374,
+                    "POQty": 54,
+                    "POAmt": 1233,
+                    "PC9": "00501-0422",
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PO Number",
+                            "ColProperty": "PONumber"
+                        },
+                        {
+                            "ColName": "Forecast Quantity",
+                            "ColProperty": "ForecastQty"
+                        },
+                        {
+                            "ColName": "Forecast Amount",
+                            "ColProperty": "ForecastAmt"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PO Amount",
+                            "ColProperty": "POAmt"
+                        },
+                        {
+                            "ColName": "PC9",
+                            "ColProperty": "PC9"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile12",
+                    "Header": "Packing List Creation",
+                    "SubHeader": "PO vs PL",
+                    "PLNumber": "87378",
+                    "POQty": 86,
+                    "PLQty": 52,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PL Number",
+                            "ColProperty": "PLNumber"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PL Quantity",
+                            "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile13",
+                    "Header": "IBD Creation",
+                    "SubHeader": "PO/PL vs IBD",
+                    "IBDNumber": "633547",
+                    "IBDQty": 48,
+                    "POQty": 64,
+                    "PLQty": 38,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "IBD Number",
+                            "ColProperty": "IBDNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PL Quantity",
+                            "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile04",
+                    "Header": "Shipment Milestone Updates",
+                    "SubHeader": "Planned HOD vs Actual HOD",
+                    "IBDNumber": "72501",
+                    "IBDQty": 46,
+                    "POQty": 34,
+                    "PlannedHOD": "1/15/2022",
+                    "ActualHOD": "1/20/2022",
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "IBD Number",
+                            "ColProperty": "IBDNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "Planned HOD",
+                            "ColProperty": "PlannedHOD"
+                        },
+                        {
+                            "ColName": "Actual HOD",
+                            "ColProperty": "ActualHOD"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile05",
+                    "Header": "Goods Reciept",
+                    "SubHeader": "IBD vs GR",
+                    "POLineNumber": "63753",
+                    "IBDQty": 56,
+                    "POQty": 46,
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PO Line Number",
+                            "ColProperty": "POLineNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile06",
+                    "Header": "Vendor Invoice",
+                    "SubHeader": "Not Applicable",
+                    "POLineNumber": "63489",
+                    "GRQty": 56,
+                    "InvoicedQty": 46,
+                    "ShippedQty": 49,
+                    "InvoicedAmt": 6735,
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": false,
+                    "Cols": [
+                        {
+                            "ColName": "PO Line Number",
+                            "ColProperty": "POLineNumber"
+                        },
+                        {
+                            "ColName": "GR Quantity",
+                            "ColProperty": "GRQty"
+                        },
+                        {
+                            "ColName": "Invoiced Quantity",
+                            "ColProperty": "InvoicedQty"
+                        },
+                        {
+                            "ColName": "Shipped Quantity",
+                            "ColProperty": "ShippedQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "RowNo": "3",
+            "Tiles": [
+                {
+                    "Name": "Tile20",
+                    "Header": "OA Creation",
+                    "SubHeader": "% of price update",
+                    "OANumber": "97134",
+                    "ForecastQty": 85,
+                    "ForecastAmt": 5743,
+                    "OAAmt": 4356,
+                    "PC9": "00501-0422",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "OA Number",
+                            "ColProperty": "OANumber"
+                        },
+                        {
+                            "ColName": "Forecast Quantity",
+                            "ColProperty": "ForecastQty"
+                        },
+                        {
+                            "ColName": "Forecast Amount",
+                            "ColProperty": "ForecastAmt"
+                        },
+                        {
+                            "ColName": "OA Amount",
+                            "ColProperty": "OAAmt"
+                        },
+                        {
+                            "ColName": "PC9",
+                            "ColProperty": "PC9"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile21",
+                    "Header": "PO Issuance",
+                    "SubHeader": "% of price update",
+                    "PONumber": "28134",
+                    "ForecastQty": 68,
+                    "ForecastAmt": 2374,
+                    "POQty": 54,
+                    "POAmt": 1233,
+                    "PC9": "00501-0422",
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PO Number",
+                            "ColProperty": "PONumber"
+                        },
+                        {
+                            "ColName": "Forecast Quantity",
+                            "ColProperty": "ForecastQty"
+                        },
+                        {
+                            "ColName": "Forecast Amount",
+                            "ColProperty": "ForecastAmt"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PO Amount",
+                            "ColProperty": "POAmt"
+                        },
+                        {
+                            "ColName": "PC9",
+                            "ColProperty": "PC9"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile22",
+                    "Header": "Packing List Creation",
+                    "SubHeader": "Not Applicable",
+                    "PLNumber": "87378",
+                    "POQty": 86,
+                    "PLQty": 52,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": false,
+                    "Cols": [
+                        {
+                            "ColName": "PL Number",
+                            "ColProperty": "PLNumber"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PL Quantity",
+                            "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile23",
+                    "Header": "IBD Creation",
+                    "SubHeader": "Not Applicable",
+                    "IBDNumber": "63547",
+                    "IBDQty": 48,
+                    "POQty": 64,
+                    "PLQty": 38,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": false,
+                    "Cols": [
+                        {
+                            "ColName": "IBD Number",
+                            "ColProperty": "IBDNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PL Quantity",
+                            "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile24",
+                    "Header": "Shipment Milestone Updates",
+                    "SubHeader": "Not Applicable",
+                    "IBDNumber": "72501",
+                    "IBDQty": 46,
+                    "POQty": 34,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": false,
+                    "Cols": [
+                        {
+                            "ColName": "IBD Number",
+                            "ColProperty": "IBDNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile05",
+                    "Header": "Goods Reciept",
+                    "SubHeader": "Not Applicable",
+                    "POLineNumber": "63753",
+                    "IBDQty": 56,
+                    "POQty": 46,
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": false,
+                    "Cols": [
+                        {
+                            "ColName": "PO Line Number",
+                            "ColProperty": "POLineNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile06",
+                    "Header": "Vendor Invoice",
+                    "SubHeader": "Not Applicable",
+                    "POLineNumber": "67389",
+                    "GRQty": 56,
+                    "InvoicedQty": 46,
+                    "ShippedQty": 49,
+                    "InvoicedAmt": 6735,
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": false,
+                    "Cols": [
+                        {
+                            "ColName": "PO Line Number",
+                            "ColProperty": "POLineNumber"
+                        },
+                        {
+                            "ColName": "GR Quantity",
+                            "ColProperty": "GRQty"
+                        },
+                        {
+                            "ColName": "Invoiced Quantity",
+                            "ColProperty": "InvoicedQty"
+                        },
+                        {
+                            "ColName": "Shipped Quantity",
+                            "ColProperty": "ShippedQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "RowNo": "4",
+            "Tiles": [
+                {
+                    "Name": "Tile30",
+                    "Header": "OA Creation",
+                    "SubHeader": "# or % failures",
+                    "OANumber": "98234",
+                    "ForecastQty": 85,
+                    "ForecastAmt": 9823,
+                    "OAAmt": 2353,
+                    "PC9": "00501-0422",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "OA Number",
+                            "ColProperty": "OANumber"
+                        },
+                        {
+                            "ColName": "Forecast Quantity",
+                            "ColProperty": "ForecastQty"
+                        },
+                        {
+                            "ColName": "Forecast Amount",
+                            "ColProperty": "ForecastAmt"
+                        },
+                        {
+                            "ColName": "OA Amount",
+                            "ColProperty": "OAAmt"
+                        },
+                        {
+                            "ColName": "PC9",
+                            "ColProperty": "PC9"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile31",
+                    "Header": "PO Issuance",
+                    "SubHeader": "# or % failures",
+                    "PONumber": "23594",
+                    "ForecastQty": 45,
+                    "ForecastAmt": 2374,
+                    "POQty": 34,
+                    "POAmt": 1233,
+                    "PC9": "00501-0422",
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PO Number",
+                            "ColProperty": "PONumber"
+                        },
+                        {
+                            "ColName": "Forecast Quantity",
+                            "ColProperty": "ForecastQty"
+                        },
+                        {
+                            "ColName": "Forecast Amount",
+                            "ColProperty": "ForecastAmt"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PO Amount",
+                            "ColProperty": "POAmt"
+                        },
+                        {
+                            "ColName": "PC9",
+                            "ColProperty": "PC9"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile32",
+                    "Header": "Packing List Creation",
+                    "SubHeader": "Not Applicable",
+                    "PLNumber": "87378",
+                    "POQty": 54,
+                    "PLQty": 44,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": false,
+                    "Cols": [
+                        {
+                            "ColName": "PL Number",
+                            "ColProperty": "PLNumber"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PL Quantity",
+                            "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile33",
+                    "Header": "IBD Creation",
+                    "SubHeader": "# or % failures",
+                    "IBDNumber": "63747",
+                    "IBDQty": 46,
+                    "POQty": 64,
+                    "PLQty": 46,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "IBD Number",
+                            "ColProperty": "IBDNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PL Quantity",
+                            "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile34",
+                    "Header": "Shipment Milestone Updates",
+                    "SubHeader": "# or % failures",
+                    "IBDNumber": "72601",
+                    "IBDQty": 46,
+                    "POQty": 34,
+                    "PC13": "PC13-Test",
+                    "PPK": "X",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "IBD Number",
+                            "ColProperty": "IBDNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile35",
+                    "Header": "Goods Reciept",
+                    "SubHeader": "# or % failures",
+                    "POLineNumber": "63253",
+                    "IBDQty": 56,
+                    "POQty": 46,
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PO Line Number",
+                            "ColProperty": "POLineNumber"
+                        },
+                        {
+                            "ColName": "IBD Quantity",
+                            "ColProperty": "IBDQty"
+                        },
+                        {
+                            "ColName": "PO Quantity",
+                            "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Tile36",
+                    "Header": "Vendor Invoice",
+                    "SubHeader": "# or % failures",
+                    "POLineNumber": "67489",
+                    "GRQty": 56,
+                    "InvoicedQty": 46,
+                    "ShippedQty": 49,
+                    "InvoicedAmt": 6735,
+                    "PC13": "PC13-Test",
+                    "PPK": "",
+                    "Season": "",
+                    "Enabled": true,
+                    "Cols": [
+                        {
+                            "ColName": "PO Line Number",
+                            "ColProperty": "POLineNumber"
+                        },
+                        {
+                            "ColName": "GR Quantity",
+                            "ColProperty": "GRQty"
+                        },
+                        {
+                            "ColName": "Invoiced Quantity",
+                            "ColProperty": "InvoicedQty"
+                        },
+                        {
+                            "ColName": "Shipped Quantity",
+                            "ColProperty": "ShippedQty"
+                        },
+                        {
+                            "ColName": "PC13",
+                            "ColProperty": "PC13"
+                        },
+                        {
+                            "ColName": "Pre-Pack",
+                            "ColProperty": "PPK"
+                        },
+                        {
+                            "ColName": "Season",
+                            "ColProperty": "Season"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Seasons": [
+        {
+            "region": "US",
+            "name": "H1 22/H1 22 LEVIS US"
+        },
+        {
+            "region": "US",
+            "name": "H1 22/H1 22 DOCKERS US"
+        },
+        {
+            "region": "US",
+            "name": "H1 22/H1 22 DENIZEN US"
+        },
+        {
+            "region": "US",
+            "name": "H1 22/H1 22 SIG US"
+        },
+        {
+            "region": "MX",
+            "name": "H1 22/H1 22 LEVIS MX"
+        },
+        {
+            "region": "MX",
+            "name": "H1 22/H1 22 DOCKERS MX"
+        },
+        {
+            "region": "MX",
+            "name": "H1 22/H1 22 DENIZEN MX"
+        },
+        {
+            "region": "MX",
+            "name": "H1 22/H1 22 SIG MX"
+        },
+        {
+            "region": "CA",
+            "name": "H1 22/H1 22 LEVIS CA"
+        },
+        {
+            "region": "CA",
+            "name": "H1 22/H1 22 DOCKERS CA"
+        },
+        {
+            "region": "CA",
+            "name": "H1 22/H1 22 DENIZEN CA"
+        },
+        {
+            "region": "CA",
+            "name": "H1 22/H1 22 SIG CA"
+        },
+        {
+            "region": "US",
+            "name": "H2 22/H2 22 LEVIS US"
+        },
+        {
+            "region": "US",
+            "name": "H2 22/H2 22 DOCKERS US"
+        },
+        {
+            "region": "US",
+            "name": "H2 22/H2 22 DENIZEN US"
+        },
+        {
+            "region": "US",
+            "name": "H2 22/H2 22 SIG US"
+        },
+        {
+            "region": "MX",
+            "name": "H2 22/H2 22 LEVIS MX"
+        },
+        {
+            "region": "MX",
+            "name": "H2 22/H2 22 DOCKERS MX"
+        },
+        {
+            "region": "MX",
+            "name": "H2 22/H2 22 DENIZEN MX"
+        },
+        {
+            "region": "MX",
+            "name": "H2 22/H2 22 SIG MX"
+        },
+        {
+            "region": "CA",
+            "name": "H2 22/H2 22 LEVIS CA"
+        },
+        {
+            "region": "CA",
+            "name": "H2 22/H2 22 DOCKERS CA"
+        },
+        {
+            "region": "CA",
+            "name": "H2 22/H2 22 DENIZEN CA"
+        },
+        {
+            "region": "CA",
+            "name": "H2 22/H2 22 SIG CA"
+        }
+    ],
     "Design": "Transparent",
-    "TimeRange": "PRS",
+    "TimeRange": "H1 22/H1 22 LEVIS US",
     "Region": "US",
-    "DateRangeText": "Showing for: Pre Season",
+    "DateRangeText": "Showing for: H1 22/H1 22 LEVIS US",
     "VendorCount": 0
 }
