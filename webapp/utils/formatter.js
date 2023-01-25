@@ -40,7 +40,7 @@ sap.ui.define(function () {
            var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
            var sText = "";
            if(Difference_In_Days === 0) {
-                sText = "Neutral";
+                sText = "Good";
             } else if (Difference_In_Days < 0) {
                sText = "Good";
             } else {
