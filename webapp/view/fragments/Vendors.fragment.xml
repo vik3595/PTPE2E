@@ -2,7 +2,7 @@
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core"
     xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-    <Dialog title="" titleAlignment="Center" contentWidth="30%" afterOpen="onAfterVendorDlgOpen">
+    <Dialog title="Select Vendors" titleAlignment="Center" contentWidth="30%" afterOpen="onAfterVendorDlgOpen">
         <content>
             <f:SimpleForm id="idVendorFilterForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="3" emptySpanL="3" emptySpanM="0" emptySpanS="0" columnsXL="6" columnsL="6" columnsM="12" singleContainerFullSize="false">
                 <f:content>

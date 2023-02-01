@@ -1867,8 +1867,14 @@
         }
     ],
     "Design": "Transparent",
-    "TimeRange": "H1 22/H1 22 LEVIS US",
-    "Region": "US",
-    "DateRangeText": "H1 22/H1 22 LEVIS US",
-    "VendorCount": 0
+    "Region": "All",
+    "Vendor": "All",
+    "Season": "All",
+    "DateRangeText": "All",
+    "RegionFilters": ["US", "CA", "MX"],
+    "CompCodeFilters": ["200", "207", "310", "333", "334", "335"],
+    "VendorCompCodeFilters": ["200", "207", "310", "333", "334", "335"],
+    "VendorFilters": ["100", "102", "103", "106", "108", "120", "121", "122", "124", "125", "IC200", "IC2007", "IC2008", "IC207", "IC231", "100375", "100408", "100413", "100477", "100495", "2000165", "2000198", "2000234", "2000295", "2000305"],
+    "DistCentersFilters": ["200", "207", "310", "333", "334", "335"],
+    "SeasonFilters": []
 }

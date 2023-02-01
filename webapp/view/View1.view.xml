@@ -13,9 +13,10 @@
                     <OverflowToolbar>
                         <core:Icon src="sap-icon://menu2" press="onNavigateToMaster" visible="{device>/system/phone}"/>
                         <ToolbarSpacer />
-                        <GenericTag text="Region: {DemoData>/Region}" design="StatusIconHidden" status="Information" press="openRegionSelection"/>
-                        <GenericTag text="Vendor Selections: {DemoData>/VendorCount}" design="StatusIconHidden" status="Information" press="openVendorFilter"/>
-                        <GenericTag text="Season: {DemoData>/DateRangeText}" design="StatusIconHidden" status="Information" press="openTimeFilter"/>
+                        <GenericTag id="idRegionTag" text="Region: {DemoData>/Region}" design="Full" status="{= ${DemoData>/Region} === 'All' ? 'Success' : 'Information'}" press="openRegionSelection" class="genericTagCls"/>
+                        <GenericTag id="idVendorTag" text="Vendor: {DemoData>/Vendor}" design="Full" status="{= ${DemoData>/Vendor} === 'All' ? 'Success' : 'Information'}" press="openVendorFilter" class="genericTagCls"/>
+                        <GenericTag id="idSeasonTag" text="Season: {DemoData>/Season}" design="Full" status="{= ${DemoData>/Season} === 'All' ? 'Success' : 'Information'}" press="openTimeFilter" class="genericTagCls"/>
+                        <Button id="idHintButton" type="Attention" icon="sap-icon://hint" press="onHintBtnPress"/>
                     </OverflowToolbar>
                 </customHeader>
                 <content>

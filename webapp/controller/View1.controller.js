@@ -27,6 +27,22 @@ sap.ui.define([
                 this._currentDetailStyle = "dtlPageBgDC";
                 this.getView().byId("idMasterList").setSelectedItem(this.getView().byId("idMasterList").getItems()[0]);
             },
+            onAfterRendering: function () {
+                this._updateStatusIcon();
+                this.getView().byId("idHintButton").firePress();
+            },
+            _updateStatusIcon: function () {
+                this.getView().byId("idRegionTag").getAggregation("_statusIcon").setSrc("sap-icon://world")
+                this.getView().byId("idVendorTag").getAggregation("_statusIcon").setSrc("sap-icon://retail-store")
+                this.getView().byId("idSeasonTag").getAggregation("_statusIcon").setSrc("sap-icon://calendar")
+            },
+            onHintBtnPress: function (oEvt) {
+                if (!this._oPopover) {
+                    this._oPopover = sap.ui.xmlfragment("idInfoPopover", "com.levi.ptpe2e.view.fragments.Information", this);
+                    this.getView().addDependent(this._oPopover);
+                }
+                this._oPopover.openBy(oEvt.getSource());
+            },
             _getValueColor: function (sValue) {
                 if (sValue >= 75) {
                     return "Good";
@@ -53,9 +69,41 @@ sap.ui.define([
                 }
                 this._oRegionOptionDlg.open();
             },
+            onAfterRegionDialogOpen: function () {
+                var oDemoDataModel = this.getOwnerComponent().getModel("DemoData");
+                var oRegionComboBox = sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectRegions");
+                var oCompCodeComboBox = sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectCompCode");
+                var oDistCenterComboBox = sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectDistCenter");
+                var aRegKeys = oDemoDataModel.getProperty("/RegionFilters"),
+                    aCompCodeKeys = oDemoDataModel.getProperty("/CompCodeFilters"),
+                    aDistCenterKeys = oDemoDataModel.getProperty("/DistCentersFilters");
+                oRegionComboBox.setSelectedKeys(aRegKeys);
+                var aTemp = [];
+                for (var i = 0; i < aRegKeys.length; i++) {
+                    aTemp = aTemp.concat(oDemoDataModel.getProperty("/AllRegions").filter(function (oItem) {
+                        return oItem.region === aRegKeys[i]
+                    })[0].CompanyCodes);
+                }
+                aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
+                    t.name === value.name
+                )));
+                oDemoDataModel.setProperty("/RegionCompCodes", aTemp);
+                var aTemp1 = [];
+                aTemp.forEach(function (oItem) {
+                    aTemp1 = aTemp1.concat(oItem.DistCenters);
+                });
+                oCompCodeComboBox.setSelectedKeys(aCompCodeKeys);
+                aTemp1 = aTemp1.filter((value, index, self) => index === self.findIndex((t) => (
+                    t.name === value.name
+                )));
+                oDemoDataModel.setProperty("/RegionDistCenters", aTemp1);
+                oDistCenterComboBox.setSelectedKeys(aDistCenterKeys);
+            },
             onApplyRegionFilter: function () {
                 var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
-                    oRegionComboBox = sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectRegions");
+                    oRegionComboBox = sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectRegions"),
+                    oCompCodeComboBox = sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectCompCode"),
+                    oDistCenterComboBox = sap.ui.core.Fragment.byId("idRegionOptionDlg", "idSelectDistCenter");
                 if (oRegionComboBox.getSelectedItems().length === 0) {
                     MessageBox.error("Please Select Region");
                     return;
@@ -75,8 +123,24 @@ sap.ui.define([
                 } else {
                     oDemoDataModel.setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/" + sText));
                 }
+                var aRegionKeys = [],
+                    aCompCodeKeys = [],
+                    aDistCenterKeys = [];
+                oRegionComboBox.getSelectedItems().forEach(function (oItem) {
+                    aRegionKeys.push(oItem.getKey());
+                });
+                oCompCodeComboBox.getSelectedItems().forEach(function (oItem) {
+                    aCompCodeKeys.push(oItem.getKey());
+                });
+                oDistCenterComboBox.getSelectedItems().forEach(function (oItem) {
+                    aDistCenterKeys.push(oItem.getKey());
+                });
+                oDemoDataModel.setProperty("/RegionFilters", aRegionKeys);
+                oDemoDataModel.setProperty("/CompCodeFilters", aCompCodeKeys);
+                oDemoDataModel.setProperty("/DistCentersFilters", aDistCenterKeys);
                 this._refreshRandomData();
                 this._oRegionOptionDlg.close();
+                this._updateStatusIcon();
             },
             onCancelRegionDialog: function () {
                 this._oRegionOptionDlg.close();
@@ -91,20 +155,20 @@ sap.ui.define([
             onAfterTimeFilterOpen: function () {
                 var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
                     oSelect = sap.ui.core.Fragment.byId("idTimeRangeDlg", "idSelectSeason"),
-                    sRegion = oDemoDataModel.getProperty("/Region"),
+                    aRegionKeys = oDemoDataModel.getProperty("/RegionFilters"),
+                    aSeasonKeys = oDemoDataModel.getProperty("/SeasonFilters"),
                     aFilter = [];
-                if (sRegion === "All") {
-                    aFilter.push(new Filter("region", FilterOperator.EQ, "US"));
-                    aFilter.push(new Filter("region", FilterOperator.EQ, "CA"));
-                    aFilter.push(new Filter("region", FilterOperator.EQ, "MX"));
-                } else {
-                    var aRegionKey = sRegion.split(", ");
-                    for (var i = 0; i < aRegionKey.length; i++) {
-                        aFilter.push(new Filter("region", FilterOperator.EQ, aRegionKey[i]));
-                    }
+                for (var i = 0; i < aRegionKeys.length; i++) {
+                    aFilter.push(new Filter("region", FilterOperator.EQ, aRegionKeys[i]));
                 }
                 var aAllFilter = new Filter(aFilter, false);
                 oSelect.getBinding("items").filter(aAllFilter);
+                if (aSeasonKeys.length === 0) {
+                    oSelect.getItems().forEach(function (oItem) {
+                        aSeasonKeys.push(oItem.getKey());
+                    });
+                }
+                oSelect.setSelectedKeys(aSeasonKeys);
             },
             openVendorFilter: function () {
                 if (!this._oVendorFilterDlg) {
@@ -115,33 +179,33 @@ sap.ui.define([
             },
             onAfterVendorDlgOpen: function (oEvt) {
                 var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
+                    oCompCodeComboBox = sap.ui.core.Fragment.byId("idVendorDlg", "idSelectCompCode"),
+                    oVendorComboBox = sap.ui.core.Fragment.byId("idVendorDlg", "idSelectVendor"),
                     aAllRegions = oDemoDataModel.getProperty("/AllRegions"),
-                    sRegion = oDemoDataModel.getProperty("/Region"),
+                    aRegionKeys = oDemoDataModel.getProperty("/RegionFilters"),
                     aTemp = [];
-                if (sRegion === "All") {
-                    for (var i = 0; i < aAllRegions.length; i++) {
-                        aTemp = aTemp.concat(aAllRegions[i].CompanyCodes);
-                    }
-                    aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
-                        t.name === value.name
-                    )));
-                    oDemoDataModel.setProperty("/VendorCompCodes", aTemp);
-                } else {
-                    var aRegionKey = sRegion.split(", ");
-                    for (var i = 0; i < aRegionKey.length; i++) {
-                        for (var j = 0; j < aAllRegions.length; j++) {
-                            if (aAllRegions[j].region === aRegionKey[i]) {
-                                aTemp = aTemp.concat(aAllRegions[i].CompanyCodes);
-                                break;
-                            }
+                for (var i = 0; i < aRegionKeys.length; i++) {
+                    for (var j = 0; j < aAllRegions.length; j++) {
+                        if (aAllRegions[j].region === aRegionKeys[i]) {
+                            aTemp = aTemp.concat(aAllRegions[i].CompanyCodes);
+                            break;
                         }
                     }
-                    aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
-                        t.name === value.name
-                    )));
-                    oDemoDataModel.setProperty("/VendorCompCodes", aTemp);
                 }
-                oEvt.getSource().setTitle("Select Vendors for " + sRegion + " region");
+                aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
+                    t.name === value.name
+                )));
+                oDemoDataModel.setProperty("/VendorCompCodes", aTemp);
+                oCompCodeComboBox.setSelectedKeys(oDemoDataModel.getProperty("/VendorCompCodeFilters"));
+                var aTemp1 = [];
+                aTemp.forEach(function (oItem) {
+                    aTemp1 = aTemp1.concat(oItem.Vendors);
+                });
+                aTemp1 = aTemp1.filter((value, index, self) => index === self.findIndex((t) => (
+                    t.name === value.name
+                )));
+                oDemoDataModel.setProperty("/Vendors", aTemp1);
+                oVendorComboBox.setSelectedKeys(oDemoDataModel.getProperty("/VendorFilters"));
             },
             onCompCodeChangeForVendor: function (oEvt) {
                 var aSelectedItems = oEvt.getParameter("selectedItems"),
@@ -194,19 +258,51 @@ sap.ui.define([
                 }
             },
             onApplyVendorSelection: function () {
-                var iLength = sap.ui.core.Fragment.byId("idVendorDlg", "idSelectVendor").getSelectedItems().length;
-                this.getOwnerComponent().getModel("DemoData").setProperty("/VendorCount", iLength);
+                var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
+                    oCompCodeComboBox = sap.ui.core.Fragment.byId("idVendorDlg", "idSelectCompCode"),
+                    oVendorComboBox = sap.ui.core.Fragment.byId("idVendorDlg", "idSelectVendor"),
+                    aCompCodeKeys = [],
+                    aVendorKeys = [];
+                oCompCodeComboBox.getSelectedItems().forEach(function (oItem) {
+                    aCompCodeKeys.push(oItem.getKey());
+                });
+                oVendorComboBox.getSelectedItems().forEach(function (oItem) {
+                    aVendorKeys.push(oItem.getKey());
+                });
+                oDemoDataModel.setProperty("/VendorCompCodeFilters", aCompCodeKeys);
+                oDemoDataModel.setProperty("/VendorFilters", aVendorKeys);
+                if (oVendorComboBox.getItems().length === oVendorComboBox.getSelectedItems().length) {
+                    oDemoDataModel.setProperty("/Vendor", "All");
+                } else {
+                    oDemoDataModel.setProperty("/Vendor", oVendorComboBox.getSelectedItems().length);
+                }
                 this._oVendorFilterDlg.close();
                 this._refreshRandomData();
+                this._updateStatusIcon();
             },
             onCancelVendorDialog: function () {
                 this._oVendorFilterDlg.close();
             },
             onApplyTimeFilter: function () {
-                var sTimeRange = this.getOwnerComponent().getModel("DemoData").getProperty("/TimeRange");
-                this.getOwnerComponent().getModel("DemoData").setProperty("/DateRangeText", sTimeRange);
+                var oSelect = sap.ui.core.Fragment.byId("idTimeRangeDlg", "idSelectSeason"),
+                    oDemoDataModel = this.getOwnerComponent().getModel("DemoData");
+                if (oSelect.getSelectedItems().length === 0) {
+                    MessageBox.error("Please select atleast one season to proceed");
+                    return;
+                }
+                if (oSelect.getItems().length === oSelect.getSelectedItems().length) {
+                    oDemoDataModel.setProperty("/Season", "All");
+                } else {
+                    oDemoDataModel.setProperty("/Season", oSelect.getSelectedItems().length);
+                }
+                var aSeasonKeys = [];
+                oSelect.getSelectedItems().forEach(function (oItem) {
+                    aSeasonKeys.push(oItem.getKey());
+                });
+                oDemoDataModel.setProperty("/SeasonFilters", aSeasonKeys);
                 this._oTimeRangeDlg.close();
                 this._refreshRandomData();
+                this._updateStatusIcon();
             },
             onCancelTimeFilter: function () {
                 this._oTimeRangeDlg.close();
