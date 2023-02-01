@@ -48,6 +48,21 @@ sap.ui.define(function () {
            }
            return sText;
 		},
+		getIndicator: function (iValue1, iValue2) {
+           var oDate1 = new Date(iValue1);
+           var oDate2 = new Date(iValue2);
+           var Difference_In_Time = oDate2.getTime() - oDate1.getTime();
+           var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+           var sText = "";
+           if(Difference_In_Days === 0) {
+                sText = "None";
+            } else if (Difference_In_Days < 0) {
+               sText = "Up";
+            } else {
+               sText = "Down";
+           }
+           return sText;
+		},
         _getValueColor: function(iValue1, iValue2) {
             var iPercentage;
             if(iValue1 && iValue2) {

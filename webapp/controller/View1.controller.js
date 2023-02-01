@@ -28,13 +28,7 @@ sap.ui.define([
                 this.getView().byId("idMasterList").setSelectedItem(this.getView().byId("idMasterList").getItems()[0]);
             },
             onAfterRendering: function () {
-                this._updateStatusIcon();
                 this.getView().byId("idHintButton").firePress();
-            },
-            _updateStatusIcon: function () {
-                this.getView().byId("idRegionTag").getAggregation("_statusIcon").setSrc("sap-icon://world")
-                this.getView().byId("idVendorTag").getAggregation("_statusIcon").setSrc("sap-icon://retail-store")
-                this.getView().byId("idSeasonTag").getAggregation("_statusIcon").setSrc("sap-icon://calendar")
             },
             onHintBtnPress: function (oEvt) {
                 if (!this._oPopover) {
@@ -140,7 +134,6 @@ sap.ui.define([
                 oDemoDataModel.setProperty("/DistCentersFilters", aDistCenterKeys);
                 this._refreshRandomData();
                 this._oRegionOptionDlg.close();
-                this._updateStatusIcon();
             },
             onCancelRegionDialog: function () {
                 this._oRegionOptionDlg.close();
@@ -165,7 +158,9 @@ sap.ui.define([
                 oSelect.getBinding("items").filter(aAllFilter);
                 if (aSeasonKeys.length === 0) {
                     oSelect.getItems().forEach(function (oItem) {
-                        aSeasonKeys.push(oItem.getKey());
+                        if(oItem.getBindingContext("DemoData").getObject().key === "H2 22" || oItem.getBindingContext("DemoData").getObject().key === "H1 23") {
+                            aSeasonKeys.push(oItem.getKey());
+                        }
                     });
                 }
                 oSelect.setSelectedKeys(aSeasonKeys);
@@ -278,7 +273,6 @@ sap.ui.define([
                 }
                 this._oVendorFilterDlg.close();
                 this._refreshRandomData();
-                this._updateStatusIcon();
             },
             onCancelVendorDialog: function () {
                 this._oVendorFilterDlg.close();
@@ -302,7 +296,6 @@ sap.ui.define([
                 oDemoDataModel.setProperty("/SeasonFilters", aSeasonKeys);
                 this._oTimeRangeDlg.close();
                 this._refreshRandomData();
-                this._updateStatusIcon();
             },
             onCancelTimeFilter: function () {
                 this._oTimeRangeDlg.close();
@@ -332,10 +325,13 @@ sap.ui.define([
                     sPath = sPath.slice(0, sPath.lastIndexOf("/"));
                 }
                 var oSelObj = oDemoDataModel.getProperty(sPath),
-                    aCols = oSelObj.Cols,
-                    sTimeRange = oDemoDataModel.getProperty("/TimeRange");
-                var sValidFrom = sTimeRange.slice(0, 2) === "H1" ? "01/01/2022" : "07/01/2022";
-                oSelObj.Season = sTimeRange;
+                    aCols = oSelObj.Cols;
+                if(oDemoDataModel.getProperty("/SeasonFilters").length > 0) {
+                    oSelObj.Season = oDemoDataModel.getProperty("/SeasonFilters")[0];
+                } else {
+                    oSelObj.Season = "H2 22/H2 22 LEVIS US";
+                }
+                var sValidFrom = oSelObj.Season.slice(0, 2) === "H1" ? "01/01/2022" : "07/01/2022";
                 oSelObj.ValidFrom = sValidFrom;
                 oSelObj.ValidTo = "12/31/9999";
                 if (!this._oTestDlg) {

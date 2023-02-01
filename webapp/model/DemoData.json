@@ -1771,105 +1771,189 @@
     "Seasons": [
         {
             "region": "US",
-            "name": "H1 22/H1 22 LEVIS US"
+            "name": "H1 22/H1 22 LEVIS US",
+            "key": "H1 22"
         },
         {
             "region": "US",
-            "name": "H1 22/H1 22 DOCKERS US"
+            "name": "H1 22/H1 22 DOCKERS US",
+            "key": "H1 22"
         },
         {
             "region": "US",
-            "name": "H1 22/H1 22 DENIZEN US"
+            "name": "H1 22/H1 22 DENIZEN US",
+            "key": "H1 22"
         },
         {
             "region": "US",
-            "name": "H1 22/H1 22 SIG US"
+            "name": "H1 22/H1 22 SIG US",
+            "key": "H1 22"
         },
         {
             "region": "MX",
-            "name": "H1 22/H1 22 LEVIS MX"
+            "name": "H1 22/H1 22 LEVIS MX",
+            "key": "H1 22"
         },
         {
             "region": "MX",
-            "name": "H1 22/H1 22 DOCKERS MX"
+            "name": "H1 22/H1 22 DOCKERS MX",
+            "key": "H1 22"
         },
         {
             "region": "MX",
-            "name": "H1 22/H1 22 DENIZEN MX"
+            "name": "H1 22/H1 22 DENIZEN MX",
+            "key": "H1 22"
         },
         {
             "region": "MX",
-            "name": "H1 22/H1 22 SIG MX"
+            "name": "H1 22/H1 22 SIG MX",
+            "key": "H1 22"
         },
         {
             "region": "CA",
-            "name": "H1 22/H1 22 LEVIS CA"
+            "name": "H1 22/H1 22 LEVIS CA",
+            "key": "H1 22"
         },
         {
             "region": "CA",
-            "name": "H1 22/H1 22 DOCKERS CA"
+            "name": "H1 22/H1 22 DOCKERS CA",
+            "key": "H1 22"
         },
         {
             "region": "CA",
-            "name": "H1 22/H1 22 DENIZEN CA"
+            "name": "H1 22/H1 22 DENIZEN CA",
+            "key": "H1 22"
         },
         {
             "region": "CA",
-            "name": "H1 22/H1 22 SIG CA"
+            "name": "H1 22/H1 22 SIG CA",
+            "key": "H1 22"
         },
         {
             "region": "US",
-            "name": "H2 22/H2 22 LEVIS US"
+            "name": "H2 22/H2 22 LEVIS US",
+            "key": "H2 22"
         },
         {
             "region": "US",
-            "name": "H2 22/H2 22 DOCKERS US"
+            "name": "H2 22/H2 22 DOCKERS US",
+            "key": "H2 22"
         },
         {
             "region": "US",
-            "name": "H2 22/H2 22 DENIZEN US"
+            "name": "H2 22/H2 22 DENIZEN US",
+            "key": "H2 22"
         },
         {
             "region": "US",
-            "name": "H2 22/H2 22 SIG US"
+            "name": "H2 22/H2 22 SIG US",
+            "key": "H2 22"
         },
         {
             "region": "MX",
-            "name": "H2 22/H2 22 LEVIS MX"
+            "name": "H2 22/H2 22 LEVIS MX",
+            "key": "H2 22"
         },
         {
             "region": "MX",
-            "name": "H2 22/H2 22 DOCKERS MX"
+            "name": "H2 22/H2 22 DOCKERS MX",
+            "key": "H2 22"
         },
         {
             "region": "MX",
-            "name": "H2 22/H2 22 DENIZEN MX"
+            "name": "H2 22/H2 22 DENIZEN MX",
+            "key": "H2 22"
         },
         {
             "region": "MX",
-            "name": "H2 22/H2 22 SIG MX"
+            "name": "H2 22/H2 22 SIG MX",
+            "key": "H2 22"
         },
         {
             "region": "CA",
-            "name": "H2 22/H2 22 LEVIS CA"
+            "name": "H2 22/H2 22 LEVIS CA",
+            "key": "H2 22"
         },
         {
             "region": "CA",
-            "name": "H2 22/H2 22 DOCKERS CA"
+            "name": "H2 22/H2 22 DOCKERS CA",
+            "key": "H2 22"
         },
         {
             "region": "CA",
-            "name": "H2 22/H2 22 DENIZEN CA"
+            "name": "H2 22/H2 22 DENIZEN CA",
+            "key": "H2 22"
         },
         {
             "region": "CA",
-            "name": "H2 22/H2 22 SIG CA"
+            "name": "H2 22/H2 22 SIG CA",
+            "key": "H2 22"
+        },
+        {
+            "region": "US",
+            "name": "H1 23/H1 23 LEVIS US",
+            "key": "H1 23"
+        },
+        {
+            "region": "US",
+            "name": "H1 23/H1 23 DOCKERS US",
+            "key": "H1 23"
+        },
+        {
+            "region": "US",
+            "name": "H1 23/H1 23 DENIZEN US",
+            "key": "H1 23"
+        },
+        {
+            "region": "US",
+            "name": "H1 23/H1 23 SIG US",
+            "key": "H1 23"
+        },
+        {
+            "region": "MX",
+            "name": "H1 23/H1 23 LEVIS MX",
+            "key": "H1 23"
+        },
+        {
+            "region": "MX",
+            "name": "H1 23/H1 23 DOCKERS MX",
+            "key": "H1 23"
+        },
+        {
+            "region": "MX",
+            "name": "H1 23/H1 23 DENIZEN MX",
+            "key": "H1 23"
+        },
+        {
+            "region": "MX",
+            "name": "H1 23/H1 23 SIG MX",
+            "key": "H1 23"
+        },
+        {
+            "region": "CA",
+            "name": "H1 23/H1 23 LEVIS CA",
+            "key": "H1 23"
+        },
+        {
+            "region": "CA",
+            "name": "H1 23/H1 23 DOCKERS CA",
+            "key": "H1 23"
+        },
+        {
+            "region": "CA",
+            "name": "H1 23/H1 23 DENIZEN CA",
+            "key": "H1 23"
+        },
+        {
+            "region": "CA",
+            "name": "H1 23/H1 23 SIG CA",
+            "key": "H1 23"
         }
     ],
     "Design": "Transparent",
     "Region": "All",
     "Vendor": "All",
-    "Season": "All",
+    "Season": "Last 365 Days",
     "DateRangeText": "All",
     "RegionFilters": ["US", "CA", "MX"],
     "CompCodeFilters": ["200", "207", "310", "333", "334", "335"],

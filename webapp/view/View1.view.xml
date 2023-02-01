@@ -13,10 +13,13 @@
                     <OverflowToolbar>
                         <core:Icon src="sap-icon://menu2" press="onNavigateToMaster" visible="{device>/system/phone}"/>
                         <ToolbarSpacer />
-                        <GenericTag id="idRegionTag" text="Region: {DemoData>/Region}" design="Full" status="{= ${DemoData>/Region} === 'All' ? 'Success' : 'Information'}" press="openRegionSelection" class="genericTagCls"/>
-                        <GenericTag id="idVendorTag" text="Vendor: {DemoData>/Vendor}" design="Full" status="{= ${DemoData>/Vendor} === 'All' ? 'Success' : 'Information'}" press="openVendorFilter" class="genericTagCls"/>
-                        <GenericTag id="idSeasonTag" text="Season: {DemoData>/Season}" design="Full" status="{= ${DemoData>/Season} === 'All' ? 'Success' : 'Information'}" press="openTimeFilter" class="genericTagCls"/>
-                        <Button id="idHintButton" type="Attention" icon="sap-icon://hint" press="onHintBtnPress"/>
+                        <Button text="Region: {DemoData>/Region}" type="{= ${DemoData>/Region} === 'All' ? 'Success' : 'Ghost'}" icon="sap-icon://map" press="openRegionSelection"/>
+                        <Button text="Vendor: {DemoData>/Vendor}" type="{= ${DemoData>/Vendor} === 'All' ? 'Success' : 'Ghost'}" icon="sap-icon://retail-store" press="openVendorFilter"/>
+                        <Button text="Season: {DemoData>/Season}" type="{= ${DemoData>/Season} === 'Last 365 Days' ? 'Success' : 'Ghost'}" icon="sap-icon://calendar" press="openTimeFilter"/>
+                        <!-- <GenericTag text="Region: {DemoData>/Region}" design="StatusIconHidden" status="{= ${DemoData>/Region} === 'All' ? 'Success' : 'Information'}" press="openRegionSelection" class="genericTagCls"/>
+                        <GenericTag text="Vendor: {DemoData>/Vendor}" design="StatusIconHidden" status="{= ${DemoData>/Vendor} === 'All' ? 'Success' : 'Information'}" press="openVendorFilter" class="genericTagCls"/>
+                        <GenericTag text="Season: {DemoData>/Season}" design="StatusIconHidden" status="{= ${DemoData>/Season} === 'All' ? 'Success' : 'Information'}" press="openTimeFilter" class="genericTagCls"/> -->
+                        <Button id="idHintButton" type="Default" icon="sap-icon://hint" press="onHintBtnPress"/>
                     </OverflowToolbar>
                 </customHeader>
                 <content>
@@ -137,7 +140,7 @@
                                         <TileContent>
                                             <content>
                                                 <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
-                                                    <NumericContent value="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDifference'}" scale="Days" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateValueColor'}" indicator="None" width="100%"/>
+                                                    <NumericContent value="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDifference'}" scale="Days" indicator="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.getIndicator'}" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateValueColor'}" width="100%"/>
                                                 </HBox>
                                             </content>
                                         </TileContent>
@@ -382,7 +385,7 @@
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/1/POQty', 'DemoData>/TilesData/1/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/1/POQty', 'DemoData>/TilesData/1/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/3/PLQty', 'DemoData>/TilesData/1/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/3/PLQty', 'DemoData>/TilesData/1/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress"/>
-                                        <NumericContent value="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDifference'}" scale="Days" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateValueColor'}" indicator="None" width="100%" withMargin="false" custom:type="NC" press="onTestTilePress"/>
+                                        <NumericContent value="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDifference'}" scale="Days" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateValueColor'}" indicator="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.getIndicator'}" width="100%" withMargin="false" custom:type="NC" press="onTestTilePress"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/5/POQty', 'DemoData>/TilesData/1/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/5/POQty', 'DemoData>/TilesData/1/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress"/>
                                         <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
                                     </cells>
