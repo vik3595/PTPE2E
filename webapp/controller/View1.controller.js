@@ -250,6 +250,7 @@ sap.ui.define([
                 var oModel = new sap.ui.model.json.JSONModel([oSelObj]);
                 var oTable = sap.ui.core.Fragment.byId("idTestTileDlg", "idTestTable");
                 var oCell = [];
+                oTable.destroyColumns();
                 oTable.setModel(oModel);
                 for (var i = 0; i < aCols.length; i++) {
                     oTable.addColumn(new sap.m.Column({
