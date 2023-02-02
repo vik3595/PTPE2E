@@ -27,9 +27,6 @@ sap.ui.define([
                 this._currentDetailStyle = "dtlPageBgDC";
                 this.getView().byId("idMasterList").setSelectedItem(this.getView().byId("idMasterList").getItems()[0]);
             },
-            onAfterRendering: function () {
-                this.getView().byId("idHintButton").firePress();
-            },
             onHintBtnPress: function (oEvt) {
                 if (!this._oPopover) {
                     this._oPopover = sap.ui.xmlfragment("idInfoPopover", "com.levi.ptpe2e.view.fragments.Information", this);
