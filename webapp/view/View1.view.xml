@@ -16,15 +16,13 @@
                         <Button text="Region: {DemoData>/Region}" type="{= ${DemoData>/Region} === 'All' ? 'Success' : 'Ghost'}" icon="sap-icon://map" press="openRegionSelection"/>
                         <Button text="Vendor: {DemoData>/Vendor}" type="{= ${DemoData>/Vendor} === 'All' ? 'Success' : 'Ghost'}" icon="sap-icon://retail-store" press="openVendorFilter"/>
                         <Button text="Season: {DemoData>/Season}" type="{= ${DemoData>/Season} === 'Last 365 Days' ? 'Success' : 'Ghost'}" icon="sap-icon://calendar" press="openTimeFilter"/>
-                        <!-- <GenericTag text="Region: {DemoData>/Region}" design="StatusIconHidden" status="{= ${DemoData>/Region} === 'All' ? 'Success' : 'Information'}" press="openRegionSelection" class="genericTagCls"/>
-                        <GenericTag text="Vendor: {DemoData>/Vendor}" design="StatusIconHidden" status="{= ${DemoData>/Vendor} === 'All' ? 'Success' : 'Information'}" press="openVendorFilter" class="genericTagCls"/>
-                        <GenericTag text="Season: {DemoData>/Season}" design="StatusIconHidden" status="{= ${DemoData>/Season} === 'All' ? 'Success' : 'Information'}" press="openTimeFilter" class="genericTagCls"/> -->
                         <Button id="idHintButton" type="Default" icon="sap-icon://hint" press="onHintBtnPress"/>
                     </OverflowToolbar>
                 </customHeader>
                 <content>
                     <l:VerticalLayout width="100%" visible="{= (${DemoData>/Design} === 'Transparent' &amp;&amp; (${device>/system/desktop} || ${device>/system/tablet})) ? true : false}" class="sapUiResponsiveContentPadding">
-                        <Text text="Qty/Cost" class="txtCls"/>
+                        <!-- <Text text="Qty/Cost" class="txtCls"/> -->
+                        <GenericTag text="Qty/Cost" design="StatusIconHidden" status="None" class="tagTxtCls sapUiTinyMarginBegin"></GenericTag>
                         <HeaderContainer scrollStep="200">
                             <content>
                                 <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/0/Header}" subheader="{DemoData>/TilesData/0/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/0/Enabled}">
@@ -94,7 +92,8 @@
                                 </GenericTile>
                             </content>
                         </HeaderContainer>
-                        <Text text="On Time" class="txtCls"/>
+                        <!-- <Text text="On Time" class="txtCls"/> -->
+                        <GenericTag text="On Time" design="StatusIconHidden" status="None" class="tagTxtCls sapUiTinyMarginBegin"></GenericTag>
                         <HeaderContainer scrollStep="200">
                             <content>
                                 <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/0/Header}" subheader="{DemoData>/TilesData/1/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/0/Enabled}">
@@ -168,7 +167,8 @@
                                 </GenericTile>
                             </content>
                         </HeaderContainer>
-                        <Text text="Price Updates" class="txtCls"/>
+                        <!-- <Text text="Price Updates" class="txtCls"/> -->
+                        <GenericTag text="Price Updates" design="StatusIconHidden" status="None" class="tagTxtCls sapUiTinyMarginBegin"></GenericTag>
                         <HeaderContainer scrollStep="200">
                             <content>
                                 <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/0/Header}" subheader="{DemoData>/TilesData/2/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/0/Enabled}">
@@ -246,7 +246,8 @@
                                 </GenericTile>
                             </content>
                         </HeaderContainer>
-                        <Text text="Success Rate" class="txtCls"/>
+                        <!-- <Text text="Success Rate" class="txtCls"/> -->
+                        <GenericTag text="Success Rate" design="StatusIconHidden" status="None" class="tagTxtCls sapUiTinyMarginBegin"></GenericTag>
                         <HeaderContainer scrollStep="200">
                             <content>
                                 <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/0/Header}" subheader="{DemoData>/TilesData/3/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/0/Enabled}">
@@ -804,38 +805,41 @@
         </detailPages>
         <masterPages>
             <Page id="idMasterPage" showHeader="false" showFooter="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}" class="pageBg">
-                <!-- <VBox width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
-                    <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7" />
-                    <List class="listCls listIcon sapUiLargeMarginTop listTitleCls" mode="SingleSelectMaster" itemPress="onListItemPress">
-                        <StandardListItem icon="sap-icon://home-share" title="Vendor to DC" type="Active" class="sapUiSmallMarginTop" />
-                        <StandardListItem icon="sap-icon://customer" title="Vendor to Customer" type="Active" class="sapUiSmallMarginTopBottom" />
-                        <StandardListItem icon="sap-icon://retail-store" title="Vendor to Store" type="Active" />
+                <l:VerticalLayout width="100%" visible="{= ${DemoData>/MasterDesign} === 'Default' ? true : false}">
+                    <VBox visible="{= ${device>/system/desktop} || ${device>/system/tablet}}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
+                        <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7" />
+                        <List id="idMasterList" class="listCls listIcon sapUiLargeMarginTop listTitleCls" mode="SingleSelectMaster" itemPress="onListItemPress">
+                            <StandardListItem icon="sap-icon://home-share" title="Vendor to DC" type="Active" class="sapUiSmallMarginTop" custom:class="dtlPageBgDC"/>
+                            <StandardListItem icon="sap-icon://family-care" title="Vendor to Customer" type="Active" class="sapUiSmallMarginTopBottom" custom:class="dtlPageBgCustomer"/>
+                            <StandardListItem icon="sap-icon://retail-store" title="Vendor to Store" type="Active" custom:class="dtlPageBgDCVendor"/>
+                        </List>
+                    </VBox>
+                    <VBox visible="{device>/system/phone}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
+                        <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7"/>
+                        <List class="sapUiLargeMarginTop listTitleMobCls listIconMob" mode="SingleSelectMaster" itemPress="onListItemPress">
+                            <StandardListItem icon="sap-icon://home-share" title="Vendor to DC" type="Active" class="listItem1Cls" custom:class="dtlPageBgDC"/>
+                            <StandardListItem icon="sap-icon://family-care" title="Vendor to Customer" type="Active" class="listItem2Cls sapUiTinyMarginTopBottom" custom:class="dtlPageBgCustomer"/>
+                            <StandardListItem icon="sap-icon://retail-store" title="Vendor to Store" type="Active" class="listItem3Cls" custom:class="dtlPageBgDCVendor"/>
+                        </List>
+                    </VBox>
+                </l:VerticalLayout>
+                <l:VerticalLayout width="100%" visible="{= ${DemoData>/MasterDesign} === 'New' ? true : false}">
+                    <VBox visible="{= ${device>/system/desktop} || ${device>/system/tablet}}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vboxBgCls vBoxCls">
+                        <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7" />
+                        <Text text="{DemoData>/Region}" class="regionTxtCls sapUiTinyMarginTop"/>
+                        <Text text="{path: 'DemoData>/Region', formatter:'.formatter.getRegionDesc'}" class="regionDscTxtCls"/>
+                    </VBox>
+                    <List id="idMasterList2" mode="SingleSelectMaster" itemPress="onListItemPress" class="tempListCls tempListTitleCls tempListIcon">
+                        <StandardListItem icon="sap-icon://home-share" title="Vendor to Distribution Center" type="Navigation" custom:class="dtlPageBgDC"/>
+                        <StandardListItem icon="sap-icon://family-care" title="Vendor to Customer" type="Navigation" custom:class="dtlPageBgCustomer"/>
+                        <StandardListItem icon="sap-icon://retail-store" title="Vendor to Store" type="Navigation" custom:class="dtlPageBgDCVendor"/>
                     </List>
-                </VBox> -->
-
-                <VBox visible="{= ${device>/system/desktop} || ${device>/system/tablet}}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
-                    <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7" />
-                    <List id="idMasterList" class="listCls listIcon sapUiLargeMarginTop listTitleCls" mode="SingleSelectMaster" itemPress="onListItemPress">
-                        <StandardListItem icon="sap-icon://home-share" title="Vendor to DC" type="Active" class="sapUiSmallMarginTop" custom:class="dtlPageBgDC"/>
-                        <StandardListItem icon="sap-icon://customer" title="Vendor to Customer" type="Active" class="sapUiSmallMarginTopBottom" custom:class="dtlPageBgCustomer"/>
-                        <StandardListItem icon="sap-icon://retail-store" title="Vendor to Store" type="Active" custom:class="dtlPageBgDCVendor"/>
-                    </List>
-                </VBox>
-
-                <VBox visible="{device>/system/phone}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
-                    <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7"/>
-                    <List class="sapUiLargeMarginTop listTitleMobCls listIconMob" mode="SingleSelectMaster" itemPress="onListItemPress">
-                        <StandardListItem icon="sap-icon://home-share" title="Vendor to DC" type="Active" class="listItem1Cls" custom:class="dtlPageBgDC"/>
-                        <StandardListItem icon="sap-icon://customer" title="Vendor to Customer" type="Active" class="listItem2Cls sapUiTinyMarginTopBottom" custom:class="dtlPageBgCustomer"/>
-                        <StandardListItem icon="sap-icon://retail-store" title="Vendor to Store" type="Active" class="listItem3Cls" custom:class="dtlPageBgDCVendor"/>
-                    </List>
-                </VBox>
+                </l:VerticalLayout>
                 <footer>
                     <OverflowToolbar>
                         <ToolbarSpacer />
+                        <ToggleButton text="New" pressed="false" press="onMasterDesignToggle" />
                         <Button icon="sap-icon://bbyd-dashboard" tooltip="Change Design" type="Emphasized" press="onChangeDesign" />
-                        <!-- <Button icon="sap-icon://map" tooltip="Change Region" type="Emphasized" press="openRegionSelection" />
-                        <Button icon="sap-icon://date-time" tooltip="Filter by Time" type="Emphasized" press="openTimeFilter" /> -->
                     </OverflowToolbar>
                 </footer>
             </Page>

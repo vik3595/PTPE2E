@@ -77,6 +77,30 @@ sap.ui.define(function () {
             } else {
                 return "Error";
             }
+        },
+        getRegionDesc: function(sRegion) {
+            var sDesc = "";
+            if(sRegion === "All") {
+                var aRegion = this.getOwnerComponent().getModel("DemoData").getProperty("/AllRegions");
+                sDesc = aRegion[0].description + " + " + (aRegion.length - 1).toString();
+            } else {
+                var aRegion = sRegion.split(", "),
+                    sTempReg = "";
+                if(aRegion[0] === "US") {
+                    sTempReg = "United States of America";
+                } else if (aRegion[0] === "CA") {
+                    sTempReg = "Canada";
+                } else if (aRegion[0] === "MX") {
+                    sTempReg = "Mexico";
+                }
+
+                if (aRegion.length > 1) {
+                    sDesc = sTempReg + " + " + (aRegion.length - 1).toString();
+                } else {
+                    sDesc = sTempReg;
+                }
+            }
+            return sDesc;
         }
 		
 	};

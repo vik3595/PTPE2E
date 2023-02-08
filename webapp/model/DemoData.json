@@ -2,6 +2,7 @@
     "AllRegions": [
         {
             "region": "US",
+            "description": "United States of America",
             "CompanyCodes": [
                 {
                     "name": "200",
@@ -199,6 +200,7 @@
         },
         {
             "region": "CA",
+            "description": "Canada",
             "CompanyCodes": [
                 {
                     "name": "200",
@@ -332,6 +334,7 @@
         },
         {
             "region": "MX",
+            "description": "Mexico",
             "CompanyCodes": [
                 {
                     "name": "200",
@@ -1951,6 +1954,7 @@
         }
     ],
     "Design": "Transparent",
+    "MasterDesign": "Default",
     "Region": "All",
     "Vendor": "All",
     "Season": "Last 365 Days",
