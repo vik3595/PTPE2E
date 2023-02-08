@@ -80,6 +80,9 @@ sap.ui.define(function () {
         },
         getRegionDesc: function(sRegion) {
             var sDesc = "";
+            if(sRegion === undefined) {
+                var sRegion = "All";
+            }
             if(sRegion === "All") {
                 var aRegion = this.getOwnerComponent().getModel("DemoData").getProperty("/AllRegions");
                 sDesc = aRegion[0].description + " + " + (aRegion.length - 1).toString();
