@@ -31,7 +31,9 @@ sap.ui.define([
                 }
             },
             onAfterRendering: function() {
-                this.getOwnerComponent().getModel("DemoData").setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/All"));
+                jQuery.sap.delayedCall(350, this, function () {
+                    this.getOwnerComponent().getModel("DemoData").setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/All"));
+                });
             },
             onHintBtnPress: function (oEvt) {
                 if (!this._oPopover) {
@@ -333,8 +335,9 @@ sap.ui.define([
                     oSelObj.Season = "H2 22/H2 22 LEVIS US";
                 }
                 var sValidFrom = oSelObj.Season.slice(0, 2) === "H1" ? "01/01/2022" : "07/01/2022";
-                oSelObj.ValidFrom = sValidFrom;
-                oSelObj.ValidTo = "12/31/9999";
+                // oSelObj.ValidFrom = sValidFrom;
+                // oSelObj.ValidTo = "12/31/9999";
+                oSelObj.Season += " (" + sValidFrom + " - 12/31/9999";
                 if (!this._oTestDlg) {
                     this._oTestDlg = sap.ui.xmlfragment("idTestTileDlg", "com.levi.ptpe2e.view.fragments.Test", this);
                     this.getView().addDependent(this._oTestDlg);
@@ -359,30 +362,30 @@ sap.ui.define([
                         })
                     );
                 }
-                oTable.addColumn(new sap.m.Column({
-                    header: new sap.m.Label({
-                        text: "Valid From",
-                        wrapping: true
-                    }),
-                }));
-                oCell.push(
-                    new sap.m.Text({
-                        text: "{ValidFrom}",
-                        wrapping: true
-                    })
-                );
-                oTable.addColumn(new sap.m.Column({
-                    header: new sap.m.Label({
-                        text: "Valid To",
-                        wrapping: true
-                    }),
-                }));
-                oCell.push(
-                    new sap.m.Text({
-                        text: "{ValidTo}",
-                        wrapping: true
-                    })
-                );
+                // oTable.addColumn(new sap.m.Column({
+                //     header: new sap.m.Label({
+                //         text: "Valid From",
+                //         wrapping: true
+                //     }),
+                // }));
+                // oCell.push(
+                //     new sap.m.Text({
+                //         text: "{ValidFrom}",
+                //         wrapping: true
+                //     })
+                // );
+                // oTable.addColumn(new sap.m.Column({
+                //     header: new sap.m.Label({
+                //         text: "Valid To",
+                //         wrapping: true
+                //     }),
+                // }));
+                // oCell.push(
+                //     new sap.m.Text({
+                //         text: "{ValidTo}",
+                //         wrapping: true
+                //     })
+                // );
                 var oTemplate = new sap.m.ColumnListItem({
                     cells: oCell
                 });

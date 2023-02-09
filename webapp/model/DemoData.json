@@ -479,6 +479,8 @@
                     "ForecastQty": 85,
                     "ForecastAmt": 9823,
                     "OAAmt": 2353,
+                    "ForecastDate": "2/15/2022",
+                    "OADate": "2/10/2022",
                     "PC9": "00501-0422",
                     "PPK": "X",
                     "Season": "",
@@ -504,6 +506,14 @@
                             "ColProperty": "OAAmt"
                         },
                         {
+                            "ColName": "Foracast Date",
+                            "ColProperty": "ForecastDate"
+                        },
+                        {
+                            "ColName": "OA Date",
+                            "ColProperty": "OADate"
+                        },
+                        {
                             "ColName": "PC9",
                             "ColProperty": "PC9"
                         },
@@ -526,6 +536,8 @@
                     "ForecastAmt": 2374,
                     "POQty": 34,
                     "POAmt": 1233,
+                    "ForecastDate": "2/15/2022",
+                    "PODate": "2/10/2022",
                     "PC9": "00501-0422",
                     "PC13": "PC13-Test",
                     "PPK": "",
@@ -556,6 +568,14 @@
                             "ColProperty": "POAmt"
                         },
                         {
+                            "ColName": "Foracast Date",
+                            "ColProperty": "ForecastDate"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
+                        },
+                        {
                             "ColName": "PC9",
                             "ColProperty": "PC9"
                         },
@@ -580,6 +600,8 @@
                     "PLNumber": "86378",
                     "POQty": 54,
                     "PLQty": 44,
+                    "PLDate": "2/15/2022",
+                    "PODate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "X",
                     "Season": "",
@@ -599,6 +621,14 @@
                         {
                             "ColName": "PL Quantity",
                             "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
+                        },
+                        {
+                            "ColName": "PL Date",
+                            "ColProperty": "PLDate"
                         },
                         {
                             "ColName": "PC13",
@@ -622,6 +652,8 @@
                     "IBDQty": 46,
                     "POQty": 64,
                     "PLQty": 46,
+                    "PLDate": "2/15/2022",
+                    "PODate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "X",
                     "Season": "",
@@ -645,6 +677,14 @@
                         {
                             "ColName": "PL Quantity",
                             "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
+                        },
+                        {
+                            "ColName": "PL Date",
+                            "ColProperty": "PLDate"
                         },
                         {
                             "ColName": "PC13",
@@ -708,6 +748,8 @@
                     "POLineNumber": "63253",
                     "IBDQty": 56,
                     "POQty": 46,
+                    "IBDDate": "2/15/2022",
+                    "GRDate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "",
                     "Season": "",
@@ -727,6 +769,14 @@
                         {
                             "ColName": "PO Quantity",
                             "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "IBD Date",
+                            "ColProperty": "IBDDate"
+                        },
+                        {
+                            "ColName": "GR Date",
+                            "ColProperty": "GRDate"
                         },
                         {
                             "ColName": "PC13",
@@ -751,6 +801,8 @@
                     "InvoicedQty": 46,
                     "ShippedQty": 49,
                     "InvoicedAmt": 6735,
+                    "GRDate": "2/10/2022",
+                    "InvoiceDate": "2/15/2022",
                     "PC13": "PC13-Test",
                     "PPK": "",
                     "Season": "",
@@ -774,6 +826,14 @@
                         {
                             "ColName": "Shipped Quantity",
                             "ColProperty": "ShippedQty"
+                        },
+                        {
+                            "ColName": "Invoice Date",
+                            "ColProperty": "InvoiceDate"
+                        },
+                        {
+                            "ColName": "GR Date",
+                            "ColProperty": "GRDate"
                         },
                         {
                             "ColName": "PC13",
@@ -849,6 +909,8 @@
                     "ForecastAmt": 2374,
                     "POQty": 54,
                     "POAmt": 1233,
+                    "ForecastDate": "2/15/2022",
+                    "PODate": "2/10/2022",
                     "PC9": "00501-0422",
                     "PC13": "PC13-Test",
                     "PPK": "",
@@ -879,6 +941,14 @@
                             "ColProperty": "POAmt"
                         },
                         {
+                            "ColName": "Foracast Date",
+                            "ColProperty": "ForecastDate"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
+                        },
+                        {
                             "ColName": "PC9",
                             "ColProperty": "PC9"
                         },
@@ -903,6 +973,8 @@
                     "PLNumber": "87378",
                     "POQty": 86,
                     "PLQty": 52,
+                    "PLDate": "2/15/2022",
+                    "PODate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "X",
                     "Season": "",
@@ -922,6 +994,14 @@
                         {
                             "ColName": "PL Quantity",
                             "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
+                        },
+                        {
+                            "ColName": "PL Date",
+                            "ColProperty": "PLDate"
                         },
                         {
                             "ColName": "PC13",
@@ -945,6 +1025,8 @@
                     "IBDQty": 48,
                     "POQty": 64,
                     "PLQty": 38,
+                    "PLDate": "2/15/2022",
+                    "PODate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "X",
                     "Season": "",
@@ -968,6 +1050,14 @@
                         {
                             "ColName": "PL Quantity",
                             "ColProperty": "PLQty"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
+                        },
+                        {
+                            "ColName": "PL Date",
+                            "ColProperty": "PLDate"
                         },
                         {
                             "ColName": "PC13",
@@ -1041,6 +1131,8 @@
                     "POLineNumber": "63753",
                     "IBDQty": 56,
                     "POQty": 46,
+                    "IBDDate": "2/15/2022",
+                    "GRDate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "",
                     "Season": "",
@@ -1060,6 +1152,14 @@
                         {
                             "ColName": "PO Quantity",
                             "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "IBD Date",
+                            "ColProperty": "IBDDate"
+                        },
+                        {
+                            "ColName": "GR Date",
+                            "ColProperty": "GRDate"
                         },
                         {
                             "ColName": "PC13",
@@ -1135,6 +1235,8 @@
                     "ForecastQty": 85,
                     "ForecastAmt": 5743,
                     "OAAmt": 4356,
+                    "ForecastDate": "2/15/2022",
+                    "OADate": "2/10/2022",
                     "PC9": "00501-0422",
                     "PPK": "X",
                     "Season": "",
@@ -1160,6 +1262,14 @@
                             "ColProperty": "OAAmt"
                         },
                         {
+                            "ColName": "Forecast Date",
+                            "ColProperty": "ForecastDate"
+                        },
+                        {
+                            "ColName": "OA Date",
+                            "ColProperty": "OADate"
+                        },
+                        {
                             "ColName": "PC9",
                             "ColProperty": "PC9"
                         },
@@ -1182,6 +1292,8 @@
                     "ForecastAmt": 2374,
                     "POQty": 54,
                     "POAmt": 1233,
+                    "ForecastDate": "2/15/2022",
+                    "PODate": "2/10/2022",
                     "PC9": "00501-0422",
                     "PC13": "PC13-Test",
                     "PPK": "",
@@ -1210,6 +1322,14 @@
                         {
                             "ColName": "PO Amount",
                             "ColProperty": "POAmt"
+                        },
+                        {
+                            "ColName": "Forecast Date",
+                            "ColProperty": "ForecastDate"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
                         },
                         {
                             "ColName": "PC9",
@@ -1458,6 +1578,8 @@
                     "ForecastQty": 85,
                     "ForecastAmt": 9823,
                     "OAAmt": 2353,
+                    "ForecastDate": "2/15/2022",
+                    "OADate": "2/10/2022",
                     "PC9": "00501-0422",
                     "PPK": "X",
                     "Season": "",
@@ -1483,6 +1605,14 @@
                             "ColProperty": "OAAmt"
                         },
                         {
+                            "ColName": "Foracast Date",
+                            "ColProperty": "ForecastDate"
+                        },
+                        {
+                            "ColName": "OA Date",
+                            "ColProperty": "OADate"
+                        },
+                        {
                             "ColName": "PC9",
                             "ColProperty": "PC9"
                         },
@@ -1505,6 +1635,8 @@
                     "ForecastAmt": 2374,
                     "POQty": 34,
                     "POAmt": 1233,
+                    "ForecastDate": "2/15/2022",
+                    "PODate": "2/10/2022",
                     "PC9": "00501-0422",
                     "PC13": "PC13-Test",
                     "PPK": "",
@@ -1533,6 +1665,14 @@
                         {
                             "ColName": "PO Amount",
                             "ColProperty": "POAmt"
+                        },
+                        {
+                            "ColName": "Foracast Date",
+                            "ColProperty": "ForecastDate"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
                         },
                         {
                             "ColName": "PC9",
@@ -1601,6 +1741,8 @@
                     "IBDQty": 46,
                     "POQty": 64,
                     "PLQty": 46,
+                    "PLDate": "2/15/2022",
+                    "PODate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "X",
                     "Season": "",
@@ -1626,6 +1768,14 @@
                             "ColProperty": "PLQty"
                         },
                         {
+                            "ColName": "PL Date",
+                            "ColProperty": "PLDate"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
+                        },
+                        {
                             "ColName": "PC13",
                             "ColProperty": "PC13"
                         },
@@ -1646,6 +1796,8 @@
                     "IBDNumber": "72601",
                     "IBDQty": 46,
                     "POQty": 34,
+                    "PODate": "2/15/2022",
+                    "IBDDate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "X",
                     "Season": "",
@@ -1665,6 +1817,14 @@
                         {
                             "ColName": "PO Quantity",
                             "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "IBD Date",
+                            "ColProperty": "IBDDate"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
                         },
                         {
                             "ColName": "PC13",
@@ -1687,6 +1847,8 @@
                     "POLineNumber": "63253",
                     "IBDQty": 56,
                     "POQty": 46,
+                    "PODate": "2/15/2022",
+                    "IBDDate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "",
                     "Season": "",
@@ -1706,6 +1868,14 @@
                         {
                             "ColName": "PO Quantity",
                             "ColProperty": "POQty"
+                        },
+                        {
+                            "ColName": "IBD Date",
+                            "ColProperty": "IBDDate"
+                        },
+                        {
+                            "ColName": "PO Date",
+                            "ColProperty": "PODate"
                         },
                         {
                             "ColName": "PC13",
@@ -1730,6 +1900,8 @@
                     "InvoicedQty": 46,
                     "ShippedQty": 49,
                     "InvoicedAmt": 6735,
+                    "InvoiceDate": "2/15/2022",
+                    "GRDate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "",
                     "Season": "",
@@ -1753,6 +1925,14 @@
                         {
                             "ColName": "Shipped Quantity",
                             "ColProperty": "ShippedQty"
+                        },
+                        {
+                            "ColName": "Invoice Date",
+                            "ColProperty": "InvoiceDate"
+                        },
+                        {
+                            "ColName": "GR Date",
+                            "ColProperty": "GRDate"
                         },
                         {
                             "ColName": "PC13",
