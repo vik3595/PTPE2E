@@ -14,23 +14,26 @@ sap.ui.define([
 
         return Controller.extend("com.levi.ptpe2e.controller.View1", {
             formatter: formatter,
+            _bDefaultDesign: true,
             onInit: function () {
                 var oImageModel = new sap.ui.model.json.JSONModel({
                     US: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/US.jpg"),
                     MX: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/MX.jpg"),
                     CA: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/CA.jpg"),
-                    All: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/globe.jpg")
+                    All: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/globe1.jpg")
                 });
                 this.getOwnerComponent().setModel(oImageModel, "ImageModel");
                 this.getView().byId("idDetailPage").addStyleClass("dtlPageBgDC");
                 this._currentDetailStyle = "dtlPageBgDC";
-                if(this.getOwnerComponent().getModel("DemoData").getProperty("/MasterDesign") === "Default") {
-                    this.getView().byId("idMasterList").setSelectedItem(this.getView().byId("idMasterList").getItems()[0]);
-                } else {
-                    this.getView().byId("idMasterList2").setSelectedItem(this.getView().byId("idMasterList2").getItems()[0]);
+                if (!this.getOwnerComponent().getModel("device").getData().system.phone) {
+                    if (this.getOwnerComponent().getModel("DemoData").getProperty("/MasterDesign") === "Default") {
+                        this.getView().byId("idMasterList").setSelectedItem(this.getView().byId("idMasterList").getItems()[0]);
+                    } else {
+                        this.getView().byId("idMasterList2").setSelectedItem(this.getView().byId("idMasterList2").getItems()[0]);
+                    }
                 }
             },
-            onAfterRendering: function() {
+            onAfterRendering: function () {
                 jQuery.sap.delayedCall(350, this, function () {
                     this.getOwnerComponent().getModel("DemoData").setProperty("/CountryInitials", this.getOwnerComponent().getModel("ImageModel").getProperty("/All"));
                 });
@@ -161,7 +164,7 @@ sap.ui.define([
                 oSelect.getBinding("items").filter(aAllFilter);
                 if (aSeasonKeys.length === 0) {
                     oSelect.getItems().forEach(function (oItem) {
-                        if(oItem.getBindingContext("DemoData").getObject().key === "H2 22" || oItem.getBindingContext("DemoData").getObject().key === "H1 23") {
+                        if (oItem.getBindingContext("DemoData").getObject().key === "H2 22" || oItem.getBindingContext("DemoData").getObject().key === "H1 23") {
                             aSeasonKeys.push(oItem.getKey());
                         }
                     });
@@ -309,9 +312,12 @@ sap.ui.define([
                 this._currentDetailStyle = oEvt.getParameter("listItem").getCustomData()[0].getValue();
                 oDetailPage.addStyleClass(this._currentDetailStyle);
                 this._refreshRandomData();
+                if (this.getOwnerComponent().getModel("device").getData().system.phone) {
+                    this.getView().byId("idSplitApp").toMaster(this.getView().byId("idDetailPage"), "baseSlide");
+                }
             },
             onNavigateToMaster: function () {
-                this.getView().byId("idSplitApp").toMaster(this.getView().byId("idMasterPage"));
+                this.getView().byId("idSplitApp").backMaster();
             },
             onTestTilePress: function (oEvt) {
                 var oDemoDataModel = this.getOwnerComponent().getModel("DemoData"),
@@ -329,7 +335,7 @@ sap.ui.define([
                 }
                 var oSelObj = oDemoDataModel.getProperty(sPath),
                     aCols = oSelObj.Cols;
-                if(oDemoDataModel.getProperty("/SeasonFilters").length > 0) {
+                if (oDemoDataModel.getProperty("/SeasonFilters").length > 0) {
                     oSelObj.Season = oDemoDataModel.getProperty("/SeasonFilters")[0];
                 } else {
                     oSelObj.Season = "H2 22/H2 22 LEVIS US";
@@ -354,6 +360,8 @@ sap.ui.define([
                             text: aCols[i].ColName,
                             wrapping: true
                         }),
+                        demandPopin: i > 2 ? true : false,
+                        minScreenWidth: i > 2 ? "Tablet" : "Phone"
                     }));
                     oCell.push(
                         new sap.m.Text({
@@ -362,30 +370,6 @@ sap.ui.define([
                         })
                     );
                 }
-                // oTable.addColumn(new sap.m.Column({
-                //     header: new sap.m.Label({
-                //         text: "Valid From",
-                //         wrapping: true
-                //     }),
-                // }));
-                // oCell.push(
-                //     new sap.m.Text({
-                //         text: "{ValidFrom}",
-                //         wrapping: true
-                //     })
-                // );
-                // oTable.addColumn(new sap.m.Column({
-                //     header: new sap.m.Label({
-                //         text: "Valid To",
-                //         wrapping: true
-                //     }),
-                // }));
-                // oCell.push(
-                //     new sap.m.Text({
-                //         text: "{ValidTo}",
-                //         wrapping: true
-                //     })
-                // );
                 var oTemplate = new sap.m.ColumnListItem({
                     cells: oCell
                 });
@@ -429,14 +413,32 @@ sap.ui.define([
                     oBsyDlg.close();
                 });
             },
-            onMasterDesignToggle: function(oEvt) {
-                if(oEvt.getSource().getPressed()) {
+            onMasterDesignToggle: function (oEvt) {
+                if (this._bDefaultDesign) {
+                    this._bDefaultDesign = false;
                     this.getView().byId("idMasterPage").removeStyleClass("pageBg");
                     this.getOwnerComponent().getModel("DemoData").setProperty("/MasterDesign", "New");
                 } else {
+                    this._bDefaultDesign = true;
                     this.getView().byId("idMasterPage").addStyleClass("pageBg");
                     this.getOwnerComponent().getModel("DemoData").setProperty("/MasterDesign", "Default");
                 }
+            },
+            onMobileFilterPress: function (oEvt) {
+                if (!this._oMobileFilterDlg) {
+                    this._oMobileFilterDlg = sap.ui.xmlfragment("idMobileFilterDlg", "com.levi.ptpe2e.view.fragments.MobileFilter", this);
+                    this.getView().addDependent(this._oMobileFilterDlg);
+                }
+                this._oMobileFilterDlg.open();
+                // if (this.getOwnerComponent().getModel("device").getData().system.phone) {
+                //     this._oMobileFilterDlg.setStretch(true);
+                // }
+            },
+            onApplyMobileFilter: function (oEvt) {
+                this._oMobileFilterDlg.close();
+            },
+            onCancelMobileFilter: function (oEvt) {
+                this._oMobileFilterDlg.close();
             }
 
         });

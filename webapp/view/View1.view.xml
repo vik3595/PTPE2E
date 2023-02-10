@@ -8,7 +8,7 @@
     xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
     <SplitApp id="idSplitApp" initialDetail="idDetailPage" initialMaster="idMasterPage">
         <detailPages>
-            <Page id="idDetailPage" showFooter="true">
+            <Page id="idDetailPage">
                 <customHeader>
                     <OverflowToolbar>
                         <core:Icon src="sap-icon://menu2" press="onNavigateToMaster" visible="{device>/system/phone}"/>
@@ -424,88 +424,90 @@
                                 <l:VerticalLayout width="100%">
                                     <l:BlockLayout background="Light">
                                         <l:BlockLayoutRow>
-                                            <l:BlockLayoutCell width="1" title="Qty">
+                                            <l:BlockLayoutCell width="1" title="Qty/Cost">
                                                 <l:Grid hSpacing="0">
-                                                    <GenericTile sizeBehavior="Responsive" header="OA Creation" subheader="Forecast vs OA" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/0/Header}" subheader="{DemoData>/TilesData/0/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/0/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/0/OACreation}" valueColor="{path: 'DemoData>/V2DC/0/OACreation', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="PO Issuance" subheader="OA vs PO" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/1/Header}" subheader="{DemoData>/TilesData/0/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/1/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/0/POIssuance}" valueColor="{path: 'DemoData>/V2DC/0/POIssuance', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Packing List Creation" subheader="PO vs PL" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/2/Header}" subheader="{DemoData>/TilesData/0/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/2/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/0/PackListCreation}" valueColor="{path: 'DemoData>/V2DC/0/PackListCreation', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/2/PLQty', 'DemoData>/TilesData/0/Tiles/2/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/2/PLQty', 'DemoData>/TilesData/0/Tiles/2/POQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="IBD Creation" subheader="PO/PL vs IBD" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/3/Header}" subheader="{DemoData>/TilesData/0/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/3/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/0/IBDCreation}" valueColor="{path: 'DemoData>/V2DC/0/IBDCreation', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/PLQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/PLQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Shipment Milestone Updates" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/4/Header}" subheader="{DemoData>/TilesData/0/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/4/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/0/ShipMilesUpdate}" valueColor="{path: 'DemoData>/V2DC/0/ShipMilesUpdate', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Goods Reciept" subheader="Qty: IBD vs GR" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/5/Header}" subheader="{DemoData>/TilesData/0/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/5/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/0/GoodReciept}" valueColor="{path: 'DemoData>/V2DC/0/GoodReciept', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Vendor Invoice" subheader="Qty: GR vs Invoiced/Qty: Shipped vs Invoiced" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/6/Header}" subheader="{DemoData>/TilesData/0/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/6/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/0/VendorInvoice}" valueColor="{path: 'DemoData>/V2DC/0/VendorInvoice', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
@@ -520,86 +522,92 @@
                                         <l:BlockLayoutRow>
                                             <l:BlockLayoutCell width="1" title="On Time">
                                                 <l:Grid hSpacing="0">
-                                                    <GenericTile sizeBehavior="Responsive" header="OA Creation" subheader="NA" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/0/Header}" subheader="{DemoData>/TilesData/1/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/0/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/1/OACreation}" valueColor="{path: 'DemoData>/V2DC/1/OACreation', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="PO Issuance" subheader="Forcecasted vs PO" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/1/Header}" subheader="{DemoData>/TilesData/1/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/1/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/1/POIssuance}" valueColor="{path: 'DemoData>/V2DC/1/POIssuance', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/1/POQty', 'DemoData>/TilesData/1/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/1/POQty', 'DemoData>/TilesData/1/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Packing List Creation" subheader="PO vs PL" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/2/Header}" subheader="{DemoData>/TilesData/1/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/2/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/1/PackListCreation}" valueColor="{path: 'DemoData>/V2DC/1/PackListCreation', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="IBD Creation" subheader="PO/PL vs IBD" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/3/Header}" subheader="{DemoData>/TilesData/1/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/3/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/1/IBDCreation}" valueColor="{path: 'DemoData>/V2DC/1/IBDCreation', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/3/PLQty', 'DemoData>/TilesData/1/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/3/PLQty', 'DemoData>/TilesData/1/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Shipment Milestone Updates" subheader="PO vs Actual" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" systemInfo="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDiffDesc'}" header="{DemoData>/TilesData/1/Tiles/4/Header}" subheader="{DemoData>/TilesData/1/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/4/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/1/ShipMilesUpdate}" valueColor="{path: 'DemoData>/V2DC/1/ShipMilesUpdate', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <NumericContent value="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDifference'}" scale="Days" indicator="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.getIndicator'}" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateValueColor'}" width="100%"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Goods Reciept" subheader="PO vs Actual" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/5/Header}" subheader="{DemoData>/TilesData/1/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/5/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/1/GoodReciept}" valueColor="{path: 'DemoData>/V2DC/1/GoodReciept', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/5/POQty', 'DemoData>/TilesData/1/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/5/POQty', 'DemoData>/TilesData/1/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Vendor Invoice" subheader="NA" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/6/Header}" subheader="{DemoData>/TilesData/1/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/6/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/1/VendorInvoice}" valueColor="{path: 'DemoData>/V2DC/1/VendorInvoice', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
@@ -614,86 +622,96 @@
                                         <l:BlockLayoutRow>
                                             <l:BlockLayoutCell width="1" title="Price Updates">
                                                 <l:Grid hSpacing="0">
-                                                    <GenericTile sizeBehavior="Responsive" header="OA Creation" subheader="# or % of price update" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/0/Header}" subheader="{DemoData>/TilesData/2/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/0/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/2/OACreation}" valueColor="{path: 'DemoData>/V2DC/2/OACreation', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/2/Tiles/0/OAAmt', 'DemoData>/TilesData/2/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/2/Tiles/0/OAAmt', 'DemoData>/TilesData/2/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="PO Issuance" subheader="# or % of price update" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/1/Header}" subheader="{DemoData>/TilesData/2/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/1/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/2/POIssuance}" valueColor="{path: 'DemoData>/V2DC/2/POIssuance', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/2/Tiles/1/POAmt', 'DemoData>/TilesData/2/Tiles/1/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/2/Tiles/1/POAmt', 'DemoData>/TilesData/2/Tiles/1/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Packing List Creation" subheader="NA" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/2/Header}" subheader="{DemoData>/TilesData/2/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/2/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/2/PackListCreation}" valueColor="{path: 'DemoData>/V2DC/2/PackListCreation', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="IBD Creation" subheader="NA" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/3/Header}" subheader="{DemoData>/TilesData/2/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/3/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/2/IBDCreation}" valueColor="{path: 'DemoData>/V2DC/2/IBDCreation', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Shipment Milestone Updates" subheader="NA" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/4/Header}" subheader="{DemoData>/TilesData/2/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/4/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/2/ShipMilesUpdate}" valueColor="{path: 'DemoData>/V2DC/2/ShipMilesUpdate', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Goods Reciept" subheader="NA" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/5/Header}" subheader="{DemoData>/TilesData/2/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/5/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/2/GoodReciept}" valueColor="{path: 'DemoData>/V2DC/2/GoodReciept', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Vendor Invoice" subheader="NA" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/6/Header}" subheader="{DemoData>/TilesData/2/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/6/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/2/VendorInvoice}" valueColor="{path: 'DemoData>/V2DC/2/VendorInvoice', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
@@ -708,86 +726,89 @@
                                         <l:BlockLayoutRow>
                                             <l:BlockLayoutCell width="1" title="Success Rate">
                                                 <l:Grid hSpacing="0">
-                                                    <GenericTile sizeBehavior="Responsive" header="OA Creation" subheader="# or % failures" frameType="OneByOne">
+
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/0/Header}" subheader="{DemoData>/TilesData/3/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/0/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/3/OACreation}" valueColor="{path: 'DemoData>/V2DC/3/OACreation', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/0/OAAmt', 'DemoData>/TilesData/3/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/0/OAAmt', 'DemoData>/TilesData/3/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="PO Issuance" subheader="# or % failures" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/1/Header}" subheader="{DemoData>/TilesData/3/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/1/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/3/POIssuance}" valueColor="{path: 'DemoData>/V2DC/3/POIssuance', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/1/POQty', 'DemoData>/TilesData/3/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/1/POQty', 'DemoData>/TilesData/3/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Packing List Creation" subheader="NA" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/2/Header}" subheader="{DemoData>/TilesData/3/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/2/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/3/PackListCreation}" valueColor="{path: 'DemoData>/V2DC/3/PackListCreation', formatter: '._getValueColor'}" />
+                                                                    <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
+                                                                        <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
+                                                                    </HBox>
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="IBD Creation" subheader="# or % failures" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/3/Header}" subheader="{DemoData>/TilesData/3/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/3/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/3/IBDCreation}" valueColor="{path: 'DemoData>/V2DC/3/IBDCreation', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/3/PLQty', 'DemoData>/TilesData/3/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/3/PLQty', 'DemoData>/TilesData/3/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Shipment Milestone Updates" subheader="# or % failures" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/4/Header}" subheader="{DemoData>/TilesData/3/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/4/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/3/ShipMilesUpdate}" valueColor="{path: 'DemoData>/V2DC/3/ShipMilesUpdate', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/4/POQty', 'DemoData>/TilesData/3/Tiles/4/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/4/POQty', 'DemoData>/TilesData/3/Tiles/4/IBDQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Goods Reciept" subheader="# or % failures" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/5/Header}" subheader="{DemoData>/TilesData/3/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/5/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/3/GoodReciept}" valueColor="{path: 'DemoData>/V2DC/3/GoodReciept', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/5/POQty', 'DemoData>/TilesData/3/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/5/POQty', 'DemoData>/TilesData/3/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Responsive" header="Vendor Invoice" subheader="# or % failures" frameType="OneByOne">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/6/Header}" subheader="{DemoData>/TilesData/3/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/6/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
                                                         <tileContent>
                                                             <TileContent>
                                                                 <content>
-                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" percentage="{DemoData>/V2DC/3/VendorInvoice}" valueColor="{path: 'DemoData>/V2DC/3/VendorInvoice', formatter: '._getValueColor'}" />
+                                                                    <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/6/InvoicedQty', 'DemoData>/TilesData/3/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/6/InvoicedQty', 'DemoData>/TilesData/3/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" />
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
@@ -804,7 +825,7 @@
             </Page>
         </detailPages>
         <masterPages>
-            <Page id="idMasterPage" showHeader="false" showFooter="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}" class="pageBg">
+            <Page id="idMasterPage" showHeader="false" showFooter="true" class="pageBg">
                 <l:VerticalLayout width="100%" visible="{= ${DemoData>/MasterDesign} === 'Default' ? true : false}">
                     <VBox visible="{= ${device>/system/desktop} || ${device>/system/tablet}}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
                         <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7" />
@@ -824,10 +845,15 @@
                     </VBox>
                 </l:VerticalLayout>
                 <l:VerticalLayout width="100%" visible="{= ${DemoData>/MasterDesign} === 'New' ? true : false}">
-                    <VBox visible="{= ${device>/system/desktop} || ${device>/system/tablet}}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vboxBgCls vBoxCls">
-                        <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7" />
-                        <Text text="{DemoData>/Region}" class="regionTxtCls sapUiTinyMarginTop"/>
-                        <Text text="{path: 'DemoData>/Region', formatter:'.formatter.getRegionDesc'}" class="regionDscTxtCls"/>
+                    <VBox width="100%" height="14rem" alignContent="Start" alignItems="Start" justifyContent="End" class="vboxBgCls">
+                        <!-- <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7" /> -->
+                        <HBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Start" class="titleHbox">
+                            <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="S" backgroundColor="Accent7" />
+                            <VBox class="sapUiTinyMarginBegin">
+                                <Text text="{DemoData>/Region}" class="regionTxtCls"/>
+                                <Text text="{path: 'DemoData>/Region', formatter:'.formatter.getRegionDesc'}" class="regionDscTxtCls"/>
+                            </VBox>
+                        </HBox>
                     </VBox>
                     <List id="idMasterList2" mode="SingleSelectMaster" itemPress="onListItemPress" class="tempListCls tempListTitleCls tempListIcon">
                         <StandardListItem icon="sap-icon://home-share" title="Vendor to Distribution Center" type="Navigation" custom:class="dtlPageBgDC"/>
@@ -838,8 +864,9 @@
                 <footer>
                     <OverflowToolbar>
                         <ToolbarSpacer />
-                        <ToggleButton text="New" pressed="false" press="onMasterDesignToggle" />
-                        <Button icon="sap-icon://bbyd-dashboard" tooltip="Change Design" type="Emphasized" press="onChangeDesign" />
+                        <core:Icon src="sap-icon://switch-views" size="1.3rem" tooltip="Change Master Page Design" press="onMasterDesignToggle" class="sapUiTinyMarginEnd"/>
+                        <core:Icon src="sap-icon://action-settings" size="1.3rem" tooltip="Add Filter" visible="{device>/system/phone}" press="onMobileFilterPress" class="sapUiTinyMarginEnd"/>
+                        <core:Icon src="sap-icon://grid" size="1.3rem" tooltip="Change Detail Page Design" press="onChangeDesign" visible="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}" class="sapUiTinyMarginEnd"/>
                     </OverflowToolbar>
                 </footer>
             </Page>
