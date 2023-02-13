@@ -13,10 +13,22 @@
                     <OverflowToolbar>
                         <core:Icon src="sap-icon://menu2" press="onNavigateToMaster" visible="{device>/system/phone}"/>
                         <ToolbarSpacer />
-                        <Button text="Region: {DemoData>/Region}" type="{= ${DemoData>/Region} === 'All' ? 'Success' : 'Ghost'}" icon="sap-icon://map" press="openRegionSelection"/>
-                        <Button text="Vendor: {DemoData>/Vendor}" type="{= ${DemoData>/Vendor} === 'All' ? 'Success' : 'Ghost'}" icon="sap-icon://retail-store" press="openVendorFilter"/>
-                        <Button text="Season: {DemoData>/Season}" type="{= ${DemoData>/Season} === 'Last 365 Days' ? 'Success' : 'Ghost'}" icon="sap-icon://calendar" press="openTimeFilter"/>
-                        <Button id="idHintButton" type="Default" icon="sap-icon://hint" press="onHintBtnPress"/>
+                        <HBox alignItems="Center" alignContent="Center" justifyContent="Center" renderType="Bare" visible="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}">
+                            <core:Icon src="sap-icon://map" size="0.9rem"/>
+                            <Title text="Region: {DemoData>/Region}" level="H6" titleStyle="H6" class="sapUiTinyMarginBegin"/>
+                        </HBox>
+                        <ToolbarSeparator visible="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}"/>
+                        <HBox alignItems="Center" alignContent="Center" justifyContent="Center" renderType="Bare" visible="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}">
+                            <core:Icon src="sap-icon://retail-store" size="0.9rem"/>
+                            <Title text="Vendor: {DemoData>/Vendor}" level="H6" titleStyle="H6" class="sapUiTinyMarginBegin"/>
+                        </HBox>
+                        <ToolbarSeparator visible="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}"/>
+                        <HBox alignItems="Center" alignContent="Center" justifyContent="Center" renderType="Bare" visible="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}">
+                            <core:Icon src="sap-icon://calendar" size="0.9rem"/>
+                            <Title text="Season: {DemoData>/Season}" level="H6" titleStyle="H6" class="sapUiTinyMarginBegin"/>
+                        </HBox>
+                        <ToolbarSeparator visible="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}"/>
+                        <core:Icon src="sap-icon://action-settings" size="1.3rem" tooltip="Add Filter" visible="true" press="onFilterSettingPress" class="sapUiSmallMarginBegin sapUiTinyMarginEnd"/>
                     </OverflowToolbar>
                 </customHeader>
                 <content>
@@ -418,11 +430,11 @@
                             </items>
                         </Table>
                     </l:VerticalLayout>
-                    <ScrollContainer vertical="true" visible="{device>/system/phone}">
+                    <FlexBox height="100%" visible="{device>/system/phone}" renderType="Bare" backgroundDesign="Translucent">
                         <Carousel height="100%" loop="true">
                             <pages>
                                 <l:VerticalLayout width="100%">
-                                    <l:BlockLayout background="Light">
+                                    <l:BlockLayout background="Default">
                                         <l:BlockLayoutRow>
                                             <l:BlockLayoutCell width="1" title="Qty/Cost">
                                                 <l:Grid hSpacing="0">
@@ -474,7 +486,7 @@
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/4/Header}" subheader="{DemoData>/TilesData/0/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/4/Enabled}">
+                                                    <!-- <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/4/Header}" subheader="{DemoData>/TilesData/0/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/4/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
@@ -487,7 +499,7 @@
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
-                                                    </GenericTile>
+                                                    </GenericTile> -->
                                                     <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/5/Header}" subheader="{DemoData>/TilesData/0/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/5/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -518,11 +530,11 @@
                                     </l:BlockLayout>
                                 </l:VerticalLayout>
                                 <l:VerticalLayout width="100%">
-                                    <l:BlockLayout background="Light">
+                                    <l:BlockLayout background="Default">
                                         <l:BlockLayoutRow>
                                             <l:BlockLayoutCell width="1" title="On Time">
                                                 <l:Grid hSpacing="0">
-                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/0/Header}" subheader="{DemoData>/TilesData/1/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/0/Enabled}">
+                                                    <!-- <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/0/Header}" subheader="{DemoData>/TilesData/1/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/0/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
@@ -535,7 +547,7 @@
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
-                                                    </GenericTile>
+                                                    </GenericTile> -->
                                                     <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/1/Header}" subheader="{DemoData>/TilesData/1/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/1/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -572,7 +584,7 @@
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Small" custom:type="GT" systemInfo="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDiffDesc'}" header="{DemoData>/TilesData/1/Tiles/4/Header}" subheader="{DemoData>/TilesData/1/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/4/Enabled}">
+                                                    <!-- <GenericTile sizeBehavior="Small" custom:type="GT" systemInfo="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDiffDesc'}" header="{DemoData>/TilesData/1/Tiles/4/Header}" subheader="{DemoData>/TilesData/1/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/4/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
@@ -585,7 +597,7 @@
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
-                                                    </GenericTile>
+                                                    </GenericTile> -->
                                                     <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/5/Header}" subheader="{DemoData>/TilesData/1/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/5/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -598,7 +610,7 @@
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/6/Header}" subheader="{DemoData>/TilesData/1/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/6/Enabled}">
+                                                    <!-- <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/6/Header}" subheader="{DemoData>/TilesData/1/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/6/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
@@ -611,14 +623,14 @@
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
-                                                    </GenericTile>
+                                                    </GenericTile> -->
                                                 </l:Grid>
                                             </l:BlockLayoutCell>
                                         </l:BlockLayoutRow>
                                     </l:BlockLayout>
                                 </l:VerticalLayout>
                                 <l:VerticalLayout width="100%">
-                                    <l:BlockLayout background="Light">
+                                    <l:BlockLayout background="Default">
                                         <l:BlockLayoutRow>
                                             <l:BlockLayoutCell width="1" title="Price Updates">
                                                 <l:Grid hSpacing="0">
@@ -646,7 +658,7 @@
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/2/Header}" subheader="{DemoData>/TilesData/2/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/2/Enabled}">
+                                                    <!-- <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/2/Header}" subheader="{DemoData>/TilesData/2/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/2/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
@@ -715,14 +727,14 @@
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
-                                                    </GenericTile>
+                                                    </GenericTile> -->
                                                 </l:Grid>
                                             </l:BlockLayoutCell>
                                         </l:BlockLayoutRow>
                                     </l:BlockLayout>
                                 </l:VerticalLayout>
                                 <l:VerticalLayout width="100%">
-                                    <l:BlockLayout background="Light">
+                                    <l:BlockLayout background="Default">
                                         <l:BlockLayoutRow>
                                             <l:BlockLayoutCell width="1" title="Success Rate">
                                                 <l:Grid hSpacing="0">
@@ -751,7 +763,7 @@
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/2/Header}" subheader="{DemoData>/TilesData/3/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/2/Enabled}">
+                                                    <!-- <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/2/Header}" subheader="{DemoData>/TilesData/3/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/2/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
@@ -764,7 +776,7 @@
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
-                                                    </GenericTile>
+                                                    </GenericTile> -->
                                                     <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/3/Header}" subheader="{DemoData>/TilesData/3/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/3/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -820,35 +832,34 @@
                                 </l:VerticalLayout>
                             </pages>
                         </Carousel>
-                    </ScrollContainer>
+                    </FlexBox>
                 </content>
             </Page>
         </detailPages>
         <masterPages>
             <Page id="idMasterPage" showHeader="false" showFooter="true" class="pageBg">
                 <l:VerticalLayout width="100%" visible="{= ${DemoData>/MasterDesign} === 'Default' ? true : false}">
-                    <VBox visible="{= ${device>/system/desktop} || ${device>/system/tablet}}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
-                        <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7" />
+                    <VBox width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
+                        <Avatar displayShape="Circle" src="{DemoData>/RegionLogo}" displaySize="XL" backgroundColor="Accent7" />
                         <List id="idMasterList" class="listCls listIcon sapUiLargeMarginTop listTitleCls" mode="SingleSelectMaster" itemPress="onListItemPress">
                             <StandardListItem icon="sap-icon://home-share" title="Vendor to DC" type="Active" class="sapUiSmallMarginTop" custom:class="dtlPageBgDC"/>
                             <StandardListItem icon="sap-icon://family-care" title="Vendor to Customer" type="Active" class="sapUiSmallMarginTopBottom" custom:class="dtlPageBgCustomer"/>
                             <StandardListItem icon="sap-icon://retail-store" title="Vendor to Store" type="Active" custom:class="dtlPageBgDCVendor"/>
                         </List>
                     </VBox>
-                    <VBox visible="{device>/system/phone}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
-                        <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7"/>
+                    <!-- <VBox visible="{device>/system/phone}" width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
+                        <Avatar displayShape="Circle" src="{DemoData>/RegionLogo}" displaySize="XL" backgroundColor="Accent7"/>
                         <List class="sapUiLargeMarginTop listTitleMobCls listIconMob" mode="SingleSelectMaster" itemPress="onListItemPress">
                             <StandardListItem icon="sap-icon://home-share" title="Vendor to DC" type="Active" class="listItem1Cls" custom:class="dtlPageBgDC"/>
                             <StandardListItem icon="sap-icon://family-care" title="Vendor to Customer" type="Active" class="listItem2Cls sapUiTinyMarginTopBottom" custom:class="dtlPageBgCustomer"/>
                             <StandardListItem icon="sap-icon://retail-store" title="Vendor to Store" type="Active" class="listItem3Cls" custom:class="dtlPageBgDCVendor"/>
                         </List>
-                    </VBox>
+                    </VBox> -->
                 </l:VerticalLayout>
                 <l:VerticalLayout width="100%" visible="{= ${DemoData>/MasterDesign} === 'New' ? true : false}">
                     <VBox width="100%" height="14rem" alignContent="Start" alignItems="Start" justifyContent="End" class="vboxBgCls">
-                        <!-- <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="XL" backgroundColor="Accent7" /> -->
                         <HBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Start" class="titleHbox">
-                            <Avatar displayShape="Circle" src="{DemoData>/CountryInitials}" displaySize="S" backgroundColor="Accent7" />
+                            <Avatar displayShape="Circle" src="{DemoData>/RegionLogo}" displaySize="S" backgroundColor="Accent7" />
                             <VBox class="sapUiTinyMarginBegin">
                                 <Text text="{DemoData>/Region}" class="regionTxtCls"/>
                                 <Text text="{path: 'DemoData>/Region', formatter:'.formatter.getRegionDesc'}" class="regionDscTxtCls"/>
@@ -865,7 +876,7 @@
                     <OverflowToolbar>
                         <ToolbarSpacer />
                         <core:Icon src="sap-icon://switch-views" size="1.3rem" tooltip="Change Master Page Design" press="onMasterDesignToggle" class="sapUiTinyMarginEnd"/>
-                        <core:Icon src="sap-icon://action-settings" size="1.3rem" tooltip="Add Filter" visible="{device>/system/phone}" press="onMobileFilterPress" class="sapUiTinyMarginEnd"/>
+                        <core:Icon src="sap-icon://action-settings" size="1.3rem" tooltip="Add Filter" visible="{device>/system/phone}" press="onFilterSettingPress" class="sapUiTinyMarginEnd"/>
                         <core:Icon src="sap-icon://grid" size="1.3rem" tooltip="Change Detail Page Design" press="onChangeDesign" visible="{= (${device>/system/desktop} || ${device>/system/tablet}) ? true : false}" class="sapUiTinyMarginEnd"/>
                     </OverflowToolbar>
                 </footer>

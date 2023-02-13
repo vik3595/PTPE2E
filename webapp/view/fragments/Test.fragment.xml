@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <Dialog showHeader="false" titleAlignment="Center" contentWidth="75%" contentHeight="auto">
+    <Dialog showHeader="false" titleAlignment="Center" contentWidth="75%" contentHeight="auto" stretch="{device>/system/phone}">
         <content>
             <Table id="idTestTable">
                 

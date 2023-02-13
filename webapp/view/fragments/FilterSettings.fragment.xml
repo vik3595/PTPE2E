@@ -2,36 +2,48 @@
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core"
     xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-    <Dialog title="Select Region" titleAlignment="Center" contentWidth="30%" afterOpen="onAfterRegionDialogOpen">
+    <Dialog title="Apply filter" titleAlignment="Center" contentWidth="30%" stretch="{device>/system/phone}" afterOpen="onAfterFilterSettingsOpen">
         <content>
             <f:SimpleForm id="idRegionFilterForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="3" emptySpanL="3" emptySpanM="0" emptySpanS="0" columnsXL="6" columnsL="6" columnsM="12" singleContainerFullSize="false">
                 <f:content>
                     <Label text="Region" />
-                    <MultiComboBox id="idSelectRegions" showSelectAll="true" items="{DemoData>/AllRegions}" selectionFinish="onRegionChange" custom:type="Region">
+                    <MultiComboBox id="idRegionComboBox" showSelectAll="true" items="{DemoData>/AllRegions}">
                         <items>
                             <core:Item text="{DemoData>region}" key="{DemoData>region}"/>
                         </items>
                     </MultiComboBox>
                     <Label text="Company Code" />
-                    <MultiComboBox id="idSelectCompCode" showSelectAll="true" items="{DemoData>/RegionCompCodes}" selectionFinish="onRegionChange" custom:type="CompCode">
+                    <MultiComboBox id="idCompCodeComboBox" showSelectAll="true" items="{DemoData>/CompCodes}">
                         <items>
                             <core:Item text="{DemoData>name} - {DemoData>description}" key="{DemoData>name}"/>
                         </items>
                     </MultiComboBox>
                     <Label text="Distribution Center" />
-                    <MultiComboBox id="idSelectDistCenter" showSelectAll="true" items="{DemoData>/RegionDistCenters}" selectionFinish="onRegionChange" custom:type="DistCenter">
+                    <MultiComboBox id="idDistCenterComboBox" showSelectAll="true" items="{DemoData>/DistCenters}">
                         <items>
                             <core:Item text="{DemoData>name} - {DemoData>description}" key="{DemoData>name}"/>
+                        </items>
+                    </MultiComboBox>
+                    <Label text="Vendors" />
+                    <MultiComboBox id="idVendorComboBox" showSelectAll="true" items="{DemoData>/Vendors}">
+                        <items>
+                            <core:Item text="{DemoData>name} - {DemoData>description} " key="{DemoData>name}"></core:Item>
+                        </items>
+                    </MultiComboBox>
+                    <Label text="Season" />
+                    <MultiComboBox id="idSeasonComboBox" showSelectAll="true" items="{DemoData>/Seasons}">
+                        <items>
+                            <core:Item text="{DemoData>name}" key="{DemoData>name}"></core:Item>
                         </items>
                     </MultiComboBox>
                 </f:content>
             </f:SimpleForm>
         </content>
         <beginButton>
-            <Button text="Apply" type="Emphasized" press="onApplyRegionFilter"/>
+            <Button text="Apply" type="Emphasized" press="onApplyFilterSettings"/>
         </beginButton>
         <endButton>
-            <Button text="Cancel" press="onCancelRegionDialog"/>
+            <Button text="Cancel" press="onCancelFilterSettings"/>
         </endButton>
     </Dialog>
 </core:FragmentDefinition>
