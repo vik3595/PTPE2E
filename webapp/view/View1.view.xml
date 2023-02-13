@@ -437,7 +437,7 @@
                                     <l:BlockLayout background="Default">
                                         <l:BlockLayoutRow>
                                             <l:BlockLayoutCell width="1" title="Qty/Cost">
-                                                <l:Grid hSpacing="0">
+                                                <l:Grid hSpacing="0" position="Center">
                                                     <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/0/Header}" subheader="{DemoData>/TilesData/0/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/0/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -584,7 +584,7 @@
                                                             </TileContent>
                                                         </tileContent>
                                                     </GenericTile>
-                                                    <!-- <GenericTile sizeBehavior="Small" custom:type="GT" systemInfo="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDiffDesc'}" header="{DemoData>/TilesData/1/Tiles/4/Header}" subheader="{DemoData>/TilesData/1/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/4/Enabled}">
+                                                    <GenericTile sizeBehavior="Small" custom:type="GT" systemInfo="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDiffDesc'}" header="{DemoData>/TilesData/1/Tiles/4/Header}" subheader="{DemoData>/TilesData/1/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/4/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
                                                         </layoutData>
@@ -597,7 +597,7 @@
                                                                 </content>
                                                             </TileContent>
                                                         </tileContent>
-                                                    </GenericTile> -->
+                                                    </GenericTile>
                                                     <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/5/Header}" subheader="{DemoData>/TilesData/1/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/5/Enabled}">
                                                         <layoutData>
                                                             <l:GridData span="XL2 L2 M4 S6" />
