@@ -95,94 +95,7 @@ sap.ui.define([
                 oDistCenterComboBox.setSelectedKeys(aDistCenterKeys);
                 oVendorComboBox.setSelectedKeys(aVendorKeys);
             },
-            onApplyRegionFilter: function () {
-                var oRegionComboBox = Fragment.byId("idRegionOptionDlg", "idSelectRegions"),
-                    oCompCodeComboBox = Fragment.byId("idRegionOptionDlg", "idSelectCompCode"),
-                    oDistCenterComboBox = Fragment.byId("idRegionOptionDlg", "idSelectDistCenter");
-                if (oRegionComboBox.getSelectedItems().length === 0) {
-                    MessageBox.error("Please Select Region");
-                    return;
-                }
-                if (oRegionComboBox.getSelectedItems().length === this.oDemoDataModel.getProperty("/AllRegions").length) {
-                    this.oDemoDataModel.setProperty("/Region", "All");
-                } else {
-                    var sText = "";
-                    for (var i = 0; i < oRegionComboBox.getSelectedItems().length; i++) {
-                        sText += oRegionComboBox.getSelectedItems()[i].getText() + ", ";
-                    }
-                    sText = sText.slice(0, sText.length - 2);
-                    this.oDemoDataModel.setProperty("/Region", sText);
-                }
-                if (oRegionComboBox.getSelectedItems().length > 1) {
-                    this.oDemoDataModel.setProperty("/RegionLogo", this.oImageModel.getProperty("/All"));
-                } else {
-                    this.oDemoDataModel.setProperty("/RegionLogo", this.oImageModel.getProperty("/" + sText));
-                }
-                var aRegionKeys = [],
-                    aCompCodeKeys = [],
-                    aDistCenterKeys = [];
-                oRegionComboBox.getSelectedItems().forEach(function (oItem) {
-                    aRegionKeys.push(oItem.getKey());
-                });
-                oCompCodeComboBox.getSelectedItems().forEach(function (oItem) {
-                    aCompCodeKeys.push(oItem.getKey());
-                });
-                oDistCenterComboBox.getSelectedItems().forEach(function (oItem) {
-                    aDistCenterKeys.push(oItem.getKey());
-                });
-                this.oDemoDataModel.setProperty("/RegionFilters", aRegionKeys);
-                this.oDemoDataModel.setProperty("/CompCodeFilters", aCompCodeKeys);
-                this.oDemoDataModel.setProperty("/DistCentersFilters", aDistCenterKeys);
-                this._refreshRandomData();
-            },
-            onAfterTimeFilterOpen: function () {
-                var oSelect = Fragment.byId("idTimeRangeDlg", "idSelectSeason"),
-                    aRegionKeys = this.oDemoDataModel.getProperty("/RegionFilters"),
-                    aSeasonKeys = this.oDemoDataModel.getProperty("/SeasonFilters"),
-                    aFilter = [];
-                for (var i = 0; i < aRegionKeys.length; i++) {
-                    aFilter.push(new Filter("region", FilterOperator.EQ, aRegionKeys[i]));
-                }
-                var aAllFilter = new Filter(aFilter, false);
-                oSelect.getBinding("items").filter(aAllFilter);
-                if (aSeasonKeys.length === 0) {
-                    oSelect.getItems().forEach(function (oItem) {
-                        if (oItem.getBindingContext("DemoData").getObject().key === "H2 22" || oItem.getBindingContext("DemoData").getObject().key === "H1 23") {
-                            aSeasonKeys.push(oItem.getKey());
-                        }
-                    });
-                }
-                oSelect.setSelectedKeys(aSeasonKeys);
-            },
-            onAfterVendorDlgOpen: function (oEvt) {
-                var oCompCodeComboBox = Fragment.byId("idVendorDlg", "idSelectCompCode"),
-                    oVendorComboBox = Fragment.byId("idVendorDlg", "idSelectVendor"),
-                    aAllRegions = this.oDemoDataModel.getProperty("/AllRegions"),
-                    aRegionKeys = this.oDemoDataModel.getProperty("/RegionFilters"),
-                    aTemp = [];
-                for (var i = 0; i < aRegionKeys.length; i++) {
-                    for (var j = 0; j < aAllRegions.length; j++) {
-                        if (aAllRegions[j].region === aRegionKeys[i]) {
-                            aTemp = aTemp.concat(aAllRegions[i].CompanyCodes);
-                            break;
-                        }
-                    }
-                }
-                aTemp = aTemp.filter((value, index, self) => index === self.findIndex((t) => (
-                    t.name === value.name
-                )));
-                this.oDemoDataModel.setProperty("/VendorCompCodes", aTemp);
-                oCompCodeComboBox.setSelectedKeys(this.oDemoDataModel.getProperty("/VendorCompCodeFilters"));
-                var aTemp1 = [];
-                aTemp.forEach(function (oItem) {
-                    aTemp1 = aTemp1.concat(oItem.Vendors);
-                });
-                aTemp1 = aTemp1.filter((value, index, self) => index === self.findIndex((t) => (
-                    t.name === value.name
-                )));
-                this.oDemoDataModel.setProperty("/Vendors", aTemp1);
-                oVendorComboBox.setSelectedKeys(this.oDemoDataModel.getProperty("/VendorFilters"));
-            },
+
             onCompCodeChangeForVendor: function (oEvt) {
                 var aSelectedItems = oEvt.getParameter("selectedItems");
                 if (aSelectedItems.length > 0) {
@@ -320,30 +233,102 @@ sap.ui.define([
                 }
                 this._oTestDlg.open();
                 var oModel = new sap.ui.model.json.JSONModel([oSelObj]);
-                var oTable = Fragment.byId("idTestTileDlg", "idTestTable");
-                var oCell = [];
-                oTable.destroyColumns();
-                oTable.setModel(oModel);
-                for (var i = 0; i < aCols.length; i++) {
-                    oTable.addColumn(new sap.m.Column({
-                        header: new sap.m.Label({
-                            text: aCols[i].ColName,
-                            wrapping: true
-                        }),
-                        demandPopin: i > 2 ? true : false,
-                        minScreenWidth: i > 2 ? "Tablet" : "Phone"
-                    }));
-                    oCell.push(
-                        new sap.m.Text({
-                            text: "{" + aCols[i].ColProperty + "}",
-                            wrapping: true
-                        })
-                    );
+                if (this.getOwnerComponent().getModel("device").getData().system.phone) {
+                    for (var j = 0; j < 5; j++) {
+                        oModel.getData().push(oModel.getData()[0]);
+                    }
+                    // for (var j = 0; j < oModel.getData().length; j++) {
+                    //     if (j === 0) {
+                    //         oModel.getData()[j].ColorSet = "ColorSet7";
+                    //         oModel.getData()[j].ColorShade = "ShadeE";
+                    //     }
+                    //     if (j === 1) {
+                    //         oModel.getData()[j].ColorSet = "ColorSet7";
+                    //         oModel.getData()[j].ColorShade = "ShadeF";
+                    //     }
+                    //     if (j === 2) {
+                    //         oModel.getData()[j].ColorSet = "ColorSet6";
+                    //         oModel.getData()[j].ColorShade = "ShadeE";
+                    //     }
+                    //     if (j === 3) {
+                    //         oModel.getData()[j].ColorSet = "ColorSet6";
+                    //         oModel.getData()[j].ColorShade = "ShadeF";
+                    //     }
+                    //     if (j === 4) {
+                    //         oModel.getData()[j].ColorSet = "ColorSet5";
+                    //         oModel.getData()[j].ColorShade = "ShadeE";
+                    //     }
+                    //     if (j === 5) {
+                    //         oModel.getData()[j].ColorSet = "ColorSet5";
+                    //         oModel.getData()[j].ColorShade = "ShadeF";
+                    //     }
+                    // }
+                    //------------------For List--------------------------------
+                    var oList = Fragment.byId("idTestTileDlg", "idTestList");
+                    oList.setModel(oModel);
+                    var oGrid = new sap.ui.layout.Grid().addStyleClass("sapUiTinyMarginTop");
+                    for (var i = 0; i < aCols.length; i++) {
+                        oGrid.addContent(
+                            new sap.m.VBox({
+                                items: [
+                                    new sap.m.Label({
+                                        text: aCols[i].ColName,
+                                        design: "Bold",
+                                        showColon: true
+                                    }),
+                                    new sap.m.Text({
+                                        text: "{" + aCols[i].ColProperty + "}"
+                                    })
+                                ],
+                                layoutData: [
+                                    new sap.ui.layout.GridData({
+                                        span: "XL2 L2 M6 S6"
+                                    })
+                                ]
+                            })
+                        );
+                    }
+                    var oBlkLayout = new sap.ui.layout.BlockLayout({
+                        content: [new sap.ui.layout.BlockLayoutRow({
+                            content: [new sap.ui.layout.BlockLayoutCell({
+                                width: 1,
+                                content: oGrid,
+                                backgroundColorSet: "{ColorSet}",
+                                backgroundColorShade: "{ColorShade}"
+                            })]
+                        })]
+                    }).addStyleClass("blkLytCls");
+                    var oCustomListItem = new sap.m.CustomListItem({
+                        content: oBlkLayout
+                    });
+                    oList.bindAggregation("items", "/", oCustomListItem);
+                } else {
+                    //-------------- For Table ------------------------------
+                    var oTable = Fragment.byId("idTestTileDlg", "idTestTable");
+                    var oCell = [];
+                    oTable.destroyColumns();
+                    oTable.setModel(oModel);
+                    for (var i = 0; i < aCols.length; i++) {
+                        oTable.addColumn(new sap.m.Column({
+                            header: new sap.m.Label({
+                                text: aCols[i].ColName,
+                                wrapping: true
+                            }),
+                            demandPopin: i > 2 ? true : false,
+                            minScreenWidth: i > 2 ? "Tablet" : "Phone"
+                        }));
+                        oCell.push(
+                            new sap.m.Text({
+                                text: "{" + aCols[i].ColProperty + "}",
+                                wrapping: true
+                            })
+                        );
+                    }
+                    var oTemplate = new sap.m.ColumnListItem({
+                        cells: oCell
+                    });
+                    oTable.bindAggregation("items", "/", oTemplate);
                 }
-                var oTemplate = new sap.m.ColumnListItem({
-                    cells: oCell
-                });
-                oTable.bindAggregation("items", "/", oTemplate);
             },
             onCloseTestDialog: function () {
                 this._oTestDlg.close();

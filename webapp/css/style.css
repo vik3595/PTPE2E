@@ -249,3 +249,9 @@
 .tagTxtCls .sapMGenericTagText {
     font-weight: bold !important;
 }
+.blkLytCls .sapUiBlockCellContent {
+    border-radius: 10px !important;
+}
+.carouselCls .sapMCrslControls.sapMCrslControlsBottom, .sapMCrslControlsNoArrows.sapMCrslControlsBottom {
+    border-top: none !important;
+}
