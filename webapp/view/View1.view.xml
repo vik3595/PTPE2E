@@ -433,14 +433,9 @@
                     </l:VerticalLayout>
                     <Carousel id="idCarousel" visible="{device>/system/phone}" height="100%" loop="true" backgroundDesign="Transparent">
                         <pages>
-                            <Page showHeader="false" class="transparentBg">
-                                <OverflowToolbar height="3rem" design="Solid" class="sapUiSmallMarginBottom">
-                                    <ToolbarSpacer/>
-                                    <Title text="Quantity"/>
-                                    <ToolbarSpacer/>
-                                </OverflowToolbar>
+                            <Page showHeader="false" class="transparentBg" showFooter="true">
                                 <!-- <GenericTag text="Quantity" design="StatusIconHidden" status="None" class="tagTxtCls sapUiSmallMarginBegin sapUiSmallMarginTopBottom"></GenericTag> -->
-                                <l:Grid hSpacing="1">
+                                <l:Grid hSpacing="1" class="sapUiSmallMarginTop">
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -490,15 +485,17 @@
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
                                     </VBox>
                                 </l:Grid>
+                                <footer>
+                                    <OverflowToolbar design="Solid">
+                                        <ToolbarSpacer/>
+                                        <Title text="Quantity"/>
+                                        <ToolbarSpacer/>
+                                    </OverflowToolbar>
+                                </footer>
                             </Page>
-                            <Page showHeader="false" class="transparentBg">
-                                <OverflowToolbar height="3rem" design="Solid" class="sapUiSmallMarginBottom">
-                                    <ToolbarSpacer/>
-                                    <Title text="On Time"/>
-                                    <ToolbarSpacer/>
-                                </OverflowToolbar>
+                            <Page showHeader="false" class="transparentBg" showFooter="true">
                                 <!-- <GenericTag text="On Time" design="StatusIconHidden" status="None" class="tagTxtCls sapUiSmallMarginBegin sapUiSmallMarginTopBottom"></GenericTag> -->
-                                <l:Grid hSpacing="1">
+                                <l:Grid hSpacing="1" class="sapUiSmallMarginTop">
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -545,15 +542,17 @@
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/5/POQty', 'DemoData>/TilesData/1/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/5/POQty', 'DemoData>/TilesData/1/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
                                     </VBox>
                                 </l:Grid>
+                                <footer>
+                                    <OverflowToolbar design="Solid">
+                                        <ToolbarSpacer/>
+                                        <Title text="On Time"/>
+                                        <ToolbarSpacer/>
+                                    </OverflowToolbar>
+                                </footer>
                             </Page>
-                            <Page showHeader="false" class="transparentBg">
-                                <OverflowToolbar height="3rem" design="Solid" class="sapUiSmallMarginBottom">
-                                    <ToolbarSpacer/>
-                                    <Title text="Price Updates"/>
-                                    <ToolbarSpacer/>
-                                </OverflowToolbar>
+                            <Page showHeader="false" class="transparentBg" showFooter="true">
                                 <!-- <GenericTag text="Price Updates" design="StatusIconHidden" status="None" class="tagTxtCls sapUiSmallMarginBegin sapUiSmallMarginTopBottom"></GenericTag> -->
-                                <l:Grid hSpacing="1">
+                                <l:Grid hSpacing="1" class="sapUiSmallMarginTop">
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -571,15 +570,17 @@
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/2/Tiles/1/POAmt', 'DemoData>/TilesData/2/Tiles/1/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/2/Tiles/1/POAmt', 'DemoData>/TilesData/2/Tiles/1/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
                                     </VBox>
                                 </l:Grid>
+                                <footer>
+                                    <OverflowToolbar design="Solid">
+                                        <ToolbarSpacer/>
+                                        <Title text="Price Updates"/>
+                                        <ToolbarSpacer/>
+                                    </OverflowToolbar>
+                                </footer>
                             </Page>
-                            <Page showHeader="false" class="transparentBg">
-                                <OverflowToolbar height="3rem" design="Solid" class="sapUiSmallMarginBottom">
-                                    <ToolbarSpacer/>
-                                    <Title text="Success Rate"/>
-                                    <ToolbarSpacer/>
-                                </OverflowToolbar>
+                            <Page showHeader="false" class="transparentBg" showFooter="true">
                                 <!-- <GenericTag text="Success Rate" design="StatusIconHidden" status="None" class="tagTxtCls sapUiSmallMarginBegin sapUiSmallMarginTopBottom"></GenericTag> -->
-                                <l:Grid hSpacing="1">
+                                <l:Grid hSpacing="1" class="sapUiSmallMarginTop">
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -629,6 +630,13 @@
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/6/InvoicedQty', 'DemoData>/TilesData/3/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/6/InvoicedQty', 'DemoData>/TilesData/3/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
                                     </VBox>
                                 </l:Grid>
+                                <footer>
+                                    <OverflowToolbar design="Solid">
+                                        <ToolbarSpacer/>
+                                        <Title text="Success Rate"/>
+                                        <ToolbarSpacer/>
+                                    </OverflowToolbar>
+                                </footer>
                             </Page>
                         </pages>
                     </Carousel>
