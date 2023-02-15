@@ -1,5 +1,5 @@
 {
-  "_version": "1.42.0",
+  "_version": "1.43.0",
   "sap.app": {
     "id": "com.levi.ptpe2e",
     "type": "application",
@@ -61,7 +61,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.102.10",
+      "minUI5Version": "1.110.1",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},

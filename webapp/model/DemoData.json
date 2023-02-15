@@ -647,18 +647,17 @@
                 {
                     "Name": "Tile03",
                     "Header": "IBD Creation",
-                    "SubHeader": "PO/PL vs IBD",
+                    "SubHeader": "PO vs IBD",
                     "IBDNumber": "63547",
                     "IBDQty": 46,
                     "POQty": 64,
-                    "PLQty": 46,
-                    "PLDate": "2/15/2022",
+                    "IBDDate": "2/15/2022",
                     "PODate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
-                    "Value1Property": "PLQty",
+                    "Value1Property": "IBDQty",
                     "Value2Property": "POQty",
                     "PropertyType": "Qty",
                     "Cols": [
@@ -675,16 +674,12 @@
                             "ColProperty": "POQty"
                         },
                         {
-                            "ColName": "PL Quantity",
-                            "ColProperty": "PLQty"
+                            "ColName": "IBD Date",
+                            "ColProperty": "IBDDate"
                         },
                         {
                             "ColName": "PO Date",
                             "ColProperty": "PODate"
-                        },
-                        {
-                            "ColName": "PL Date",
-                            "ColProperty": "PLDate"
                         },
                         {
                             "ColName": "PC13",
@@ -1020,18 +1015,17 @@
                 {
                     "Name": "Tile13",
                     "Header": "IBD Creation",
-                    "SubHeader": "PO/PL vs IBD",
+                    "SubHeader": "PO vs IBD",
                     "IBDNumber": "633547",
                     "IBDQty": 48,
                     "POQty": 64,
-                    "PLQty": 38,
-                    "PLDate": "2/15/2022",
+                    "IBDDate": "2/15/2022",
                     "PODate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
-                    "Value1Property": "PLQty",
+                    "Value1Property": "IBDQty",
                     "Value2Property": "POQty",
                     "PropertyType": "Qty",
                     "Cols": [
@@ -1048,16 +1042,12 @@
                             "ColProperty": "POQty"
                         },
                         {
-                            "ColName": "PL Quantity",
-                            "ColProperty": "PLQty"
-                        },
-                        {
                             "ColName": "PO Date",
                             "ColProperty": "PODate"
                         },
                         {
-                            "ColName": "PL Date",
-                            "ColProperty": "PLDate"
+                            "ColName": "IBD Date",
+                            "ColProperty": "IBDDate"
                         },
                         {
                             "ColName": "PC13",
@@ -1740,14 +1730,13 @@
                     "IBDNumber": "63747",
                     "IBDQty": 46,
                     "POQty": 64,
-                    "PLQty": 46,
-                    "PLDate": "2/15/2022",
+                    "IBDDate": "2/15/2022",
                     "PODate": "2/10/2022",
                     "PC13": "PC13-Test",
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
-                    "Value1Property": "PLQty",
+                    "Value1Property": "IBDQty",
                     "Value2Property": "POQty",
                     "PropertyType": "Qty",
                     "Cols": [
@@ -1764,12 +1753,8 @@
                             "ColProperty": "POQty"
                         },
                         {
-                            "ColName": "PL Quantity",
-                            "ColProperty": "PLQty"
-                        },
-                        {
-                            "ColName": "PL Date",
-                            "ColProperty": "PLDate"
+                            "ColName": "IBD Date",
+                            "ColProperty": "IBDDate"
                         },
                         {
                             "ColName": "PO Date",

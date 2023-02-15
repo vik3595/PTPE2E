@@ -20,6 +20,9 @@
     color: #ffffff !important;
     font-weight: bold !important;
 }
+.transparentBg {
+    background: transparent !important;
+}
 .pageBg {
     /* background-color: #0093E9 !important;
     background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%) !important; */
@@ -31,18 +34,27 @@
     background-image: linear-gradient(200deg, #0093E9 22%, #80D0C7 100%) !important; */
     background-image: url('../img/levi_detail1.jpg');
     background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
 }
 .dtlPageBgCustomer {
     /* background-color: #0093E9 !important;
     background-image: linear-gradient(200deg, #0093E9 22%, #80D0C7 100%) !important; */
     background-image: url('../img/levi_detail2.jpg');
     background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
 }
 .dtlPageBgDCVendor {
     /* background-color: #0093E9 !important;
     background-image: linear-gradient(200deg, #0093E9 22%, #80D0C7 100%) !important; */
     background-image: url('../img/levi_detail3.jpg');
     background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
 }
 /* .pageBg {
     background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%) !important;
@@ -254,4 +266,7 @@
 }
 .carouselCls .sapMCrslControls.sapMCrslControlsBottom, .sapMCrslControlsNoArrows.sapMCrslControlsBottom {
     border-top: none !important;
+}
+.numericContentCls .sapMNCValue {
+    justify-content: center !important;
 }

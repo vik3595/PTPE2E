@@ -232,38 +232,21 @@ sap.ui.define([
                     this.getView().addDependent(this._oTestDlg);
                 }
                 this._oTestDlg.open();
-                var oModel = new sap.ui.model.json.JSONModel([oSelObj]);
+                // var aColorSet = ["ColorSet1", "ColorSet2", "ColorSet3", "ColorSet4", "ColorSet5", "ColorSet6", "ColorSet7", "ColorSet8", "ColorSet9", "ColorSet10", "ColorSet11"];
+                var aColorShade = ["ShadeA", "ShadeB", "ShadeC", "ShadeD", "ShadeE", "ShadeF"];
+                var aTemp = [];
+                for (var j = 1; j < 26; j++) {
+                    var sObjString = JSON.stringify(oSelObj);
+                    var oTempObj = JSON.parse(sObjString);
+                    var sSet = j%11 === 0 ? "11" : (j%11).toString();
+                    oTempObj.ColorSet = "ColorSet" + sSet;
+                    // oTempObj.ColorShade = "ShadeC";
+                    oTempObj.ColorShade = aColorShade[Math.floor(Math.random() * (5 - 0) + 0)];
+                    aTemp.push(oTempObj);
+                }
                 if (this.getOwnerComponent().getModel("device").getData().system.phone) {
-                    for (var j = 0; j < 5; j++) {
-                        oModel.getData().push(oModel.getData()[0]);
-                    }
-                    // for (var j = 0; j < oModel.getData().length; j++) {
-                    //     if (j === 0) {
-                    //         oModel.getData()[j].ColorSet = "ColorSet7";
-                    //         oModel.getData()[j].ColorShade = "ShadeE";
-                    //     }
-                    //     if (j === 1) {
-                    //         oModel.getData()[j].ColorSet = "ColorSet7";
-                    //         oModel.getData()[j].ColorShade = "ShadeF";
-                    //     }
-                    //     if (j === 2) {
-                    //         oModel.getData()[j].ColorSet = "ColorSet6";
-                    //         oModel.getData()[j].ColorShade = "ShadeE";
-                    //     }
-                    //     if (j === 3) {
-                    //         oModel.getData()[j].ColorSet = "ColorSet6";
-                    //         oModel.getData()[j].ColorShade = "ShadeF";
-                    //     }
-                    //     if (j === 4) {
-                    //         oModel.getData()[j].ColorSet = "ColorSet5";
-                    //         oModel.getData()[j].ColorShade = "ShadeE";
-                    //     }
-                    //     if (j === 5) {
-                    //         oModel.getData()[j].ColorSet = "ColorSet5";
-                    //         oModel.getData()[j].ColorShade = "ShadeF";
-                    //     }
-                    // }
                     //------------------For List--------------------------------
+                    var oModel = new sap.ui.model.json.JSONModel(aTemp);
                     var oList = Fragment.byId("idTestTileDlg", "idTestList");
                     oList.setModel(oModel);
                     var oGrid = new sap.ui.layout.Grid().addStyleClass("sapUiTinyMarginTop");
@@ -304,6 +287,7 @@ sap.ui.define([
                     oList.bindAggregation("items", "/", oCustomListItem);
                 } else {
                     //-------------- For Table ------------------------------
+                    var oModel = new sap.ui.model.json.JSONModel([oSelObj]);
                     var oTable = Fragment.byId("idTestTileDlg", "idTestTable");
                     var oCell = [];
                     oTable.destroyColumns();
