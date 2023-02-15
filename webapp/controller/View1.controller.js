@@ -235,13 +235,15 @@ sap.ui.define([
                 // var aColorSet = ["ColorSet1", "ColorSet2", "ColorSet3", "ColorSet4", "ColorSet5", "ColorSet6", "ColorSet7", "ColorSet8", "ColorSet9", "ColorSet10", "ColorSet11"];
                 var aColorShade = ["ShadeA", "ShadeB", "ShadeC", "ShadeD", "ShadeE", "ShadeF"];
                 var aTemp = [];
-                for (var j = 1; j < 26; j++) {
+                for (var j = 0; j < 6; j++) {
                     var sObjString = JSON.stringify(oSelObj);
                     var oTempObj = JSON.parse(sObjString);
-                    var sSet = j%11 === 0 ? "11" : (j%11).toString();
-                    oTempObj.ColorSet = "ColorSet" + sSet;
+                    oTempObj.ColorSet = "ColorSet7";
+                    oTempObj.ColorShade = "ShadeE";
+                    // var sSet = j%11 === 0 ? "11" : (j%11).toString();
+                    // oTempObj.ColorSet = "ColorSet" + sSet;
                     // oTempObj.ColorShade = "ShadeC";
-                    oTempObj.ColorShade = aColorShade[Math.floor(Math.random() * (5 - 0) + 0)];
+                    // oTempObj.ColorShade = aColorShade[Math.floor(Math.random() * (5 - 0) + 0)];
                     aTemp.push(oTempObj);
                 }
                 if (this.getOwnerComponent().getModel("device").getData().system.phone) {

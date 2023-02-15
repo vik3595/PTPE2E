@@ -270,3 +270,8 @@
 .numericContentCls .sapMNCValue {
     justify-content: center !important;
 }
+.tileVboxCls {
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid;
+}
