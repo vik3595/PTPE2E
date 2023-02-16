@@ -20,9 +20,9 @@
     color: #ffffff !important;
     font-weight: bold !important;
 }
-.transparentBg {
+/* .transparentBg {
     background: transparent !important;
-}
+} */
 .pageBg {
     /* background-color: #0093E9 !important;
     background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%) !important; */
@@ -261,9 +261,6 @@
 .tagTxtCls .sapMGenericTagText {
     font-weight: bold !important;
 }
-.blkLytCls .sapUiBlockCellContent {
-    border-radius: 10px !important;
-}
 .carouselCls .sapMCrslControls.sapMCrslControlsBottom, .sapMCrslControlsNoArrows.sapMCrslControlsBottom {
     border-top: none !important;
 }
@@ -274,4 +271,8 @@
     padding: 10px;
     border-radius: 15px;
     border: 1px solid;
+}
+.roundedCellContent .sapUiBlockLayoutCell {
+    border-radius: 15px !important;
+    margin: 5px 5px 0 5px !important;
 }

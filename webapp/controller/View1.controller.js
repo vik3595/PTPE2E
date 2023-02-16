@@ -205,14 +205,51 @@ sap.ui.define([
             },
             onTestTilePress: function (oEvt) {
                 var sType = oEvt.getSource().getCustomData()[0].getValue(),
-                    sPath = "";
+                    sPath = "",
+                    sColor = "";
+
                 if (sType === "GT") {
+                    if (oEvt.getSource().getTileContent()[0].getContent().getId().includes("chart")) {
+                        var iPercentage = oEvt.getSource().getTileContent()[0].getContent().getPercentage();
+                        if (iPercentage >= 75) {
+                            sColor = "#107e3e";
+                        } else if (iPercentage < 75 && iPercentage > 30) {
+                            sColor = "#df6e0c";
+                        } else {
+                            sColor = "#bb0000";
+                        }
+                    } else {
+                        var sIndicator = oEvt.getSource().getTileContent()[0].getContent().getItems()[0].getIndicator();
+                        if (sIndicator === "Up") {
+                            sColor = "#107e3e";
+                        } else if (sIndicator === "Down") {
+                            sColor = "#bb0000";
+                        } else {
+                            sColor = "#788fa6";
+                        }
+                    }
                     sPath = oEvt.getSource().getBindingInfo("header").binding.getPath();
                     sPath = sPath.slice(0, sPath.lastIndexOf("/"));
                 } else if (sType === "RMC") {
+                    var iPercentage = oEvt.getSource().getPercentage();
+                    if (iPercentage >= 75) {
+                        sColor = "#107e3e";
+                    } else if (iPercentage < 75 && iPercentage > 30) {
+                        sColor = "#df6e0c";
+                    } else {
+                        sColor = "#bb0000";
+                    }
                     sPath = oEvt.getSource().getBindingInfo("percentage").binding.getBindings()[0].getPath();
                     sPath = sPath.slice(0, sPath.lastIndexOf("/"));
                 } else if (sType === "NC") {
+                    var sIndicator = oEvt.getSource().getIndicator();
+                    if (sIndicator === "Up") {
+                        sColor = "#107e3e";
+                    } else if (sIndicator === "Down") {
+                        sColor = "#bb0000";
+                    } else {
+                        sColor = "#788fa6";
+                    }
                     sPath = oEvt.getSource().getBindingInfo("value").binding.getBindings()[0].getPath();
                     sPath = sPath.slice(0, sPath.lastIndexOf("/"));
                 }
@@ -273,6 +310,30 @@ sap.ui.define([
                             })
                         );
                     }
+                    oGrid.addContent(
+                        new sap.m.VBox({
+                            items: [
+                                new sap.m.Label({
+                                    text: "Flag",
+                                    design: "Bold",
+                                    showColon: true
+                                }),
+                                new sap.ui.core.Icon({
+                                    src: "sap-icon://flag",
+                                    color: sColor,
+                                    backgroundColor: "#fff",
+                                    width: "2.5rem",
+                                    height: "1.8rem",
+                                    size: "1.3rem"
+                                })
+                            ],
+                            layoutData: [
+                                new sap.ui.layout.GridData({
+                                    span: "XL2 L2 M6 S6"
+                                })
+                            ]
+                        })
+                    );
                     var oBlkLayout = new sap.ui.layout.BlockLayout({
                         content: [new sap.ui.layout.BlockLayoutRow({
                             content: [new sap.ui.layout.BlockLayoutCell({
@@ -282,7 +343,7 @@ sap.ui.define([
                                 backgroundColorShade: "{ColorShade}"
                             })]
                         })]
-                    }).addStyleClass("blkLytCls");
+                    }).addStyleClass("roundedCellContent");
                     var oCustomListItem = new sap.m.CustomListItem({
                         content: oBlkLayout
                     });
@@ -310,6 +371,18 @@ sap.ui.define([
                             })
                         );
                     }
+                    oTable.addColumn(new sap.m.Column({
+                        header: new sap.m.Label({
+                            text: "Flag",
+                            wrapping: true
+                        })
+                    }));
+                    oCell.push(
+                        new sap.ui.core.Icon({
+                            src: "sap-icon://flag",
+                            color: sColor
+                        })
+                    );
                     var oTemplate = new sap.m.ColumnListItem({
                         cells: oCell
                     });
@@ -477,7 +550,12 @@ sap.ui.define([
             },
             onCancelFilterSettings: function (oEvt) {
                 this._oFilterSettingsDlg.close();
+            },
+            onCarouselPageChanged: function(oEvt) {
+                var sTitle = oEvt.getSource().getPages()[oEvt.getParameter("activePages")[0]].getTitle();
+                this.oDemoDataModel.setProperty("/TileTextMobile", sTitle);
             }
+
 
         });
     });

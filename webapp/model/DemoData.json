@@ -2118,6 +2118,7 @@
             "key": "H1 23"
         }
     ],
+    "TileTextMobile": "Quantity",
     "Design": "Transparent",
     "MasterDesign": "Default",
     "Region": "All",
