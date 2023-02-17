@@ -36,42 +36,47 @@
                 </customHeader>
                 <content>
                     <l:VerticalLayout width="100%" visible="{= (${DemoData>/Design} === 'Transparent' &amp;&amp; (${device>/system/desktop} || ${device>/system/tablet})) ? true : false}" class="sapUiResponsiveContentPadding">
-                        <!-- <Text text="Quantity" class="txtCls"/> -->
                         <GenericTag text="Quantity" design="StatusIconHidden" status="None" class="tagTxtCls sapUiTinyMarginBegin"></GenericTag>
                         <HeaderContainer scrollStep="200">
                             <content>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/0/Header}" subheader="{DemoData>/TilesData/0/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/0/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:HBMC="GT" header="{DemoData>/TilesData/0/Tiles/0/Header}" subheader="{DemoData>/TilesData/0/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/0/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
-                                                <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" />
+                                                <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter.calculatePercentage'}" /> -->
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/0/ForecastQty}" totalScale="Qty">
+                                                    <microchart:items>
+                                                        <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/0/OAQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                                    </microchart:items>
+                                                </microchart:HarveyBallMicroChart>
                                             </content>
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/1/Header}" subheader="{DemoData>/TilesData/0/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/1/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:HBMC="GT" header="{DemoData>/TilesData/0/Tiles/1/Header}" subheader="{DemoData>/TilesData/0/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/1/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
-                                                <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" />
+                                                <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" /> -->
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/1/ForecastQty}" totalScale="Qty">
+                                                    <microchart:items>
+                                                        <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/1/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                                    </microchart:items>
+                                                </microchart:HarveyBallMicroChart>
                                             </content>
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <!-- <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/2/Header}" subheader="{DemoData>/TilesData/0/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/2/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:HBMC="GT" header="{DemoData>/TilesData/0/Tiles/3/Header}" subheader="{DemoData>/TilesData/0/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/3/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
-                                                <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/2/PLQty', 'DemoData>/TilesData/0/Tiles/2/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/2/PLQty', 'DemoData>/TilesData/0/Tiles/2/POQty'], formatter:'.formatter.calculatePercentage'}" />
-                                            </content>
-                                        </TileContent>
-                                    </tileContent>
-                                </GenericTile> -->
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/3/Header}" subheader="{DemoData>/TilesData/0/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/3/Enabled}">
-                                    <tileContent>
-                                        <TileContent>
-                                            <content>
-                                                <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" />
+                                                <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" /> -->
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/3/POQty}" totalScale="Qty">
+                                                    <microchart:items>
+                                                        <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/3/IBDQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                                    </microchart:items>
+                                                </microchart:HarveyBallMicroChart>
                                             </content>
                                         </TileContent>
                                     </tileContent>
@@ -87,27 +92,36 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/5/Header}" subheader="{DemoData>/TilesData/0/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/5/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:HBMC="GT" header="{DemoData>/TilesData/0/Tiles/5/Header}" subheader="{DemoData>/TilesData/0/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/5/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
-                                                <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" />
+                                                <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" /> -->
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/5/IBDQty}" totalScale="Qty">
+                                                    <microchart:items>
+                                                        <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/5/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                                    </microchart:items>
+                                                </microchart:HarveyBallMicroChart>
                                             </content>
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/6/Header}" subheader="{DemoData>/TilesData/0/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/6/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:HBMC="GT" header="{DemoData>/TilesData/0/Tiles/6/Header}" subheader="{DemoData>/TilesData/0/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/0/Tiles/6/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
-                                                <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" />
+                                                <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" /> -->
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/6/GRQty}" totalScale="Qty">
+                                                    <microchart:items>
+                                                        <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/6/InvoicedQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                                    </microchart:items>
+                                                </microchart:HarveyBallMicroChart>
                                             </content>
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
                             </content>
                         </HeaderContainer>
-                        <!-- <Text text="On Time" class="txtCls"/> -->
                         <GenericTag text="On Time" design="StatusIconHidden" status="None" class="tagTxtCls sapUiTinyMarginBegin"></GenericTag>
                         <HeaderContainer scrollStep="200">
                             <content>
@@ -122,7 +136,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/1/Header}" subheader="{DemoData>/TilesData/1/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/1/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/1/Tiles/1/Header}" subheader="{DemoData>/TilesData/1/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/1/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -131,16 +145,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <!-- <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/2/Header}" subheader="{DemoData>/TilesData/1/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/2/Enabled}">
-                                    <tileContent>
-                                        <TileContent>
-                                            <content>
-                                                <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter.calculatePercentage'}" />
-                                            </content>
-                                        </TileContent>
-                                    </tileContent>
-                                </GenericTile> -->
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/3/Header}" subheader="{DemoData>/TilesData/1/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/3/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/1/Tiles/3/Header}" subheader="{DemoData>/TilesData/1/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/3/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -149,7 +154,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" systemInfo="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDiffDesc'}" header="{DemoData>/TilesData/1/Tiles/4/Header}" subheader="{DemoData>/TilesData/1/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/4/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:NC="GT" systemInfo="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDiffDesc'}" header="{DemoData>/TilesData/1/Tiles/4/Header}" subheader="{DemoData>/TilesData/1/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/4/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -160,7 +165,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/1/Tiles/5/Header}" subheader="{DemoData>/TilesData/1/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/5/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/1/Tiles/5/Header}" subheader="{DemoData>/TilesData/1/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/1/Tiles/5/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -182,11 +187,10 @@
                                 </GenericTile>
                             </content>
                         </HeaderContainer>
-                        <!-- <Text text="Price Updates" class="txtCls"/> -->
                         <GenericTag text="Price Updates" design="StatusIconHidden" status="None" class="tagTxtCls sapUiTinyMarginBegin"></GenericTag>
                         <HeaderContainer scrollStep="200">
                             <content>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/0/Header}" subheader="{DemoData>/TilesData/2/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/0/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/2/Tiles/0/Header}" subheader="{DemoData>/TilesData/2/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/0/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -195,7 +199,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/1/Header}" subheader="{DemoData>/TilesData/2/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/1/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/2/Tiles/1/Header}" subheader="{DemoData>/TilesData/2/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/1/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -204,17 +208,6 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <!-- <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/2/Header}" subheader="{DemoData>/TilesData/2/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/2/Enabled}">
-                                    <tileContent>
-                                        <TileContent>
-                                            <content>
-                                                <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
-                                                    <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
-                                                </HBox>
-                                            </content>
-                                        </TileContent>
-                                    </tileContent>
-                                </GenericTile> -->
                                 <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/2/Tiles/3/Header}" subheader="{DemoData>/TilesData/2/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/2/Tiles/3/Enabled}">
                                     <tileContent>
                                         <TileContent>
@@ -261,11 +254,10 @@
                                 </GenericTile>
                             </content>
                         </HeaderContainer>
-                        <!-- <Text text="Success Rate" class="txtCls"/> -->
                         <GenericTag text="Success Rate" design="StatusIconHidden" status="None" class="tagTxtCls sapUiTinyMarginBegin"></GenericTag>
                         <HeaderContainer scrollStep="200">
                             <content>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/0/Header}" subheader="{DemoData>/TilesData/3/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/0/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/3/Tiles/0/Header}" subheader="{DemoData>/TilesData/3/Tiles/0/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/0/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -274,7 +266,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/1/Header}" subheader="{DemoData>/TilesData/3/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/1/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/3/Tiles/1/Header}" subheader="{DemoData>/TilesData/3/Tiles/1/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/1/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -283,18 +275,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <!-- <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/0/Tiles/2/Header}" subheader="{DemoData>/TilesData/3/Tiles/2/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/2/Enabled}">
-                                    <tileContent>
-                                        <TileContent>
-                                            <content>
-                                                <HBox width="100%" justifyContent="Center" alignContent="Center" alignItems="Center">
-                                                    <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
-                                                </HBox>
-                                            </content>
-                                        </TileContent>
-                                    </tileContent>
-                                </GenericTile> -->
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/3/Header}" subheader="{DemoData>/TilesData/3/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/3/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/3/Tiles/3/Header}" subheader="{DemoData>/TilesData/3/Tiles/3/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/3/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -303,7 +284,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/4/Header}" subheader="{DemoData>/TilesData/3/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/4/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/3/Tiles/4/Header}" subheader="{DemoData>/TilesData/3/Tiles/4/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/4/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -312,7 +293,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/5/Header}" subheader="{DemoData>/TilesData/3/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/5/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/3/Tiles/5/Header}" subheader="{DemoData>/TilesData/3/Tiles/5/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/5/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -321,7 +302,7 @@
                                         </TileContent>
                                     </tileContent>
                                 </GenericTile>
-                                <GenericTile sizeBehavior="Small" custom:type="GT" header="{DemoData>/TilesData/3/Tiles/6/Header}" subheader="{DemoData>/TilesData/3/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/6/Enabled}">
+                                <GenericTile sizeBehavior="Small" custom:RMC="GT" header="{DemoData>/TilesData/3/Tiles/6/Header}" subheader="{DemoData>/TilesData/3/Tiles/6/SubHeader}" frameType="OneByOne" press="onTestTilePress" pressEnabled="{DemoData>/TilesData/3/Tiles/6/Enabled}">
                                     <tileContent>
                                         <TileContent>
                                             <content>
@@ -345,9 +326,6 @@
                                 <Column styleClass="col3" hAlign="Center">
                                     <Label text="PO Issuance" wrapping="true"/>
                                 </Column>
-                                <!-- <Column styleClass="col4" hAlign="Center">
-                                    <Label text="Packing List Creation" wrapping="true"/>
-                                </Column> -->
                                 <Column styleClass="col5" hAlign="Center">
                                     <Label text="IBD Creation" wrapping="true"/>
                                 </Column>
@@ -370,8 +348,6 @@
                                 </Column>
                                 <Column hAlign="Center">
                                 </Column>
-                                <!-- <Column hAlign="Center">
-                                </Column> -->
                                 <Column hAlign="Center">
                                 </Column>
                                 <Column hAlign="Center">
@@ -385,13 +361,41 @@
                                 <ColumnListItem class="sapUiTinyMarginTopBottom">
                                     <cells>
                                         <Text text="Quantity"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
+                                        <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
-                                        <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/2/PLQty', 'DemoData>/TilesData/0/Tiles/2/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/2/PLQty', 'DemoData>/TilesData/0/Tiles/2/POQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress"/> -->
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
+                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/> -->
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/0/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/0/OAQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
+
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/1/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/1/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
+
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/3/POQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/3/IBDQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
                                         <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
+                                        <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
+                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/> -->
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/5/IBDQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/5/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
+
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/6/GRQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/6/InvoicedQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
+
                                     </cells>
                                 </ColumnListItem>
                                 <ColumnListItem class="sapUiTinyMarginTopBottom">
@@ -399,7 +403,6 @@
                                         <Text text="On Time"/>
                                         <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/1/POQty', 'DemoData>/TilesData/1/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/1/POQty', 'DemoData>/TilesData/1/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
-                                        <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress"/> -->
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/3/IBDQty', 'DemoData>/TilesData/1/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/3/IBDQty', 'DemoData>/TilesData/1/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
                                         <NumericContent value="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateDaysDifference'}" scale="Days" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.calculateValueColor'}" indicator="{ parts: ['DemoData>/TilesData/1/Tiles/4/PlannedHOD', 'DemoData>/TilesData/1/Tiles/4/ActualHOD'], formatter:'.formatter.getIndicator'}" width="100%" withMargin="true" custom:type="NC" press="onTestTilePress" class="numericContentCls"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/5/POQty', 'DemoData>/TilesData/1/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/5/POQty', 'DemoData>/TilesData/1/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
@@ -411,7 +414,6 @@
                                         <Text text="Price Updates"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/2/Tiles/0/OAAmt', 'DemoData>/TilesData/2/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/2/Tiles/0/OAAmt', 'DemoData>/TilesData/2/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/2/Tiles/1/POAmt', 'DemoData>/TilesData/2/Tiles/1/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/2/Tiles/1/POAmt', 'DemoData>/TilesData/2/Tiles/1/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
-                                        <!-- <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/> -->
                                         <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
                                         <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
                                         <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
@@ -423,7 +425,6 @@
                                         <Text text="Success Rate"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/0/OAAmt', 'DemoData>/TilesData/3/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/0/OAAmt', 'DemoData>/TilesData/3/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/1/POQty', 'DemoData>/TilesData/3/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/1/POQty', 'DemoData>/TilesData/3/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
-                                        <!-- <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/> -->
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/3/IBDQty', 'DemoData>/TilesData/3/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/3/IBDQty', 'DemoData>/TilesData/3/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/4/POQty', 'DemoData>/TilesData/3/Tiles/4/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/4/POQty', 'DemoData>/TilesData/3/Tiles/4/IBDQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/3/Tiles/5/POQty', 'DemoData>/TilesData/3/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/3/Tiles/5/POQty', 'DemoData>/TilesData/3/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
@@ -436,7 +437,6 @@
                     <Carousel id="idCarousel" visible="{device>/system/phone}" height="100%" loop="true" backgroundDesign="Transparent" pageChanged="onCarouselPageChanged" beforePageChanged="onCarouselBeforePageChanged">
                         <pages>
                             <Page title="Quantity" showHeader="false" backgroundDesign="Transparent">
-                                <!-- <GenericTag text="Quantity" design="StatusIconHidden" status="None" class="tagTxtCls sapUiSmallMarginBegin sapUiSmallMarginTopBottom"></GenericTag> -->
                                 <l:Grid hSpacing="1" class="sapUiSmallMarginTop">
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
@@ -444,7 +444,12 @@
                                         </layoutData>
                                         <Title text="{DemoData>/TilesData/0/Tiles/0/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/0/SubHeader}"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
+                                        <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/0/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/0/OAQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
                                     </VBox>
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
@@ -452,23 +457,25 @@
                                         </layoutData>
                                         <Title text="{DemoData>/TilesData/0/Tiles/1/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/1/SubHeader}"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
+                                        <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/1/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/1/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
                                     </VBox>
-                                    <!-- <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
-                                        <layoutData>
-                                            <l:GridData span="XL2 L2 M4 S6" />
-                                        </layoutData>
-                                        <Title text="{DemoData>/TilesData/0/Tiles/2/Header}" level="H6" titleStyle="H6" wrapping="true"/>
-                                        <Text text="{DemoData>/TilesData/0/Tiles/2/SubHeader}"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/2/PLQty', 'DemoData>/TilesData/0/Tiles/2/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/2/PLQty', 'DemoData>/TilesData/0/Tiles/2/POQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
-                                    </VBox> -->
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
                                             <l:GridData span="XL2 L2 M4 S6" />
                                         </layoutData>
                                         <Title text="{DemoData>/TilesData/0/Tiles/3/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/3/SubHeader}"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
+                                        <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/3/POQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/3/IBDQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
                                     </VBox>
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
@@ -476,7 +483,12 @@
                                         </layoutData>
                                         <Title text="{DemoData>/TilesData/0/Tiles/5/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/5/SubHeader}"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
+                                        <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/5/IBDQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/5/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
                                     </VBox>
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
@@ -484,12 +496,16 @@
                                         </layoutData>
                                         <Title text="{DemoData>/TilesData/0/Tiles/6/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/6/SubHeader}"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
+                                        <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/6/GRQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                            <microchart:items>
+                                                <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/6/InvoicedQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
+                                            </microchart:items>
+                                        </microchart:HarveyBallMicroChart>
                                     </VBox>
                                 </l:Grid>
                             </Page>
                             <Page title="On Time" showHeader="false" backgroundDesign="Transparent">
-                                <!-- <GenericTag text="On Time" design="StatusIconHidden" status="None" class="tagTxtCls sapUiSmallMarginBegin sapUiSmallMarginTopBottom"></GenericTag> -->
                                 <l:Grid hSpacing="1" class="sapUiSmallMarginTop">
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
@@ -499,14 +515,6 @@
                                         <Text text="{DemoData>/TilesData/1/Tiles/1/SubHeader}"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/1/POQty', 'DemoData>/TilesData/1/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/1/POQty', 'DemoData>/TilesData/1/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
                                     </VBox>
-                                    <!-- <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
-                                        <layoutData>
-                                            <l:GridData span="XL2 L2 M4 S6" />
-                                        </layoutData>
-                                        <Title text="{DemoData>/TilesData/1/Tiles/2/Header}" level="H6" titleStyle="H6" wrapping="true"/>
-                                        <Text text="{DemoData>/TilesData/1/Tiles/2/SubHeader}"/>
-                                        <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/1/Tiles/2/PLQty', 'DemoData>/TilesData/1/Tiles/2/POQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/>
-                                    </VBox> -->
                                     <VBox width="100%" height="10.5rem" alignContent="Start" alignItems="Start" justifyContent="Center" backgroundDesign="Solid" class="tileVboxCls">
                                         <layoutData>
                                             <l:GridData span="XL2 L2 M4 S6" />
@@ -618,7 +626,7 @@
             </Page>
         </detailPages>
         <masterPages>
-            <Page id="idMasterPage" showHeader="false" showFooter="true" class="pageBg">
+            <Page id="idMasterPage" showHeader="false" showFooter="true">
                 <l:VerticalLayout width="100%" visible="{= ${DemoData>/MasterDesign} === 'Default' ? true : false}">
                     <VBox width="100%" alignContent="Center" alignItems="Center" renderType="Bare" justifyContent="Center" class="vBoxCls sapUiLargeMarginTop">
                         <Avatar displayShape="Circle" src="{DemoData>/RegionLogo}" displaySize="XL" backgroundColor="Accent7" />
@@ -638,7 +646,7 @@
                     </VBox> -->
                 </l:VerticalLayout>
                 <l:VerticalLayout width="100%" visible="{= ${DemoData>/MasterDesign} === 'New' ? true : false}">
-                    <VBox width="100%" height="14rem" alignContent="Start" alignItems="Start" justifyContent="End" class="vboxBgCls">
+                    <VBox width="100%" height="{path: 'device>/resize/height', formatter:'._setMasterVboxHeight'}" alignContent="Start" alignItems="Start" justifyContent="End" class="vboxBgCls">
                         <HBox width="100%" alignContent="Center" alignItems="Center" justifyContent="Start" class="titleHbox">
                             <Avatar displayShape="Circle" src="{DemoData>/RegionLogo}" displaySize="S" backgroundColor="Accent7" />
                             <VBox class="sapUiTinyMarginBegin">

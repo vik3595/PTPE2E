@@ -477,6 +477,7 @@
                     "SubHeader": "Forecast vs OA",
                     "OANumber": "939134",
                     "ForecastQty": 85,
+                    "OAQty": 17,
                     "ForecastAmt": 9823,
                     "OAAmt": 2353,
                     "ForecastDate": "2/15/2022",
@@ -485,9 +486,9 @@
                     "PPK": "X",
                     "Season": "",
                     "Enabled": true,
-                    "Value1Property": "OAAmt",
-                    "Value2Property": "ForecastAmt",
-                    "PropertyType": "Amt",
+                    "Value1Property": "OAQty",
+                    "Value2Property": "ForecastQty",
+                    "PropertyType": "Qty",
                     "Cols": [
                         {
                             "ColName": "OA Number",
@@ -500,6 +501,10 @@
                         {
                             "ColName": "Forecast Amount",
                             "ColProperty": "ForecastAmt"
+                        },
+                        {
+                            "ColName": "OA Quantity",
+                            "ColProperty": "OAQty"
                         },
                         {
                             "ColName": "OA Amount",
@@ -2120,7 +2125,7 @@
     ],
     "TileTextMobile": "Quantity",
     "Design": "Transparent",
-    "MasterDesign": "Default",
+    "MasterDesign": "New",
     "Region": "All",
     "Vendor": "All",
     "Season": "Last 365 Days",

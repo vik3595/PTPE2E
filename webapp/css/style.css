@@ -273,6 +273,6 @@
     border: 1px solid;
 }
 .roundedCellContent .sapUiBlockLayoutCell {
-    border-radius: 15px !important;
+    border-radius: 10px !important;
     margin: 5px 5px 0 5px !important;
 }

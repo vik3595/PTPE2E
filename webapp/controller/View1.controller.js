@@ -14,7 +14,7 @@ sap.ui.define([
 
         return Controller.extend("com.levi.ptpe2e.controller.View1", {
             formatter: formatter,
-            _bDefaultDesign: true,
+            _bDefaultDesign: false,
             onInit: function () {
                 var oImageModel = new sap.ui.model.json.JSONModel({
                     US: jQuery.sap.getModulePath("com.levi.ptpe2e", "/img/US.jpg"),
@@ -34,6 +34,13 @@ sap.ui.define([
                         this.getView().byId("idMasterList2").setSelectedItem(this.getView().byId("idMasterList2").getItems()[0]);
                     }
                 }
+            },
+            _setMasterVboxHeight: function (iSize) {
+                var sPx = "250px";
+                if (this.getOwnerComponent().getModel("device").getData().system.phone) {
+                    sPx = ((35 / 100) * iSize).toString() + "px";
+                }
+                return sPx;
             },
             onAfterRendering: function () {
                 jQuery.sap.delayedCall(350, this, function () {
@@ -205,11 +212,12 @@ sap.ui.define([
             },
             onTestTilePress: function (oEvt) {
                 var sType = oEvt.getSource().getCustomData()[0].getValue(),
+                    sKey = oEvt.getSource().getCustomData()[0].getKey(),
                     sPath = "",
                     sColor = "";
 
                 if (sType === "GT") {
-                    if (oEvt.getSource().getTileContent()[0].getContent().getId().includes("chart")) {
+                    if (sKey === "RMC") {
                         var iPercentage = oEvt.getSource().getTileContent()[0].getContent().getPercentage();
                         if (iPercentage >= 75) {
                             sColor = "#107e3e";
@@ -217,6 +225,15 @@ sap.ui.define([
                             sColor = "#df6e0c";
                         } else {
                             sColor = "#bb0000";
+                        }
+                    } else if (sKey === "HBMC") {
+                        var sColorState = oEvt.getSource().getTileContent()[0].getContent().getItems()[0].getColor();
+                        if (sColorState === "Good") {
+                            sColor = "#107e3e";
+                        } else if (sColorState === "Error") {
+                            sColor = "#bb0000";
+                        } else {
+                            sColor = "#df6e0c";
                         }
                     } else {
                         var sIndicator = oEvt.getSource().getTileContent()[0].getContent().getItems()[0].getIndicator();
@@ -252,6 +269,17 @@ sap.ui.define([
                     }
                     sPath = oEvt.getSource().getBindingInfo("value").binding.getBindings()[0].getPath();
                     sPath = sPath.slice(0, sPath.lastIndexOf("/"));
+                } else if (sType === "HBMC") {
+                    var sColorState = oEvt.getSource().getItems()[0].getColor();
+                    if (sColorState === "Good") {
+                        sColor = "#107e3e";
+                    } else if (sColorState === "Error") {
+                        sColor = "#bb0000";
+                    } else {
+                        sColor = "#df6e0c";
+                    }
+                    sPath = oEvt.getSource().getBindingInfo("total").binding.getPath();
+                    sPath = sPath.slice(0, sPath.lastIndexOf("/"));
                 }
                 var oSelObj = this.oDemoDataModel.getProperty(sPath),
                     aCols = oSelObj.Cols;
@@ -261,26 +289,18 @@ sap.ui.define([
                     oSelObj.Season = "H2 22/H2 22 LEVIS US";
                 }
                 var sValidFrom = oSelObj.Season.slice(0, 2) === "H1" ? "01/01/2022" : "07/01/2022";
-                // oSelObj.ValidFrom = sValidFrom;
-                // oSelObj.ValidTo = "12/31/9999";
                 oSelObj.Season += " (" + sValidFrom + " - 12/31/9999";
                 if (!this._oTestDlg) {
                     this._oTestDlg = sap.ui.xmlfragment("idTestTileDlg", "com.levi.ptpe2e.view.fragments.Test", this);
                     this.getView().addDependent(this._oTestDlg);
                 }
                 this._oTestDlg.open();
-                // var aColorSet = ["ColorSet1", "ColorSet2", "ColorSet3", "ColorSet4", "ColorSet5", "ColorSet6", "ColorSet7", "ColorSet8", "ColorSet9", "ColorSet10", "ColorSet11"];
-                var aColorShade = ["ShadeA", "ShadeB", "ShadeC", "ShadeD", "ShadeE", "ShadeF"];
                 var aTemp = [];
                 for (var j = 0; j < 6; j++) {
                     var sObjString = JSON.stringify(oSelObj);
                     var oTempObj = JSON.parse(sObjString);
                     oTempObj.ColorSet = "ColorSet7";
                     oTempObj.ColorShade = "ShadeE";
-                    // var sSet = j%11 === 0 ? "11" : (j%11).toString();
-                    // oTempObj.ColorSet = "ColorSet" + sSet;
-                    // oTempObj.ColorShade = "ShadeC";
-                    // oTempObj.ColorShade = aColorShade[Math.floor(Math.random() * (5 - 0) + 0)];
                     aTemp.push(oTempObj);
                 }
                 if (this.getOwnerComponent().getModel("device").getData().system.phone) {
@@ -551,7 +571,7 @@ sap.ui.define([
             onCancelFilterSettings: function (oEvt) {
                 this._oFilterSettingsDlg.close();
             },
-            onCarouselPageChanged: function(oEvt) {
+            onCarouselPageChanged: function (oEvt) {
                 var sTitle = oEvt.getSource().getPages()[oEvt.getParameter("activePages")[0]].getTitle();
                 this.oDemoDataModel.setProperty("/TileTextMobile", sTitle);
             }
