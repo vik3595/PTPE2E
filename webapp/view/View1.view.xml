@@ -44,7 +44,7 @@
                                         <TileContent>
                                             <content>
                                                 <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter.calculatePercentage'}" /> -->
-                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/0/ForecastQty}" totalScale="Qty">
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/0/ForecastQty}" totalScale="Qty" alignContent="Center">
                                                     <microchart:items>
                                                         <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/0/OAQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                                     </microchart:items>
@@ -58,7 +58,7 @@
                                         <TileContent>
                                             <content>
                                                 <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" /> -->
-                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/1/ForecastQty}" totalScale="Qty">
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/1/ForecastQty}" totalScale="Qty" alignContent="Center">
                                                     <microchart:items>
                                                         <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/1/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                                     </microchart:items>
@@ -72,7 +72,7 @@
                                         <TileContent>
                                             <content>
                                                 <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" /> -->
-                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/3/POQty}" totalScale="Qty">
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/3/POQty}" totalScale="Qty" alignContent="Center">
                                                     <microchart:items>
                                                         <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/3/IBDQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                                     </microchart:items>
@@ -97,7 +97,7 @@
                                         <TileContent>
                                             <content>
                                                 <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" /> -->
-                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/5/IBDQty}" totalScale="Qty">
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/5/IBDQty}" totalScale="Qty" alignContent="Center">
                                                     <microchart:items>
                                                         <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/5/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                                     </microchart:items>
@@ -111,7 +111,7 @@
                                         <TileContent>
                                             <content>
                                                 <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" /> -->
-                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/6/GRQty}" totalScale="Qty">
+                                                <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/6/GRQty}" totalScale="Qty" alignContent="Center">
                                                     <microchart:items>
                                                         <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/6/InvoicedQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                                     </microchart:items>
@@ -315,7 +315,7 @@
                         </HeaderContainer>
                     </l:VerticalLayout>
                     <l:VerticalLayout width="100%" visible="{= (${DemoData>/Design} === 'Table' &amp;&amp; (${device>/system/desktop} || ${device>/system/tablet})) ? true : false}" class="sapUiResponsiveContentPadding">
-                        <Table showNoData="false">
+                        <!-- <Table showNoData="false">
                             <columns>
                                 <Column styleClass="col1" hAlign="Center">
                                     <Label text="PTP" wrapping="true"/>
@@ -339,22 +339,29 @@
                                     <Label text="Vendor Invoice" wrapping="true"/>
                                 </Column>
                             </columns>
-                        </Table>
-                        <Table alternateRowColors="true" class="TblHeaderCls">
+                        </Table> -->
+                        <Table alternateRowColors="true">
                             <columns>
-                                <Column hAlign="Center">
+                               <Column hAlign="Center">
+                                    <!-- <Label text="PTP" wrapping="true"/> -->
                                 </Column>
                                 <Column hAlign="Center">
+                                    <Label text="OA Creation" wrapping="true"/>
                                 </Column>
                                 <Column hAlign="Center">
+                                    <Label text="PO Issuance" wrapping="true"/>
                                 </Column>
                                 <Column hAlign="Center">
+                                    <Label text="IBD Creation" wrapping="true"/>
                                 </Column>
                                 <Column hAlign="Center">
+                                    <Label text="Shipment Milestone Updates" wrapping="true"/>
                                 </Column>
                                 <Column hAlign="Center">
+                                    <Label text="Goods Reciept" wrapping="true"/>
                                 </Column>
                                 <Column hAlign="Center">
+                                    <Label text="Vendor Invoice" wrapping="true"/>
                                 </Column>
                             </columns>
                             <items>
@@ -364,19 +371,19 @@
                                         <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/> -->
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/0/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/0/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/0/OAQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
                                         </microchart:HarveyBallMicroChart>
 
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/1/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/1/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/1/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
                                         </microchart:HarveyBallMicroChart>
 
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/3/POQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/3/POQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/3/IBDQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
@@ -384,13 +391,13 @@
                                         <Avatar initials="NA" displaySize="S" backgroundColor="Accent1"/>
                                         <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/>
                                         <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" custom:type="RMC" press="onTestTilePress" width="100%"/> -->
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/5/IBDQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/5/IBDQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/5/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
                                         </microchart:HarveyBallMicroChart>
 
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/6/GRQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/6/GRQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/6/InvoicedQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
@@ -445,7 +452,7 @@
                                         <Title text="{DemoData>/TilesData/0/Tiles/0/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/0/SubHeader}"/>
                                         <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAAmt', 'DemoData>/TilesData/0/Tiles/0/ForecastAmt'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/0/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/0/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/0/OAQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/0/OAQty', 'DemoData>/TilesData/0/Tiles/0/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
@@ -458,7 +465,7 @@
                                         <Title text="{DemoData>/TilesData/0/Tiles/1/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/1/SubHeader}"/>
                                         <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/1/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/1/ForecastQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/1/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/1/POQty', 'DemoData>/TilesData/0/Tiles/1/ForecastQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
@@ -471,7 +478,7 @@
                                         <Title text="{DemoData>/TilesData/0/Tiles/3/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/3/SubHeader}"/>
                                         <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/3/POQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/3/POQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/3/IBDQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/3/IBDQty', 'DemoData>/TilesData/0/Tiles/3/POQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
@@ -484,7 +491,7 @@
                                         <Title text="{DemoData>/TilesData/0/Tiles/5/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/5/SubHeader}"/>
                                         <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/5/IBDQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/5/IBDQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/5/POQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/5/POQty', 'DemoData>/TilesData/0/Tiles/5/IBDQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
@@ -497,7 +504,7 @@
                                         <Title text="{DemoData>/TilesData/0/Tiles/6/Header}" level="H6" titleStyle="H6" wrapping="true"/>
                                         <Text text="{DemoData>/TilesData/0/Tiles/6/SubHeader}"/>
                                         <!-- <microchart:RadialMicroChart alignContent="Center" size="S" valueColor="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" percentage="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter.calculatePercentage'}" press="onTestTilePress" custom:type="RMC" class="sapUiSmallMarginTopBottom"/> -->
-                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/6/GRQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom">
+                                        <microchart:HarveyBallMicroChart size="S" total="{DemoData>/TilesData/0/Tiles/6/GRQty}" totalScale="Qty" press="onTestTilePress" custom:type="HBMC" class="sapUiSmallMarginTopBottom" alignContent="Center">
                                             <microchart:items>
                                                 <microchart:HarveyBallMicroChartItem fraction="{DemoData>/TilesData/0/Tiles/6/InvoicedQty}" color="{ parts: ['DemoData>/TilesData/0/Tiles/6/InvoicedQty', 'DemoData>/TilesData/0/Tiles/6/GRQty'], formatter:'.formatter._getValueColor'}" fractionScale="Qty"/>
                                             </microchart:items>
